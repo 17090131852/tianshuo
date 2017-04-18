@@ -1,0 +1,18 @@
+<title>地址列表</title>
+<ul>
+		<volist name="list" id="val">
+				<li>
+						地址列表<br/>
+						收件人：{$val.realname}<br/>
+						联系电话：{$val.tel}<br/>
+						省：{$val.province}<br/>
+						市：{$val.city}<br/>
+						县：{$val.county}<br/>
+						详细地址：{$val.address}<br/>
+						邮政编码：{$val.zipcode}<br/>
+						是否是默认地址：{$val.default_address}<br/>
+						<a href="__APP__/Imall/modifyAddress/id/{}">修改地址</a>
+						<a href="__APP__/Imall/setDefaultAddress/id/123">设为默认（默认地址后面隐藏）</a>
+				</li>
+		</volist>
+</ul>

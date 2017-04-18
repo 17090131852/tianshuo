@@ -1,0 +1,153 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+    td{ width:350px;}
+    .subTitle{ font-size:1.125em; color:#1ea78d; margin-top:1em; line-height:2em; }
+    .flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+    .flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+
+    .iptText{ padding: .4em .6em; }
+    .iptBtn { padding: .4em 1.5em; }
+
+    .listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+    .listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+    .news_list ul li { margin: .5em 0; }
+
+    #cont{ margin-top:1em; }
+    #cont tr{ line-height:1.8em; font-size:.875em; }
+    /*分页*/
+    #pageNav_1{ margin: 2em 0; }
+</style>
+
+<include file="Tpl/PublicMemMenu"/>
+<div class="container">
+    <h2 class="subTitle">电子钱包</h2>
+    <div class="news_list" >
+        <ul class="row">
+            <!--会员类型-->
+            <li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+                <label>会员类型：</label>
+                <span class="flatSelect">
+					<select name="date" id="date" class="rds5">
+                        <option value="0">--请选择--</option>
+                        <foreach name="data" item="vo" key="k" >
+                           <option value="<?=$vo['id']?:-1?>">{$vo.str}</option>
+                        </foreach>
+
+					</select>
+				</span>
+            </li>
+            <!--<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">-->
+                <!--<input class="iptBtn rds5" type="button" value="提交" onclick="getu(1)">-->
+            <!--</li>-->
+        </ul>
+        <div class="table-responsive">
+            <table class="listTable table-hover table" >
+                <thead>
+                <tr>
+                    <th>奖励生效日期</th>
+                    <th>星期</th>
+                    <th>可提现金额</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="cont">
+                <?php
+                if($id==-1){
+                    $data = [];
+                }
+                if($id>0){
+                    $data = $list;
+                }?>
+                <foreach name="data" item="vo" key="k" >
+                    <tr>
+                        <td>{$vo.submittime}</td>
+                        <td>{$vo.starttime}~{$vo.endtime}</td>
+                        <td>{$vo.amount}</td>
+                        <td>
+                            <?php
+                        if($vo['amount']>0 && $vo['state'] ==0):
+                        ?>
+                            <form action="/Award/submit" method="post">
+                                <input type="hidden" name="id" value="{$vo.id}" />
+                                <input type="submit" value="提取"/>
+                            </form>
+                        <?php
+                        else:
+                            switch($vo['state']){
+                                case 1:
+                                    echo "已提交申请";
+                                break;
+                                case 2:
+                                    echo "申请已通过";
+                                    break;
+                                case 3:
+                                    echo "已支付";
+                                    break;
+                                default:
+                                    echo "无记录";
+                                break;
+                            }
+                        endif;
+                        ?>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--分页-->
+    <div id="pageNav"></div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Plugin/Page/Page.css" />
+<script type="text/javascript" src="__PUBLIC__/Plugin/Page/Pagenav1.1.cn.js"></script>
+<style type="text/css">
+    .cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
+</style>
+<script type="text/javascript">
+    $("#date").on("change",function(){
+        var url = "/Award/index?week="+$(this).val();
+        window.location.href = url;
+    });
+    var page = 1;
+    var pagesize = 1;
+
+    $(function(){
+        pageNav.pre="上一页";
+        pageNav.next="下一页";
+
+        getdata(1);
+    });
+
+    /**
+     * 奖励历史
+     * @param page
+     */
+    function  getdata(page){
+        var allscore_start = $("input[name='allscore_start']").val()
+        var allscore_end   = $("input[name='allscore_end']").val()
+
+        url='/Ajax/getAward';
+        $.get(url,{page:page,pagesize:pagesize,allscore_start:allscore_start,allscore_end:allscore_end },function(data){
+            if(data.data!='undefined'){
+                $('#cont1').html('');
+                if(data.data==null || data.data==''){
+                    $("#cont1").append('暂无数据');
+                }else{
+                    if(data.pagetotal>1){
+                        pageNav.go(page,data.pagetotal);
+                    }
+                    $.each(data.data, function(key, val) {
+                        str = "<tr><td><a href='/Agents/consumedView?group_id="+data.data[key]['group']+"'> 查看小组消费情况</a></td>";
+                        str += "<td>"+data.data[key]['group']+"</td>";
+                        str += "<td>"+data.data[key]['sum']+"</td>";
+                        $("#cont1").append(str);
+                    });
+                }
+            }
+        },'json');
+    }
+</script>
+<include file="Tpl/PublicFoot"/>

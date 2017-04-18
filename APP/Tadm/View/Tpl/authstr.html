@@ -1,0 +1,49 @@
+<include file="Tpl/publicHeader" />
+<div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>待审核用户</small></div>
+    </div>
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>昵称</th>
+                <th>手机号</th>
+                <th>推荐人</th>
+                <th>推荐人手机</th>
+                <th>注册状态</th>
+                <th>注册时间</th>
+                <th>操作</th>
+              </tr>
+          </thead>
+          <tbody>å
+            <volist name="authstrs" id="tvo">
+              <tr>
+                <td>{$tvo.mid}</td>
+                <td>{$tvo.nickname}</td>
+                <td>{$tvo.mobile_phone}</td>
+                <td>{$tvo.recom_id|getNickname}</td>
+                <td>{$tvo.recom_mobile}</td>
+                <td>未缴费</td>
+                <td>{$tvo.reg_time|date="Y-m-d H:i:s",###}</td>
+                <td>
+                  <!-- <a href="__APP__/../Tadm/Member/edit/id/{$tvo.id}">[改]</a> /  -->
+                  <a href="__APP__/../Tadm/Member/authstrDetail/mid/{$tvo.mid}">通过审核</a>
+                </td>
+              </tr>
+            </volist>
+          </tbody>
+        </table>
+    <div class="am-cf page">    
+      {$page}  
+    </div>
+ 
+          <hr />
+          <p></p>
+      </div>
+    </div>
+  <!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

@@ -1,0 +1,47 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+	<div class="am-cf am-padding">
+		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">推荐位管理</strong> / <small>推荐位列表</small></div>
+	</div>
+	<div class="am-g">
+		<div class="am-u-sm-12">
+			<table class="am-table am-table-striped am-table-hover table-main">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>推荐位位置</th>
+					<th>推荐位描述</th>
+					<th>更新时间</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<volist name="commentList" id="role">
+					<tr>
+						<td>{$role.id}</td>
+						<td>{$role.location}</td>
+						<td>{$role.description}</td>
+						<td>{$role.update_at}</td>
+						<td>
+							<if condition="$role.status eq 1">
+								<a href="__APP__/../Tadm/Commend/modifyCommend/id/{$role.id}/status/0"><span style="color:green;" onclick="alert('确认关闭推荐位？')">开启</span></a>
+								<else />
+								<a href="__APP__/../Tadm/Commend/modifyCommend/id/{$role.id}/status/1"><span style="color:red;" onclick="alert('确认开放推荐位？')">关闭</span></a>
+							</if>
+						</td>
+						<td>
+							<a href="__APP__/../Tadm/Commend/updateCommend/id/{$role.id}">资源修改</a>
+						</td>
+					</tr>
+				</volist>
+				</tbody>
+			</table>
+			<hr />
+			<p></p>
+		</div>
+	</div>
+	<!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

@@ -1,0 +1,154 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		p{line-height:1.8em;}
+		section .serviceIdea{ padding-top: 4em; padding-bottom: 3em; margin: 0 auto;}
+		section .serviceIdea li{  }
+		section .serviceIdea .mTitle{height: 50px; border-bottom: 1px solid #9a9a9a;}
+		section .serviceIdea .mTitle > span{color: #0eb493; font-size: 2.25em; display: block; float: left;}
+		section .serviceIdea .mTitle > div{float: left; padding-left: 5px;}
+		section .serviceIdea .mTitle > div > span:first-child{margin-top: 6px; color: #0eb493; display: block; font-size: 1em;}
+		section .serviceIdea .mTitle > div > span:last-child{position: relative; top: 0px; color: #a1a1a1; font-size: .75em; line-height: .75em;}
+		section .serviceIdea .mCon{padding-top: 15px;}
+		section .serviceIdea .mCon p{font-size: .75em;  color: #666; }
+		section .serviceIdea .mCon p span{background: #666; width: 4px; height: 4px; display: block; float: left; margin: 7px 0 0 -8px;}
+		section .FirmMore{padding-left: 15px; margin-top:3em;}
+		section .FirmMore h2{font-size: 2em; color: #0eb493; font-weight: bolder;}
+		section .FirmMore p{font-size: .75em; color: #999;}
+
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+		/*服务流程 暂未开通弹出层 样式*/
+		.modal-header .close { margin-top: -.4em; }
+		.modal-body { font: 1em;color: #666; text-align: center; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li class="active">三包服务</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="clearfix container">
+				<li class="col-lg-4 col-xs-4">
+					<a href="{:U('About/afterService')}">服务理念</a>
+				</li>
+				<li class="col-lg-4 col-xs-4">
+					<a data-toggle="modal" data-target=".bs-example-modal-sm" href="javascript:;">服务流程</a>
+				</li>
+				<li class="col-lg-4 col-xs-4 active">
+					<a class="ThisActive" href="{:U('About/threeGuarantees')}">三包服务</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container FirmMore">
+			<h2>三包服务细则</h2>
+		</div>
+		<!--服务流程 暂未开通弹出层-->
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog modal-sm" role="document" style="padding-top:4em;">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      </div>
+		      <div class="modal-body">
+		        暂未开通
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="container serviceIdea">
+			<ul class="row clearfix">
+				<li class="col-md-4 ">
+					<div class="mTitle">
+						<span>01</span>
+						<div>
+							<span>基本要求</span>
+							<span>Basic Requirements</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>公司做三包服务的最基本的要求是：故障车辆的详细资料（客 户信息、车辆信息)在公司需有备案，若公司没有该故障车辆的 详细资料，公司将不能为您做到及时的进行索赔服务。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>02</span>
+						<div>
+							<span>条件</span>
+							<span>Condition</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>三包凭证应当包括以下内容：产品品牌、型号、车辆类型规格、车辆识别代号(VIN)、生产日期；生产者名称、地址、邮政编码、客服电话；销售者名称、地址、邮政编码、电话等销售网点资料、销售日期；修理者名称、地址、邮政编码、电话等修理网点资料或者相关查询方式；家用汽车产品三包条款、包修期和三
+						包有效期以及按照规定要求应当明示的其他内容。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>03</span>
+						<div>
+							<span>故障处理</span>
+							<span>Fault Handling</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>经销商进行三包服务时，在处理车辆故障件时（诸如：电池、差速器、充电器、电机、控制器等）要及时向公司技术部（0349-2104888）反馈，技术部将会根据反馈的信息做出及时的解决方案，技术部初步鉴定此故障是因零部件而引起的话，技术部会及时通知索赔科，索赔科在接到技术部通知的同时做出相对应的方案（是否将零部件先行返厂进行鉴定）。未经公司同意不得私自将故障件返厂，否则公司将不能及时为您进行索赔服务。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>04</span>
+						<div>
+							<span>信息填写</span>
+							<span>Information</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>经销商在接到故障件返厂的通知时务必将故障件的信息填写清楚，包括：车辆的车架号、售车日期、出厂日期、行驶里程、故障情况描述；以上几项资料务必填写清晰、完整，如不能填写清晰、完整，公司将不能及时为您进行索赔服务。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>05</span>
+						<div>
+							<span>维修记录</span>
+							<span>Maintenance Record</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>修理记录内容应当包括送修时间、行驶里程、送修问题、检查结果、修理项目、更换的零部件名称和编号、材料费、工时和工时费、拖运费、提供备用车的信息或者交通费用补偿金额、交车时间、修理者和消费者签名或盖章等。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>06</span>
+						<div>
+							<span>依据</span>
+							<span>Basis</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>本规定是销售商、制造商、修理商向消费者承担三包责任的基本要求。国家鼓励销售商、制造商、修理商作出更有利于维护消费者权益的、严于本规定的三包责任。承诺作为明示担保,应当依法履行。未履行三包责任的，应当依法承担责任。</p>
+					</div>
+				</li>
+				<li class="col-md-4">
+					<div class="mTitle">
+						<span>07</span>
+						<div>
+							<span>更换条件</span>
+							<span>Change Condition</span>
+						</div>
+					</div>
+					<div class="mCon">
+						<p><span class="rds50"></span>在三包有效期内（三包有效期为2年或2万公里以先到为准），如果汽车修理时间累计超过35天，或者同一个产品质量问题引发的修理累计超过5次，消费者可以换车。同一故障修理超过5次可换车</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+<include file="Tpl/PublicFoot"/>

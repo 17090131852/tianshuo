@@ -1,0 +1,66 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		section{padding-bottom:2em;}
+		.devNews a:hover {text-decoration:none;}
+		.devNews h2 { font-size:1.5em;color:#333; border-bottom:1px solid #ccc; padding-bottom:12px;}
+		.devNews h2:hover{ text-decoration:underline;}
+		.devNews p { font-size:14px; color:#666;}
+		.NewsBar { margin:10px 0;}
+		.pagination>.active>a{background:#0eb493;}
+		.pagination>.active>a:hover{background:#0eb493;}
+		@media screen and (max-width: 425px) {
+			.devNews h2 { font-size:1.125em; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;padding-bottom:3px;}
+			.devNews p{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
+		}
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('About/index')}">关于我们</a></li>
+			<li class="active">天朔发展</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="container clearfix">
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/index')}">简介</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/honor')}">荣誉</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/culture')}">文化</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a class="ThisActive" href="{:U('About/develop')}">发展</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/mien')}">风采</a>
+				</li>
+			</ul>
+		</div>
+		<volist name="mienList" id="mienVo">
+			<div class="container">
+				<div class="row NewsBar">
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						<img style="width: 100%;" src="{:C('DOMAIN_NAME')}/{$mienVo.headimg}" alt="" />
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-8">
+						<div class="devNews">
+							<a href="__APP__/../About/devDetail/id/{$mienVo.id}">
+								<h2>{$mienVo.title}</h2>
+								<p class="hidden-xs">{$mienVo.intr}</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</volist>
+	</section>
+<include file="Tpl/PublicFoot"/>

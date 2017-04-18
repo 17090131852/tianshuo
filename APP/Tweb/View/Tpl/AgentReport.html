@@ -1,0 +1,219 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	td{ width:350px;}
+	.subTitle{ font-size:1.125em; color:#1ea78d; margin-top:1em; line-height:2em; }
+	.flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+	.flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+
+	.iptText{ padding: .4em .6em; }
+	.iptBtn { padding: .4em 1.5em; }
+
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+	.news_list ul li { margin: .5em 0; }
+
+	#cont{ margin-top:1em; }
+	#cont tr{ line-height:1.8em; font-size:.875em; }
+	/*分页*/
+	#pageNav_1{ margin: 2em 0; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<div class="container">
+	<h2 class="subTitle">下属名单</h2>
+	<div class="news_list" >
+		<ul class="row">
+			<!--会员编号-->
+			<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+				<label>会员编号：</label>
+				<input class="iptText rds5" name="msn" value="">
+			</li>
+			<!--会员姓名-->
+			<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+				<label>会员姓名：</label>
+				<input class="iptText rds5" name="name" value="">
+			</li>
+			<!--加入日期-->
+			<li class="col-lg-4 col-xs-12 col-sm-3 col-md-3">
+				<label>加入日期：</label>
+				<div>
+					<input class="timeSelect iptText rds5" style="line-height:1em;" name="reg_time_start" type="date" value="">
+				<input class="timeSelect iptText rds5" style="line-height:1em;" name="reg_time_end" type="date" value="">
+				</div>
+			</li>
+			<!--会员类型-->
+			<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+				<label>会员类型：</label>
+				<span class="flatSelect">
+					<select name="m_type" id="m_type" class="rds5">
+						<option value="0">--请选择--</option>
+						<option value="1">众筹股会员</option>
+						<option value="2">合伙人会员</option>
+						<option value="3">汽车VIP会员</option>
+					</select>
+				</span>
+			</li>
+			<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+				<input class="iptBtn rds5" type="button" value="提交" onclick="getu(1)">
+			</li>
+		</ul>
+		<div class="table-responsive">
+		<table class="listTable table-hover table" >
+			<thead>
+				<tr>
+					<th>订单</th>
+					<th>会员</th>
+					<th>会员编号</th>
+					<th>加入日期</th>
+					<th>会员姓名</th>
+					<th>状态</th>
+				</tr>
+			</thead>
+			<tbody id="cont">
+			</tbody>
+		</table>
+		</div>
+	</div>
+	<!--分页-->
+	<div id="pageNav_1"></div>
+	<!--下属个人小组积分-->
+	<h2 class="subTitle">下属个人小组积分</h2>
+	<div class="container">
+		<div class="row" style="margin-bottom: .5em;">
+				<ul class="row">
+					<li class="col-lg-6 col-xs-12 col-sm-3 col-md-3">
+						<label>消费总计积分</label>
+							<input class="timeSelect iptText rds5" name="allscore_start" value="">
+							<input class="timeSelect iptText rds5" name="allscore_end" value="">
+					</li>
+					<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+						<input class="iptBtn rds5" type="button" value="提交" onclick="getdata(1)">
+					</li>
+			<!--<tr>-->
+				</ul>
+			<!--<td>消费周期</td>-->
+			<!--<td>-->
+			<!--<select name="period" >-->
+			<!--<option value="1">今日</option>-->
+			<!--<option value="2">本星期</option>-->
+			<!--<option value="3" >本月</option>-->
+			<!--<option value="4">本年度</option>-->
+			<!--</select>-->
+			<!--</td>-->
+			<!--</tr>-->
+		</div>
+	</div>
+
+	<div class="news_list" >
+		<table class="listTable table-hover table">
+			<thead>
+				<tr>
+				<th>操作</th>
+				<th>小组</th>
+				<th>消费积分总计</th>
+				</tr>
+			</thead>
+			<tbody id="cont1">
+			</tbody>
+		</table>
+	</div>
+	<div id="pageNav"></div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Plugin/Page/Page.css" />
+<script type="text/javascript" src="__PUBLIC__/Plugin/Page/Pagenav1.1.cn.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Plugin/Page/Pagenav1.1.cn_1.js"></script>
+<style type="text/css">
+	.cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
+</style>
+<script type="text/javascript">
+	var u_page = 1;
+	var u_pagesize = 4;
+
+	var page = 1;
+	var pagesize = 1;
+
+	$(function(){
+
+		pageNav_1.pre="上一页1";
+		pageNav_1.next="下一页1";
+
+		pageNav.pre="上一页";
+		pageNav.next="下一页";
+
+		getu(1);
+		getdata(1);
+	});
+
+	/**
+	 * 下属人员
+	 * @param u_page
+	 */
+	function  getu(u_page){
+		var m_sta = '正常';
+		var msn            = $("input[name='msn']").val();
+		var name           = $("input[name='name']").val();
+		var reg_time_start = $("input[name='reg_time_start']").val();
+		var reg_time_end   = $("input[name='reg_time_end']").val();
+		var m_type         = $("#m_type option:selected").val(); //获取选中的项
+		url='/Ajax/getUnderling';
+		$.get(url,{page:u_page,pagesize:u_pagesize,msn:msn,name:name,reg_time_start:reg_time_start,reg_time_end:reg_time_end,type:m_type },function(data){
+			if(data.data!='undefined'){
+				$('#cont').html('');
+				if(data.data==null || data.data==''){
+					$("#cont").append('暂无数据');
+				}else{
+					if(data.pagetotal>1){
+						pageNav_1.go(u_page,data.pagetotal);
+					}
+					$.each(data.data, function(key, val) {
+						str = "<tr><td><a href='/Agents/orderview?msn="+data.data[key]['msn']+"&mid="+data.data[key]['mid']+"'> 查看订单</a></td><td><a href='/Agents/memberview?msn="+data.data[key]['msn']+"'> 查看会员信息</a></td>";
+						str += "<td>"+data.data[key]['msn']+"</td>";
+						str += "<td>"+data.data[key]['reg_time']+"</td>";
+						str += "<td>"+data.data[key]['nickname']+"</td>";
+						if(data.data[key]['sta']==1){
+							m_sta = '正常';
+						}
+						if(data.data[key]['sta']==2){
+							m_sta = '异常';
+						}
+						if(data.data[key]['sta']==3){
+							m_sta = '封禁';
+						}
+
+						str += "<td>"+m_sta+"</td></tr>";
+						$("#cont").append(str);
+					});
+				}
+			}
+		},'json');
+	}
+
+
+	function  getdata(page){
+		var allscore_start = $("input[name='allscore_start']").val()
+		var allscore_end   = $("input[name='allscore_end']").val()
+//        var period         = $("input[name='period']").val()
+		url='/Ajax/getGroupList';
+		$.get(url,{page:page,pagesize:pagesize,allscore_start:allscore_start,allscore_end:allscore_end },function(data){
+			if(data.data!='undefined'){
+				$('#cont1').html('');
+				if(data.data==null || data.data==''){
+					$("#cont1").append('暂无数据');
+				}else{
+					if(data.pagetotal>1){
+						pageNav.go(page,data.pagetotal);
+					}
+					$.each(data.data, function(key, val) {
+						str = "<tr><td><a href='/Agents/consumedView?group_id="+data.data[key]['group']+"'> 查看小组消费情况</a></td>";
+						str += "<td>"+data.data[key]['group']+"</td>";
+						str += "<td>"+data.data[key]['sum']+"</td>";
+						$("#cont1").append(str);
+					});
+				}
+			}
+		},'json');
+	}
+</script>
+<include file="Tpl/publicFoot"/>

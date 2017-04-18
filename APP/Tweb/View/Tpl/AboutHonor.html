@@ -1,0 +1,64 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		section .Honor h2{padding-bottom: 1em; color: #0eb493; font-weight: bolder; font-size: 2em; padding-left: 15px;}
+		@media screen and (max-width: 425px) {
+			section .Honor{padding-bottom:0px;}
+			section .Honor h2{ font-size:1.5em; padding-left:15px; }
+		}
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+
+		.item { margin-bottom: 2em; }
+		.item img { margin-bottom: .5em; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('About/index')}">关于我们</a></li>
+			<li class="active">天朔荣誉</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="container clearfix">
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/index')}">简介</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a class="ThisActive" href="{:U('About/honor')}">荣誉</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/culture')}">文化</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/develop')}">发展</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/mien')}">风采</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container Honor">
+			<h2>天朔荣誉</h2>
+			<div class="container">
+		    <div class="row" style="margin:0;">
+	        <div class="item">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                	<p>2016年5月 获得山西天朔电动汽车有限公司授权证书</p>
+                	<img src="{:C('UPLOAD_SAVAPATH')}Test/honor1.jpg" alt="Image" style="max-width:100%;" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                <p>2016年5月 获得山西天朔电动汽车有限公司授权证书</p>
+                	<img src="{:C('UPLOAD_SAVAPATH')}Test/honor1.jpg" alt="Image" style="max-width:100%;" />
+                </div>
+              </div>
+          </div>
+		    </div>
+			</div>
+		</div>
+	</section>
+<include file="Tpl/PublicFoot"/>

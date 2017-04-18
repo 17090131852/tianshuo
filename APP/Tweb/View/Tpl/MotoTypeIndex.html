@@ -1,0 +1,73 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		
+		.allCar{ margin:2em auto 0 auto;}
+		.allCar .FirmPic{text-align: center;}
+		.allCar .FirmPic img{ padding:0; margin: 0 auto; border:1px solid #ddd; width: 100%;}
+		.allCar .FirmPic span{ display:block; margin-top:1em; text-align: center; color: #666;}
+		.allCar .FirmPic a{ display: block; margin: 0 auto; margin-top: 14px; margin-bottom: 30px; width: 80px; height: 26px; text-align: center; color: #64b877; border: 1px solid #64b877; font-size: .75em; line-height: 26px;}
+		section .allCar .FirmPic a:hover{color: #fff; background: #64b877; text-decoration: none;}
+		
+		.carClass img{ margin-top:1em; }
+		.NoNews { color: #666;margin: 2em 0;text-align: center; }
+		/*分页*/
+		.pagination>.active>a { background: #0eb493;border: 1px solid #0eb493; }
+		.pagination>.active>a:hover { background: #0eb493;border: 1px solid #0eb493; }
+	</style>
+	<div class="breadNav clearfix hidden-xs">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li class="active">车型总览</li>
+		</ol>
+	</div>
+	<section class="container clearfix">
+		<div class="allCar">
+			<div class="row carClass">
+				<a href="{:U('MotoType/carType/cate/11')}"><img class="col-md-3 col-sm-3 col-xs-6" src="{:C('UPLOAD_SAVAPATH')}Test/MotoType1.jpg" alt="环卫" /></a>
+				<a href="{:U('MotoType/carType/cate/10')}"><img class="col-md-3 col-sm-3 col-xs-6" src="{:C('UPLOAD_SAVAPATH')}Test/MotoType2.jpg" alt="小型" /></a>
+				<a href="{:U('MotoType/carType/cate/13')}"><img class="col-md-3 col-sm-3 col-xs-6" src="{:C('UPLOAD_SAVAPATH')}Test/MotoType3.jpg" alt="专用" style="float:right" /></a>
+				<a href="{:U('MotoType/carType/cate/12')}"><img class="col-md-3 col-sm-3 col-xs-6" src="{:C('UPLOAD_SAVAPATH')}Test/MotoType4.jpg" alt="物流" /></a>
+			</div>
+		</div>
+		<div class="allCar">
+			<div class="row FirmPic">
+		    <if condition="$carList[0]['title'] neq ''">
+					<volist name="carList" id="carVo">
+						<div class="col-md-3 col-sm-3 col-xs-6">
+							<img src="{:C('DOMAIN_NAME')}/{$carVo.cover}" alt="">
+							<span>{$carVo.title}</span>
+							<a href="__APP__/MotoType/carDetail/id/{$carVo.id}">了解产品</a> 
+						</div>
+					</volist>
+				<else />
+					<p class="NoNews">此车型暂时没有车辆！</p>
+				</if>
+			</div>
+			<!--分页-->
+			<nav>
+			  <ul class="pagination">
+			    <li class="disabled">
+			    	<a href="javascript:;" aria-label="Previous">
+			    		<span aria-hidden="true">&laquo;</span>
+			    	</a>
+			    </li>
+			    <li class="active">
+			    	<a href="javascript:;">1</a>
+			    </li>
+			    <li>
+			    	<a href="javascript:;">2</a>
+			    </li>
+			    <li>
+			    	<a href="javascript:;">3</a>
+			    </li>
+			    <li>
+			      <a href="javascript:;" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</section>
+	<include file="Tpl/PublicFoot"/>

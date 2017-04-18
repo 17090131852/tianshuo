@@ -1,0 +1,50 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+	<div class="am-cf am-padding">
+		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">入口管理</strong> / <small>入口列表</small></div>
+	</div>
+	<div class="am-g">
+		<div class="am-u-sm-12">
+			<table class="am-table am-table-striped am-table-hover table-main">
+				<thead>
+				<tr>
+					<th>ID</th>
+					<th>入口名称</th>
+					<th>入口描述</th>
+					<th>最近操作时间</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<volist name="entryList" id="role">
+					<tr>
+						<td>{$role.id}</td>
+						<td>{$role.name}</a></td>
+						<td>{$role.description}</a></td>
+						<td>{$role.update_at}</a></td>
+						<td><if condition="$role.status eq 1">
+							<a href="__APP__/../Tadm/Entry/updateEntry/id/{$role.id}/status/0"><span style="color:green;" onclick="alert('确认关闭入口？')">开启</span></a>
+							<else />
+							<a href="__APP__/../Tadm/Entry/updateEntry/id/{$role.id}/status/1"><span style="color:red;" onclick="alert('确认开放入口？')">关闭</span></a>
+						</if></td>
+						<td>
+							<a href="__APP__/../Tadm/Entry/editEntry/id/{$role.id}">编辑&nbsp;&nbsp;&nbsp;</a>
+							<a href="__APP__/../Tadm/Entry/destroyEntry/id/{$role.id}/status/{$role.status}" onclick="alert('确认删除入口？')">删除</a>
+						</td>
+					</tr>
+				</volist>
+				</tbody>
+			</table>
+			<div class="am-cf page">
+				{$page}
+			</div>
+
+			<hr />
+			<p></p>
+		</div>
+	</div>
+	<!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

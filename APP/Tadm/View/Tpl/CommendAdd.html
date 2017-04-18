@@ -1,0 +1,29 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+	<div class="am-cf am-padding">
+		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">推荐位管理</strong> / <small>增加推荐位</small></div>
+	</div>
+	<form action="{:U('Commend/addCommend')}" method="post">
+		<table id="add">
+			<tr>
+				<td>推荐位位置：</td>
+				<td><input type="text" name="location" placeholder="英文"></td>
+			</tr>
+			<tr>
+				<td>推荐位描述：</td>
+				<td><input type="text" name="description"></td>
+			</tr>
+			<tr>
+				<td>是否开放：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="radio" name="status" value="1" checked="checked">是&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="status" value="0">否
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="确定添加"></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<include file="Tpl/publicFooter" />

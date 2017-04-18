@@ -1,0 +1,77 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		.login{ height:600px; background:url(__PUBLIC__/Images/Tweb/loginBg.jpg) no-repeat 10%; background-size:100%; }
+		.loginForm{ background:#fff; border-top:4px solid #0eb493; }
+		.loginForm h1{ font-size:.875em; padding:1em 0 1em 0; color:#0eb493; border-bottom:1px solid #ddd; }
+		.loginForm h1 span{ float:right; color:#333; }
+		
+		.iptTxt{ border:1px solid #ddd; text-indent:.5em; height:30px; }
+		.iptBtn{ width:95%; height:36px; color:#fff; font-size:1.125em; margin-left:5%; background:#0eb493; border:1px solid #0eb493; }
+		form{ padding-bottom:1.5em; }
+		form ul li{ margin-top:1em; }
+		form ul li img{ float:right; }
+		form ul li .iptTxt{ width:100%; }
+		
+		.styled-select { width: 97%; height:30px; margin-left:3%; overflow: hidden; background: url(__PUBLIC__/Images/Tweb/arrowDown.png) no-repeat right #fff; border-right:1px solid #ddd;}
+		.styled-select select { background: transparent; width: 106%; padding: 5px; font-size: 16px; border: 1px solid #ddd; height: 40px;-webkit-appearance: none; /*for chrome*/ }
+		
+		@media screen and (min-width: 768px) {
+			.loginForm{ width:360px; float:right; margin:60px 160px 0 0;}
+		}
+		
+		@media screen and (max-width: 414px) {
+			.login{ background:#fff; margin-top:2em;}
+		}
+	</style>
+	<section class="clearfix">
+		<div class="login">
+			<div class="container loginForm">
+				<h1>注册 <span>已有帐号？<a href="{:U('Public/login')}">去登录</a></span></h1>
+				<form action="{:U('Public/register')}" method="post">
+					<ul class="row">
+						<!--li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">昵称：</span>
+							<span class="col-lg-8 col-xs-8"><input class="iptTxt rds5" type="text" name="nickname" /></span>
+						</li-->
+						<li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">手机号：</span>
+							<span class="col-lg-8 col-xs-8"><input class="iptTxt rds5" type="text" name="mobile_phone" placeholder="手机号" /></span>
+						</li>
+						<!--li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">会员类型：</span>
+							<span class="col-lg-8 col-xs-8">
+								<div class="styled-select rds5">
+									<select name="type">
+										<option value="1">众筹股会员</option>
+										<option value="2">合伙人</option>
+										<option value="3">VIP会员</option>
+									</select>
+								</div>
+							</span>
+						</li-->
+						<li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">密码：</span>
+							<span class="col-lg-8 col-xs-8"><input class="iptTxt rds5" type="password" name="pwd" placeholder="6位以上密码" /></span>
+						</li>
+						<li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">确认密码：</span>
+							<span class="col-lg-8 col-xs-8"><input class="iptTxt rds5" type="password" name="pwd1" placeholder="再次输入密码" /></span>
+						</li>
+						<li class="col-lg-12 col-xs-12">
+							<span class="col-lg-4 col-xs-4">推荐手机：</span>
+							<span class="col-lg-8 col-xs-8"><input class="iptTxt rds5" type="text" name="recom_mobile" placeholder="推荐人手机" value="{$recomMobile}"/></span>
+						</li>
+						<li class="col-lg-12 col-xs-12">
+							<input class="iptBtn rds5" type="submit" value="注册" />
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</section>
+	<script>
+		function change_code(){
+			$("#imgcode").attr('src',"{:U('Public/webVerify')}")
+		}
+	</script>
+<include file="Tpl/publicFoot"/>

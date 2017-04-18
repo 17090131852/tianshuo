@@ -1,0 +1,67 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	table tr th {
+		background-color: rgb(76, 140, 43);
+		border: 1px solid #DDD;
+		color: #FFF;
+	}
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+	.news_list ul li { margin: .5em 0; }
+
+	#cont{ margin-top:1em; }
+	#cont tr{ line-height:1.8em; font-size:.875em; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container clearfix">
+	<h1 style="font-size:1.125em;line-height:2em;color:#1ea78d">我的订单</h1>
+	<div class="wrapper container center">
+			<!--  3-25日  周亮 -->
+			<div class="table-responsive">
+				<table class="listTable table-hover table">
+					<thead>
+						<tr>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单编号" aria-sort="descending">
+								订单编号
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员编号" aria-sort="descending">
+								会员编号
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="状态" aria-sort="descending">
+								状态
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单日期" aria-sort="descending">
+								订单日期
+							</th>
+
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员姓名" aria-sort="descending">
+								会员姓名
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="消费积分" aria-sort="descending">
+								消费积分
+							</th>
+						</tr>
+						</thead>
+						<tbody id="cont">
+							<volist name="data['offline_order']" id="al">
+								<tr>
+									<td>{$al.order_sn}</td>
+									<td>{$al.msn}</td>
+									<td>
+										<if condition="$al.order_sta eq 1 ">已审核
+											<else /> 未审核
+										</if>
+									<td>{$al.ctime|date="Y-m-d",###}</td>
+									<td>{$al.nickname}</td>
+									<td>{$al.total}</td>
+								</tr>
+							</volist>
+						</tbody>
+				</table>
+			</div>
+
+	</div>
+	</div>
+</section>
+<include file="Tpl/publicFoot"/>

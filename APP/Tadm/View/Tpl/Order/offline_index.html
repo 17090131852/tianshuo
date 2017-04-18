@@ -1,0 +1,140 @@
+<include file="Tpl/publicHeader" />
+<script src="__PUBLIC__/Admin/js/jquery.datetimepicker.js"></script>
+
+<style type="text/css">
+
+    .custom-date-style {
+        background-color: red !important;
+    }
+    .check{
+        margin-bottom: 20px;
+    }
+    .check td{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+    .check input{
+        height:30px;
+    }
+    .check select{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+
+    #check_title{
+        margin-left: 10px;
+    }
+</style>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单管理</strong> / <small>线下订单列表</small></div>
+    </div>
+    <div class="check">
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf" id="check_title"><middle class="am-text-primary am-text-lg">订单查询<middle/></div>
+        </div>
+        <form action="/Tadm/Order/offline_index" method="post">
+            <table>
+                <tr>
+                    <td>订单编号：</td>
+                    <td class="check_left"><input name="order_sn" value="{$order_sn}"></td>
+                    <td>用户编号：</td>
+                    <td><input name="msn" value="{$msn}"></td>
+                    <td>审核人：</td>
+                    <td><input name="auth" value="{$auth}"></td>
+                    <td>用户手机号：</td>
+                    <td><input name="mobile_phone" value="{$mobile_phone}"></td>
+                </tr>
+                <tr>
+                    <td>开始时间：</td>
+                    <td>
+                        <input name="start_time" type="text"  readonly="true" value="{$start_time}" id="datetimepicker"> </td>
+                    <td>结束时间：</td>
+                    <td>
+                        <input name="end_time" type="text" readonly="true" value="{$end_time}" id="datetimepicker1"> </td>
+
+                    </td>
+                    <td>订单状态：</td>
+                    <td style="text-align: left">
+                        <select name="order_sta">
+                            <option value="0" <?php if($order_sta==0):?>selected<?php endif;?>>--请选择--</option>
+                            <option value="1" <?php if($order_sta==1):?>selected<?php endif;?>>未审核</option>
+                            <option value="2" <?php if($order_sta==2):?>selected<?php endif;?>>已审核</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td><td></td><td></td><td></td><td></td> <td><input type="submit" value="提交" /></td></tr>
+            </table>
+        </form>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>订单编号</th>
+                    <th>商品名称</th>
+                    <th>商品数量</th>
+                    <th>商品单价</th>
+                    <th>订单总积分</th>
+                    <th>用户编号</th>
+                    <th>用户手机号</th>
+                    <th>推荐人编号</th>
+                    <th>创建时间</th>
+                    <th>审核人</th>
+                    <th>备注</th>
+                    <th>订单状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="data" id="value" empty="暂时没有数据" >
+                    <tr>
+                        <td><?=$key+1?></td>
+                        <td>{$value.order_sn}</td>
+                        <td>{$value.carno}</td>
+                        <td>{$value.num}</td>
+                        <td>{$value.price}</td>
+                        <td>{$value.total}</td>
+                        <td>{$value.msn}</td>
+                        <td>{$value.mobile_phone}</td>
+                        <td>{$value.recom}</td>
+                        <td>{$value.ctime|date='Y-m-d H:i',###}</td>
+                        <td>{$value.auth}</td>
+                        <td>{$value.remark}</td>
+                        <td><?php if($value['order_sta']==0):?>未审核<?php else:?>已审核<?php endif;?></td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            <div class="am-cf page">
+                {$page}
+            </div>
+
+            <hr />
+            <p></p>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    $('#datetimepicker').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+    $('#datetimepicker1').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+</script>
+<include file="Tpl/publicFooter" />

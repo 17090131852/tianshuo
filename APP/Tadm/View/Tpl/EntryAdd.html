@@ -1,0 +1,33 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+	<div class="am-cf am-padding">
+		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">入口管理</strong> / <small>添加入口</small></div>
+	</div>
+	<form action="{:U('Entry/createEntry')}" method="post">
+		<table id="add">
+			<tr>
+				<td>入口英文名称：</td>
+				<td><input type="text" name="en_name"></td>
+			</tr>
+			<tr>
+				<td>入口中文名称：</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>入口描述：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" name="action"></td>
+			</tr>
+			<tr>
+				<td>是否开放：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="radio" name="status" value="1" checked="checked">是&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="status" value="0">否
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="确定添加"></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<include file="Tpl/publicFooter" />

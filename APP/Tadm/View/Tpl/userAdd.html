@@ -1,0 +1,49 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>添加管理员</small></div>
+  </div>
+  <form action="{:U('Authority/userAdd')}" method="post">
+  <table id="add">
+    <tr>
+      <td>　用户名：</td>
+      <td><input type="text" name="uname"></td>
+    </tr>
+    <tr>
+      <td>　　密码：</td>
+      <td><input type="text" name="pwd"></td>
+    </tr>
+    <tr>
+      <td>确认密码：</td>
+      <td><input type="text" name="pwd1"></td>
+    </tr>
+    <tr>
+      <td>手机号码：</td>
+      <td><input type="text" name="mobile"></td>
+    </tr>
+    <tr>
+      <td>　所属组：</td>
+      <td>
+          <volist name="groups" id="group">
+            <input type="checkbox" name="group_id[]" value="{$group.id}">{$group.title}　
+          </volist>
+      </td>
+    </tr>
+   <tr>
+      <td>　　状态：</td>
+      <td>
+          <select name="sta" id="">
+            <option value="1">正常</option>
+            <option value="2">异常</option>
+            <option value="3">封禁</option>
+          </select>
+      </td>
+   </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定添加"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

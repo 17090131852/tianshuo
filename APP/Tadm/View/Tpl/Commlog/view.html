@@ -1,0 +1,71 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单管理</strong> / <small>线上订单详情</small></div>
+    </div>
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><middle class="am-text-primary am-text-lg">订单主信息</middle> </div>
+    </div>
+    <table id="add">
+        <tr>
+            <td>用户编号：<span>{$data.member_msn}</span></td>
+        </tr>
+        <tr>
+            <td>用户姓名：<span>{$member.realname}</span></td>
+        </tr>
+
+        <tr>
+            <td>周年：<span>{$data.yearweek}</span></td>
+        </tr>
+        <tr>
+            <td>开始时间：<span>{$data.starttime}</span></td>
+        </tr>
+        <tr>
+            <td>结束时间：<span>{$data.endtime}</span></td>
+        </tr>
+        <tr><td>生效时间：<span>{$data.submittime}</span></td></tr>
+        <tr><td>返佣总金额：<span>{$data.amount}</span></td></tr>
+        <tr>
+            <td>佣金状态：<span>{$data.state|getCommState}</span></td>
+        </tr>
+        <tr>
+            <td>创建时间：<span>{$data.createtime}</span></td>
+        </tr>
+    </table>
+</div>
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><middle class="am-text-primary am-text-lg">周佣金细则</middle> </div>
+</div>
+<div class="am-g">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>订单id</th>
+                <th>订单编号</th>
+                <th>用户编号</th>
+                <th>返佣金额</th>
+                <th>添加时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="comm_data" id="value" empty="暂时没有数据" >
+                <tr>
+                    <td><?=$key+1?></td>
+                    <td>{$value.order_id}</td>
+                    <td>{$value.order_sn}</td>
+                    <td>{$value.member_msn}</td>
+                    <td>{$value.commamount}</td>
+                    <td>{$value.addtime|date='Y-m-d H:i',###}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        <hr />
+        <p></p>
+    </div>
+</div>
+<include file="Tpl/publicFooter" />

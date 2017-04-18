@@ -1,0 +1,61 @@
+<include file="Tpl/publicHeader" />
+<div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>分类列表</small></div>
+    </div>
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>父ID</th>
+                <th>标题</th>
+                <th>状态</th>
+                <th>排序</th>
+                <th>备注</th>
+                <th>操作</th>
+              </tr>
+          </thead>
+          <tbody>
+            <volist name="treeArr" id="tvo">
+              <tr>
+                <td>{$tvo.id}</td>
+                <td>{$tvo.pid}</td>
+                <td style="text-align:left;">{$tvo.title}</td>
+                <td>{$tvo.sta|getSta}</td>
+                <td>{$tvo.ord}</td>
+                <td>{$tvo.intr}</td>
+                <td>
+                  <a href="__APP__/../Tadm/Category/edit/id/{$tvo.id}">[改]</a> / 
+                  <a href="__APP__/../Tadm/Category/del/id/{$tvo.id}" onclick="if(confirm('确定删除[{$tvo.title}]?')==false){ return false; }">[删]</a>
+                </td>
+              </tr>
+              <volist name="tvo.child" id="cvo">
+              <tr>
+                <td>{$cvo.id}</td>
+                <td>{$cvo.pid}</td>
+                <td style="text-align:left;padding-left:2em">|-{$cvo.title}</td>
+                <td>{$cvo.sta|getSta}</td>
+                <td>{$cvo.ord}</td>
+                <td>{$cvo.intr}</td>
+                <td>
+                  <a href="__APP__/../Tadm/category/edit/id/{$cvo.id}">[改]</a> / 
+                  <a href="__APP__/../Tadm/category/del/id/{$cvo.id}" onclick="if(confirm('确定删除[{$cvo.title}]?')==false){ return false; }">[删]</a>
+                </td>
+              </tr>
+      </volist>
+      </volist>
+          </tbody>
+        </table>
+    <div class="am-cf page">    
+      {$page}  
+    </div>
+ 
+          <hr />
+          <p></p>
+      </div>
+    </div>
+  <!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

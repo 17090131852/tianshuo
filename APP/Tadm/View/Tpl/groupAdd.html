@@ -1,0 +1,23 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>添加分组</small></div>
+  </div>
+  <form action="{:U('Authority/groupAdd')}" method="post">
+  <table id="add">
+    <tr>
+      <td>分组名称：</td>
+      <td><input type="text" name="title"></td>
+    </tr>
+    <tr>
+      <td>是否开启：</td>
+      <td>　<input type="radio" name="status" value="1" checked="checked"> 是 　　<input type="radio" name="status" value="2"> 否</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定添加"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

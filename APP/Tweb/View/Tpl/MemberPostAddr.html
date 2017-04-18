@@ -1,0 +1,34 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.TableBox{ padding-bottom:2em; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.form-group{ margin-top:1em; }
+	.iptBtn{ height:1.8em; line-height:1.8em; padding:.5em 1em; }
+	.iptBtn:hover, .iptBtn:visited, .iptBtn:active{color:#fff; text-decoration: none;}
+	.table { margin-bottom: 0; }
+	.table>tbody>tr>td{ line-height: 2em; }
+	.table>tbody>tr>td>a:visited { color: #fff; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+<div class="TableBox">
+	<h1 class="pageTitle"> 收货地址 </h1>
+	<div class="table-responsive">
+		<table class="table table-hover">
+		<volist name="address" id="vo">
+		  <tr class="row">
+		  	<td>{$vo.realname}</td>
+		  	<td>{$vo.tel}</td>
+		  	<td>{$vo.province} {$vo.city} {$vo.county}  {$vo.address}</td>
+		  	<td>
+		  		<a class="btn btn-info" href="/Member/addPostAddr/id/{$vo.id}">编辑</a>
+		  		<a class="btn btn-danger" href="/Member/delPostAddr/id/{$vo.id}" onclick="if(confirm('确定删除吗?')==false){ return false; }">删除</a>
+		  	</td>
+		  </tr>
+		  </volist>
+		</table>
+		</div>
+		<a class="iptBtn rds5" href="/Member/addPostAddr">增加</a>
+	</div>
+</section>
+<include file="Tpl/publicFoot"/>

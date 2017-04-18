@@ -1,0 +1,70 @@
+<include file="Tpl/PublicImallHead" />
+<style>
+	.goodHead{ margin-top:2em; }
+	.goodPic{ border:1px solid #eee; }
+	.goodPic img{ width:100%; }
+	.goodTit{ line-height:1.5em; font-size:1.8em; }
+	.intrList{ line-height:2em;  }
+
+	.btnSub{ border-top:1px solid #ddd; padding:1em 0; }
+	.addMin{ display:block; margin:0 .5em; float:left; width:18px; height:18px; line-height:18px; text-align:center;
+		border:1px solid #0EB493; margin-top:.5em; }
+	.carnoNum{ float:left; height:1.5em; margin-top:.4em; text-indent:.5em; }
+	.iptBtn{ display:block; height:30px; width:120px; line-height:30px; text-align:center; }
+	.goodDetail{ margin-top:2em; }
+	.discTitle{ line-height:3em;border-bottom:2px solid #0EB493; }
+</style>
+<div class="container">
+	<div class="goodHead row">
+		<div class="goodPic col-lg-3">
+			<img src="{$data.goods_thumb}" alt="" />
+		</div>
+		<div class="goodIntr col-lg-9">
+			<h1 class="goodTit">{$data.goods_name}</h1>
+			<ul class="intrList">
+				<li> 商品库存：{$data.goods_num} </li>
+				<li> 商品销量：{$data.goods_sale_num}</li>
+				<li> 所需积分：{$data.goods_score}&nbsp;BV</li>
+				<li class="clearfix">
+					<a href="javascript:;" class="addMin rds5" onclick="addMin(0)">-</a>
+					<input class="carnoNum iptText rds5" type="text" name="num" value="1" style="width:4em;" />
+					<a href="javascript:;" class="addMin rds5" onclick="addMin(1)" >+</a>
+				</li>
+			</ul>
+			<a class="iptBtn rds5 addCart" href="javascript:;">加入购物车</a>
+		</div>
+	</div>
+	<div class="goodDetail">
+		<h3 class="discTitle">商品描述</h3>
+		<div class="discCont">
+			{$data.goods_desc|htmlspecialchars_decode}
+		</div>
+	</div>
+</div>
+<script>
+	$('document').ready(function() {
+		//添加购物车
+		$('.addCart').click(function (){
+			var gCode = '{$data.goods_id}';
+			var gNum = $('.carnoNum').val();
+			//console.log(gNum+gCode);return false;
+			$.post("__APP__/../Imall/addCart", {num: gNum, id: gCode}, function (rs){
+				alert(rs.msg);
+			}, 'json');
+		});
+	});
+	//数量自加减
+	function addMin(v){
+		baseNum = $('.carnoNum').val();
+		if(v==1 && baseNum<999){
+			baseNum++;
+			$('.carnoNum').val(baseNum);
+		}else if(v==0 && baseNum>1){
+			baseNum--;
+			$('.carnoNum').val(baseNum);
+		}else{
+			return false;
+		}
+	}
+</script>
+<include file="Tpl/PublicFoot" />

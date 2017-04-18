@@ -1,0 +1,136 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		section .Intro h2{padding-bottom: 1em; color: #0eb493; font-weight: bolder; font-size: 2em; padding-left: 15px;}
+		section .Intro img{ padding-bottom: 35px;}
+		section .Intro > div p{ text-indent: 2em; font-size: .75em; color: #666; line-height:1.8em;}
+		@media screen and (max-width: 425px) {
+			.OurPurpose img { margin: 0 auto; }
+		}
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+
+		.AboutBanner { background:url("__PUBLIC__/Images/Tweb/AboutBanner.jpg") no-repeat center center; height: 350px; padding-top: 2em;}
+		.AboutBanner .PartL { margin-top: 2em; }
+		.AboutBanner h2,.PartR h2,.OurAdv h2,.OurReason h2 { font-weight: bold; }
+		.AboutBanner h2 span ,.PartR h2 span,.OurAdv h2 span,.OurReason h2 span { color: #0eb493;  }
+		.AboutBanner p { color: #333;  }
+		.AboutLogo { padding: 2em 0; }
+		.OurPurpose { padding: 4em 0; }
+		.OurAdv { padding: 4em 0; background: #f1f1f1; }
+		.OurReason { margin-bottom: 2em; }
+		.OurReason h2 { padding: 2em 0; }
+		.OurReason h2,.OurReason img { margin: 0 auto; text-align: center;}
+		.OurReason p { font-size: .875em;color: #666;line-height: 24px;margin-top: 1em; }
+
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('About/index')}">关于我们</a></li>
+			<li class="active">天朔简介</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="container clearfix">
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a class="ThisActive" href="{:U('About/index')}">简介</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/honor')}">荣誉</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/culture')}">文化</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/develop')}">发展</a>
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+					<a href="{:U('About/mien')}">风采</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container Intro clearfix">
+			<h2>天朔简介</h2>
+		</div>
+		<!--天朔简介-->
+		<div class="AboutBanner">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-6 col-lg-6">
+						<div class="PartL">
+							<h2><span>我们</span>是谁？</h2>
+							<p>
+								山西天朔电动汽车有限公司隶属于山西天朔集团<br />
+		是一家集研发，设计，生产销售为一体的新能源电动汽车制造企业
+							</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 col-lg-6 hidden-xs">
+	          <div class="AboutLogo">
+	          	<img src="__PUBLIC__/Images/Tweb/AboutLogo.png" alt="天朔集团LOGO" title="天朔集团LOGO" style="max-width:100%; margin: 0 auto;" />
+	          </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--我们的宗旨-->
+		<div class="container">
+			<div class="row">
+				<div class="OurPurpose">
+					<div class="col-xs-12 col-md-6">
+						<img src="__PUBLIC__/Images/Tweb/AboutPurpose.jpg" alt="我们的宗旨" title="我们的宗旨" style="max-width:100%;" />
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<div class="PartR">
+								<h2>我们的<span>宗旨</span></h2>
+								<p>
+									公司保持以节能减排为宗旨，按照新能源汽车新的设计理念<br />
+	采用先进的轿车生产工艺和技术标准<br />
+	力争在未来借助公司全新的电池技术和汽车轻量化碳纤维车身平台<br />
+	打造行业前端的新能源汽车
+								</p>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--我们的优势-->
+		<div class="OurAdv">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-6">
+						<div class="PartL">
+							<h2>我们的<span>优势</span></h2>
+							<p>
+								该项目已列入山西省十三五规划<br />
+是全市产业转型的重要项目<br />
+项目总投资15.8亿元，项目建成后<br />
+可实现年产能电动汽车3万辆（单班）电动汽车
+							</p>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6">
+	          <img src="__PUBLIC__/Images/Tweb/AboutAd.jpg" alt="我们的优势" title="我们的优势" style="max-width:100%; margin: 4em auto;" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择我们的理由-->
+		<div class="OurReason">
+			<h2>选择我们的<span>理由</span></h2>
+			<div class="container">
+				<div class="row">
+					<img class="col-md-12 col-sm-12 col-xs-12" src="{:C('UPLOAD_SAVAPATH')}/Test/address.jpg" alt="选择我们的理由" title="选择我们的理由" />
+				</div>
+				<p>
+					公司占地600亩，公司具备汽车生产的四大工艺，有冲压、涂装、焊装、总装四大车间和汽车整车检测线一条、1个产品技术中心，1个占地80亩的车辆试验场，以及办公楼、科研楼、展区，宿舍、食堂等基础设施。公司主要产品为电动轿车，电动观光车，电动客车，电动公交车，电动环卫车，油电混合车等节能新能源汽车。
+该项目已列入山西省十三五规划，是全市产业转型的重要项目；项目总投资15.8亿元，项目建成后，可实现年产能电动汽车3万辆（单班）电动汽车。
+				</p>
+			</div>
+		</div>
+	</section>
+	<include file="Tpl/PublicFoot"/>

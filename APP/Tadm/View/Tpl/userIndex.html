@@ -1,0 +1,63 @@
+<include file="Tpl/publicHeader" />
+ <!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限控制</strong> / <small>管理员列表</small></div>
+    </div>
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>用户名</th>
+               <if condition="empty($group_id)">
+               <else />
+                <th>当前组</th>
+               </if> 
+                <th>所属组</th>
+                <th>状态</th>
+                <th style="text-align:center; width:21%;" >操作</th>
+              </tr>
+          </thead>
+          <tbody>
+          <volist name="users" id="user">           
+            <tr>
+              <td>{$user.uid}</td>
+              <td>{$user.uname}</td>
+              <if condition="empty($group_id)">
+               <else />
+                <td>{$group_id|getGroupTitle}</td>
+               </if> 
+              
+              <td>{$user.uid|getUserGroups}</td>
+              <td><if condition="$user.sta eq 1"><span style="color:green;">开启</span><else /><span style="color:red;">关闭</span></if></td>
+            <if condition="$user['uid'] neq 1">
+              <td align="center">
+                <a href="{:U('Authority/userEdit', "uid=$user[uid]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">编辑</a>
+                <if condition="empty($group_id)">
+                  <a href="{:U('Authority/userDel', "uid=$user[uid]")}" onclick="return confirm('确实要删除吗?')" class="am-btn am-btn-default am-btn-xs am-text-danger am-icon-pencil-square-o">删除</a>
+                <else />
+                  <a href="{:U('Authority/removeCrew',['uid'=>$user[uid],'group_id'=>$group_id])}" onclick="return confirm('确实要移除吗?')" class="am-btn am-btn-default am-btn-xs am-text-danger am-icon-pencil-square-o">从该组移除</a>
+                </if>
+              </td>
+              <else />
+                 <td align="center">
+                    <span class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">不可操作</span>
+                  </td> 
+              </if>
+            </tr>
+          </volist>
+          </tbody>
+        </table>
+		<div class="am-cf page">	  
+			{$page}  
+		</div>
+ 
+          <hr />
+          <p></p>
+      </div>
+    </div>
+  <!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

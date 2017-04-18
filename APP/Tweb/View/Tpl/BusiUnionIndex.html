@@ -1,0 +1,245 @@
+	<include file="Tpl/PublicHead" />
+	<style>
+		section .joinCon .joinTop{height: 115px;}
+		section .joinMain{ padding-top: 7em; margin: 0 auto;}
+		section .joinMain > ul > li{ margin-top:1.5em; height:300px;}
+		section .joinMain > ul > li:nth-child(2n){ padding-left:3em; float:right; }
+		section .joinMain .mTitle{ height: 50px; border-bottom: 1px solid #9a9a9a; width:95%; margin:0 auto;}
+		section .joinMain .mTitle > span{color: #0eb493; font-size: 2.25em; display: block; float: left;}
+		section .joinMain .mTitle > div{float: left; padding-left: 5px;}
+		section .joinMain .mTitle > div > span:first-child{margin-top: 6px; color: #0eb493; display: block; font-size: 1em;}
+		section .joinMain .mTitle > div > span:last-child{position: relative; top: 0px; color: #a1a1a1; font-size: .75em; line-height: .75em;}
+		section .joinMain .mCon{padding-top: 15px;}
+		section .joinMain .mCon p{font-size: .75em; margin-bottom: 20px; color: #666; height: 34px;}
+		section .joinMain .mCon p span{background: #666; width: 4px; height: 4px; display: block; float: left; margin: 7px 0 0 -8px;}
+		section .joinPlicy{ padding-top: 1em;}
+		
+		section .joinPlicy .pMain{width: 100%;padding-bottom:2em;}
+		section .joinPlicy .pMain .pMainL{ padding:4em 0;}
+		section .joinPlicy .pMain .pMainL img{ float: right;}
+		section .joinPlicy .pMain .pMainL .pDescribe{ float: left;}
+		section .joinPlicy .pMain .pMainL .pDescribe h3{ margin-bottom: 20px; color: #0eb493; font-size: 1.5em;}
+		section .joinPlicy .pMain .pMainL .pDescribe p{color: #999; font-size: .75em;}
+		
+		section .joinPlicy .pMain .pMainR{ padding:4em 0; background: #e6e6e6;}
+		section .joinPlicy .pMain .pMainR img{ float: left;}
+		section .joinPlicy .pMain .pMainR .pDescribe{text-align: right; float: right;}
+		section .joinPlicy .pMain .pMainR .pDescribe h3{margin-bottom: 20px; color: #0eb493; font-size: 1.5em;}
+		section .joinPlicy .pMain .pMainR .pDescribe p{color: #999; font-size: .75em;}
+		
+		.navComm{ font-size:.75em }
+		@media screen and (max-width: 768px) {
+			section .joinMain > ul > li:nth-child(2n){ padding-left:0; }
+			section .joinMain{ padding-top: 3em; margin: 0 auto;}
+			section .joinMain > ul > li{ height:auto; }
+		}
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+		.joinMain img {width: 100%;}
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>您的位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('BusiUnion/index')}">招商加盟</a></li>
+			<li class="active">加盟政策</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="clearfix">
+				<li class="col-lg-6 col-xs-6" >
+					<!--a class="col-lg-4 col-xs-4" href="javascript:;">在线加盟</a-->
+					<a class="ThisActive" href="{:U('BusiUnion/index')}">加盟政策</a>
+				</li>
+				<li class="col-lg-6 col-xs-6" >
+					<a href="{:U('BusiUnion/dealer')}">经销商风采</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container joinCon">
+			<div class="joinTop hidden-sm hidden-xs">
+				<img style="width: 100%" src="__PUBLIC__/Images/Tweb/joinC.png" alt="招商加盟条件" title="招商加盟条件" />
+			</div>
+			<div class="joinMain col-xs-12">
+				<ul class="row clearfix">
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>01</span>
+							<div>
+								<span>资格</span>
+								<span>QUALIFICATION</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>经国家工商管理机构注册登记，经营汽车产品的独立法人经营实体，具有一般纳税人资格</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>02</span>
+							<div>
+								<span>地理位置</span>
+								<span>GEOLOCATION</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>拟建店场地应位于电动车集中市场、微型车销售集中的汽车城大卖场</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>03</span>
+							<div>
+								<span>土地</span>
+								<span>LAND</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>土地：拥有符合品牌经销商建设需求的土地所有权或场地使用权，并有足够的场地面积</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>04</span>
+							<div>
+								<span>资金</span>
+								<span>FUNDS</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>资金：具有与所建形象店规模相应的资金实力，并具备充足的公司运营资金及一定的融资能力</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>05</span>
+							<div>
+								<span>商业信用</span>
+								<span>BUSINESS CREDIT</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>商业信用：企业经营状况良好，具有良好的商业信誉，银行信贷无不良记录，无重大用户投诉事件</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>06</span>
+							<div>
+								<span>行业经验</span>
+								<span>INDUSTRY EXPERIENCE</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>行业经验：企业法人或者管理者拥有在汽车行业2年以上的汽车销售服务经验，具有先进的经营理念</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>07</span>
+							<div>
+								<span>公关</span>
+								<span>PUBLIC RELATIONS</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>公关：在当地有良好的社会关系，能妥善解决用户投诉问题</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+					<li class="col-md-6 col-xs-12">
+						<div class="mTitle col-xs-12">
+							<span>08</span>
+							<div>
+								<span>组织及人员</span>
+								<span>ORGANIZATION AND PEOPLE</span>
+							</div>
+						</div>
+						<div class="mCon col-xs-12">
+							<p class="col-xs-12"><span class="rds50"></span>组织及人员：具备独立、完善的组织机构，经营团队具有良好的客户服务意识和行业经验管理经验</p>
+							<img class="col-sm-11" src="{:C('UPLOAD_SAVAPATH')}Test/j1.jpg" alt="" />
+						</div>
+					</li>
+				</ul>
+			</div>
+			</div>
+			<div class="joinPlicy">
+				<div class="container pTitle hidden-sm hidden-xs">
+						<img style="width: 100%" src="__PUBLIC__/Images/Tweb/joinP.png" alt="招商加盟政策"  title="招商加盟政策" />
+				</div>
+				<div class="pMain clearfix">
+					<div class="pMainL container">
+						<div class="pDescribe col-lg-8 col-md-8 col-xs-12">
+							<h3>加盟费（保证金）缴纳额度（县市级）</h3>
+							<p>以专卖店为例，加盟费为60万元，公司免费送每台28800元，天朔“HT10飞驰”纯电动车12辆，作为样品车</p>
+						</div>
+						<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/jc1.png" alt="" />
+					</div>
+
+					<div class="pMainR">
+						<div class="container">
+							<div class="pDescribe col-lg-8 col-md-8 col-xs-12">
+								<h3>省级加盟费</h3>
+								<p>以分公司和5S店为例，加盟费600万元，公司免费送每台28800元天朔“HT10飞驰”纯电动汽车120辆，作为库存车和样品车。</p>
+							</div>
+							<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/p2.png" alt="" />
+						</div>
+					</div>
+
+					<div class="pMainL container">
+						<div class="pDescribe col-lg-8 col-md-8 col-xs-12">
+							<h3>加盟费（保证金）管理办法</h3>
+							<p>加盟商缴纳之加盟费（保证金）应用于加盟商按规责守法经营之保证，是自觉开拓，维护市场和规范经营行为的保证，不作为货款之押金保证</p>
+						</div>
+						<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/jc1.png" alt="" />
+					</div>
+
+					<div class="pMainR">
+						<div class="container">
+							<div class="pDescribe col-lg-8 col-md-8 ol-xs-12">
+								<h3>加盟授权范围</h3>
+								<p>县市级加盟商则公司可授权其在县市级为最高容量的区域范围内加盟，加盟商可在该区域内自营开店或与加盟商合作开店。省级加盟商，则公司可授权其在省级为最高容量的区域范围内加盟，加盟商可在该区域内自营开店或与加盟商合作开店</p>
+							</div>
+							<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/p2.png" alt="" />
+						</div>
+					</div>
+
+					<div class="pMainL container">
+						<div class="pDescribe col-lg-8 col-md-8 col-xs-12">
+							<h3>车辆运输管理办法</h3>
+							<p>由天朔汽车品牌营销部指定汽车运输，在正常供应期15个工作日内到货，所有运费由加盟商承担，如因供应商或天朔公司原因延误供应，则由需求方与天朔公司商议发货方式，所有超额运输费用由天朔公司承担</p>
+						</div>
+						<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/jc1.png" alt="" />
+					</div>
+
+					<div class="pMainR">
+						<div class="container">
+							<div class="pDescribe col-lg-8 col-md-8 col-xs-12">
+								<h3>宣传物料费用承担及发货方式</h3>
+								<p>加盟商和天朔公司各承担50%（宣传单和宣传页除外）凡需承担费用的道具物料用品，遵循款到发货的原则，由财务统一结算</p>
+							</div>
+							<img class="col-lg-4 col-md-4 col-xs-4 hidden-sm hidden-xs" src="{:C('UPLOAD_SAVAPATH')}Test/p2.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- <script type="text/javascript">
+		$('.navMain>ul>li>a').mouseenter(function(){
+			$(this).children('span').stop().animate({'left':'50px'},300).css({'top':'16px','font-size':'1.4em','color':'#fff'});
+			$(this).children('p').stop().fadeIn(300);
+		}).mouseleave(function(){
+			$(this).children('span').stop().animate({'left':'160px'},300).css({'top':'18px','font-size':'1.25em','color':'#0eb493'});
+			$(this).children('p').stop().fadeOut(300);		
+		});
+	</script> -->
+	<include file="Tpl/PublicFoot"/>

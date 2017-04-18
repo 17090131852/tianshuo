@@ -1,0 +1,75 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+	@media screen and (max-width: 425px) {
+			.MeinPic img { width: 100%; }
+		}
+	.MaxWidth h2 {padding-bottom: 52px;color: #0eb493;font-weight: bolder;font-size: 2em;}
+		section .Honor .container {width:100%;}
+		.MeinPic h4 {font-size:18px; color:#333; text-align:center;}
+		.MeinPic p { font-size:12px; color:#999; text-align:center;}
+		.MeinPic a { display:	block;}
+		
+		.MeinPic img {margin:2em auto; }
+		.FlRbar { float:right;}
+		.pager{ font-size:.75em }
+		.pager li>a:hover { background:#fff;color:#0eb493;text-decoration:underline;}
+		.pager li>span { padding:4px;}
+		.pager li>span,.pager li>a{ border:none;}
+		
+		section .JoinBner img{height:100%}
+		.navComm ul li a{ font-size:.875em; }
+		.navComm ul li a{ font-size:.875em; }
+		.pics{ margin-top:1.5em; }
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>您的位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('BusiUnion/index')}">招商加盟</a></li>
+			<li><a href="{:U('BusiUnion/dealer')}">经销商风采</a></li>
+			<li class="active">详情</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="clearfix">
+				<li class="col-lg-6 col-xs-6" >
+					<!--a class="col-lg-4 col-xs-4" href="javascript:;">在线加盟</a-->
+					<a href="{:U('BusiUnion/index')}">加盟政策</a>
+				</li>
+				<li class="col-lg-6 col-xs-6" >
+					<a class="ThisActive" href="{:U('BusiUnion/dealer')}">经销商风采</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="container MaxWidth Honor clearfix">
+			
+			<div class="container">
+		    <ul class="row MeinPic">
+					<li class="col-lg-12 col-xs-12 col-sm-12">
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/JingXiaoShang1.jpg" alt="经销商风采详情展示" title="经销商风采详情展示" />
+						<p>热烈庆祝天朔电动汽车天阴店盛大开业热烈庆祝天朔电动汽车天阴店盛大开业热烈庆祝天朔电动汽车天阴店盛大开业</p>
+					</li>
+					<li class="col-lg-12 col-xs-12 col-sm-12">
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/JingXiaoShang2.jpg" alt="经销商风采详情展示" title="经销商风采详情展示" />
+						<p>热烈庆祝天朔电动汽车天阴店盛大开业热烈庆祝天朔电动汽车天阴店盛大开业热烈庆祝天朔电动汽车天阴店盛大开业</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<nav aria-label="...">
+				<ul class="pager clearfix">
+					<li class="previous col-xs-6"><span aria-hidden="true">上一篇:</span><a href="javascript:;">热烈庆祝..</a></li>
+					<li class="FlRbar col-xs-6"><a href="javascript:;">天朔电动..</a><span aria-hidden="true">:下一篇</span></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	
+<include file="Tpl/PublicFoot"/>

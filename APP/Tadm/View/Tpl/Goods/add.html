@@ -1,0 +1,162 @@
+<include file="Tpl/publicHeader" />
+<link href="__PUBLIC__/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/umeditor/third-party/template.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/umeditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js"></script>
+    
+<style>
+    .Validform_error{
+			background-color: #ffe7e7 !important;
+    }
+    .nav{
+        margin-left: 45px;
+    }
+</style>
+<!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品管理</strong> / <small>商品添加</small></div>
+    </div>
+    <form class="AddGoodsForm" action="/Tadm/Goods/save" method="post" enctype="multipart/form-data">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><span class="am-text-primary am-text-lg nav" >商品主信息</span> </div>
+    </div>
+    <table class="show_msg">
+        <tr>
+            <td class="msg_title">商品名称：</td><td><span><input placeholder="必填" datatype="*" nullmsg="商品名称不能为空" type="text" name="goods_name" value="{$data.goods_name}"  ></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品价格：</td><td><span><input placeholder="必填" datatype="/^\d+(\.\d+)?$/" errormsg="商品价格格式错误" type="text" name="goods_price" value="{$data.goods_price}"></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品积分：</td><td><span><input placeholder="必填" datatype="n" errormsg="商品积分格式错误" type="text" name="goods_score" value="{$data.goods_score}"></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品数量：</td><td><span><input placeholder="必填" datatype="n" errormsg="商品数量格式错误" type="text" name="goods_num" value="{$data.goods_num}"></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">可售数量：</td><td><span><input placeholder="必填" datatype="n" errormsg="可售数量格式错误" type="text" name="goods_sale_num" value="{$data.goods_sale_num}"></span></td>
+        </tr>
+        <tr><td class="msg_title">商品状态：</td><td>
+            <span>
+            <input type="radio" name="is_show" value="1" <?php if($data['is_show']==1):?> checked <?php endif;?>>上架
+            <input type="radio" name="is_show" value="0" <?php if($data['is_show']==0):?> checked <?php endif;?>>下架
+            </span>
+        </td></tr>
+        <tr>
+            <td class="msg_title">分类名称：</td><td>
+            <span>
+                <select name="cat_one" id="cat_one" datatype="/[1-9]/" errormsg="请选择一级分类">
+                    <option value="0">请选择（必选）</option>
+                     <volist name="cat" id="value" >
+                         <option value="{$value.id}">{$value.title}</option>
+                     </volist>
+                </select>
+                <select name="cat_two" id="cat_two" datatype="/*0[1-9]/" errormsg="请选择二级分类">
+                     <option value="0">请选择（必选）</option>
+                </select>
+            </span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品图片：</td><td>
+            <span>
+                <input type="file" name="goods_img" datatype="*" nullmsg="请上传商品图片">
+                <?php if(!empty($data['goods_img'])):?>
+                <img src="{:C('DOMAIN_NAME')}/{$data.goods_thumb}" width="80px" height="80px" id="g_img"/>
+                <?php endif;?>
+            </span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品详情：</td>
+            <td>
+            <script type="text/plain" id="goods_desc" style="width:600px;height:240px;">
+    <p>{$data.desc}</p>
+</script>
+                <span>
+                    <!-- <textarea name="goods_desc" id="goods_desc" cols="30" rows="10">  
+                    </textarea> -->
+                </span>
+            </td>
+        </tr>
+    </table>
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><span class="am-text-primary am-text-lg nav" >扩展信息</span> </div>
+    </div>
+    <table class="show_msg">
+        <tr>
+            <td class="msg_title">商品类型：</td><td><span>
+            <span>
+            <input type="radio" name="is_real" value="1" <?php if($data['is_real']==1):?> checked <?php endif;?>>实物
+            <input type="radio" name="is_real" value="0" <?php if($data['is_real']==0):?> checked <?php endif;?>>虚拟商品
+            </span>
+            </span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否热销：</td><td><span>
+             <span>
+            <input type="radio" name="is_hot" value="1" <?php if($data['is_hot']==1):?> checked <?php endif;?>>是
+            <input type="radio" name="is_hot" value="0" <?php if($data['is_hot']==0):?> checked <?php endif;?>>否
+            </span>
+        </span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否新品：</td><td><span>
+            <span>
+            <input type="radio" name="is_new" value="1" <?php if($data['is_new']==1):?> checked <?php endif;?>>是
+            <input type="radio" name="is_new" value="0" <?php if($data['is_new']==0):?> checked <?php endif;?>>否
+            </span>
+        </span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否赠送积分：</td><td><span>
+             <span>
+            <input type="radio" name="give_score" value="1" <?php if($data['give_score']==1):?> checked <?php endif;?>>是
+            <input type="radio" name="give_score" value="0" <?php if($data['give_score']==0):?> checked <?php endif;?>>否
+            </span>
+        </span></td>
+        </tr>
+        <!--<tr>-->
+            <!--<td  class="msg_title">商品排序：</td><td><span>{$data.goods_sort}</span></td>-->
+        <!--</tr>-->
+    </table>
+        <input type="hidden" name="id" value="{$id}" />
+        <input class="goodsAdd" type="submit" value="提交" >
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+//        getCatTwo();
+       var um = UM.getEditor('goods_desc');
+       $("#cat_one").on("change",function(){
+           getCatTwo();
+       })
+    });
+
+    function getCatTwo() {
+        //获取一级菜单id
+        var pid = $("#cat_one").val();
+        var url = "/Tadm/Ajax/getCat";
+        $.post(url, { pid: pid }, function(data) {
+
+            var str;
+            $.each(data, function(key, val) {
+                str += "<option value='"+val.id+"'>"+data[key]['title']+"</option>";
+
+            });
+            $("#cat_two").empty();
+            $("#cat_two").append(str);
+            //debugger;
+        },'json');
+    }
+
+		//表单验证
+		$(function(){
+			$(".AddGoodsForm").Validform({
+				btnSubmit:".goodsAdd",
+			});
+		});
+</script>
+<include file="Tpl/publicFooter" />

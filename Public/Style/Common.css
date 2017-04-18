@@ -1,0 +1,13 @@
+/*默认表单样式*/
+.iptText{ border:1px solid #0eb493; }
+.iptBtn{ background:#0eb493; border:1px solid #0eb493; color:#fff; }
+
+/*公共小菜单*/
+.navComm{ width:100%;}
+.navComm ul{ background:#333; }
+.navComm ul li{ padding:.5em 0; max-width:1200px; margin:0 auto; }
+.navComm ul li a{ margin-bottom:.5em; line-height:2em; display:block; text-align:center; font-size:1.125em; color:#0eb493; text-decoration:none;}
+.navComm ul li a:hover{ color:#fff; border-bottom:2px solid #0eb493;}
+@media screen and (max-width: 425px) {
+	.navComm ul li a{font-size:.75em;}
+}

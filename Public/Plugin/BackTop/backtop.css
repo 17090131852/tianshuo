@@ -1,0 +1,14 @@
+/*返回顶部*/
+	.dn{display: none;}
+	.go-top{ position: fixed; bottom: 60px;right: 20px; width: 34px; z-index: 999;}
+	.go-top a{display: block; width: 38px; height: 36px; margin-bottom:2px; background-image: url(../../Plugin/BackTop/go-top.png); border:1px solid #ccc; ilter:alpha(opacity=50);  /*支持 IE 浏览器*/ -moz-opacity:0.50; /*支持 FireFox 浏览器*/ opacity:0.50;  /*支持 Chrome, Opera, Safari 等浏览器*/ }
+	.go-top a:last-child{margin-bottom: 0;}
+	.go-top .go{background-position: 0 -113px;}
+	.go-top .go:hover{background-position: 0 -190px;}
+	.go-top .feedback{background-position: 0 -376px;}
+	.go-top .feedback:hover{background-position: 0 -528px;}
+	.go-top .uc-2vm{background-position: 0 0;}
+	.go-top .uc-2vm:hover{background-position: 0 34px;}
+	.go-top .uc-2vm-pop{ position: absolute; right: 60px; top: -60px; width: 120px; box-shadow: 0 3px 5px #ddd; background: #fff; }
+	.go-top .uc-2vm-pop .title-2wm{ font-size: 14px; margin: 10px; text-align:center;}
+	.go-top .uc-2vm-pop .logo-2wm-box{ position: relative;left:10px; bottom:5px; }

@@ -1,0 +1,46 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>修改管理员</small></div>
+  </div>
+  <form action="{:U('Authority/userEdit')}" method="post">
+  <input type="hidden" name="uid" value="{$user.uid}">
+  <table id="add">
+    <tr>
+      <td>　用户名：</td>
+      <td><input type="text" name="uname" readonly="readonly" value="{$user.uname}"></td>
+    </tr>
+    <tr>
+      <td>重置密码：</td>
+      <td><input type="button" value="确认重置"></td>
+    </tr>
+    <tr>
+      <td>手机号码：</td>
+      <td><input type="text" name="mobile" value="{$user.mobile}" ></td>
+    </tr>
+    <tr>
+      <td>　所属组：</td>
+      <td>
+        <volist name="groups" id="group">
+          <input type="checkbox" name="group_id[]" <if condition=" in_array($group['id'],$checkeds) "> checked="checked"</if> value="{$group.id}">{$group.title}　
+        </volist>
+      </td>
+    </tr>
+   <tr>
+      <td>　　状态：</td>
+      <td>
+          <select name="sta" id="">
+            <option value="1">正常</option>
+            <option value="2">异常</option>
+            <option value="3">封禁</option>
+          </select>
+      </td>
+   </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定修改"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

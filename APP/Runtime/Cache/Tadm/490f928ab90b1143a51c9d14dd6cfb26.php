@@ -1,0 +1,68 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?php echo ($title); ?></title>
+<link rel="icon" type="image/png" href="/Public/Admin/i/favicon.png">
+<link rel="stylesheet" href="/Public/Admin/css/amazeui.min.css"/>
+<script src="/Public/Admin/js/jquery.min.js"></script>
+<script type="text/javascript">
+function formlogin()
+{
+  if(document.login.username.value == '')
+  {
+	alert('用户名不能为空！');
+	document.login.username.focus();
+	return false;
+  }
+  if(document.login.password.value == '')
+  {
+	alert('请输入密码！');
+	document.login.password.focus();
+	return false;
+  }
+}
+
+function change_code()
+{
+  $("#verify").attr('src','<?php echo U("Public/admVerify");?>?' + Math.random() + '');
+}
+
+</script>
+<style>
+.header {
+  text-align: center;
+}
+.header h1 {
+  font-size: 200%;
+  color: #333;
+  margin-top: 30px;
+}
+.header p {
+  font-size: 14px;
+}
+</style>
+</head>
+<body style="background: none;">
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" style=" margin-top:8%;">
+    <!--<img src="http://eng.bluebridgeedu.com/wp-content/uploads/2/2015/02/naea-chn002.jpg" alt="蓝桥博育" id="logo">-->
+    <h1 style="width: 100%; text-align: center;">管理员登录</h1>
+    <form name="login" action="<?php echo U('Public/login');?>" method="post" class="am-form" onsubmit="return formlogin();">
+      <label for="user_name">用户名:</label>
+      <input type="text" name="uname">
+      <label for="password">密码:</label>
+      <input type="password" name="pwd">
+      <label for="verify">验证码:</label>
+      <input type="text" name="admVer" style="width:50%;">
+	  <img id="verify" onclick="change_code();" src="<?php echo U('Public/admVerify');?>" style=" margin-left:3%;">
+      <label for="remember-me">
+      </label>
+      <div class="am-cf">
+        <input type="submit" value="登 录" style="width:100%; margin-top:3%; " class="am-btn am-btn-primary am-btn-sm am-fl">
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

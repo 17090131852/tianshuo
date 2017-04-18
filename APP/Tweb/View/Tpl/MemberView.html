@@ -1,0 +1,80 @@
+<include file="Tpl/PublicMemIndex"/>
+	<style>
+		.familyTree{ margin-top:2em; }
+		.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+		.form-group{ margin-top:1em; color: #666; }
+		.form-group .iptBtn {padding: .5em 1em;}
+	</style>
+<include file="Tpl/PublicMemMenu"/>
+	<section class="container">
+		<h1 class="pageTitle">
+			个人资料
+		</h1>
+		
+		<div class= "container">
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">真实姓名：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.realname}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+				<span class="form-control-static field-label">
+						生日：
+				</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.birthday}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">性别：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.sex|getSex}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">电邮地址：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.email}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">电话号码：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.mobile_phone}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">注册时间：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.reg_time}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+					<span class="form-control-static field-label">来源：</span>
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+					<span class="form-control-static">{$memInfo.origin}</span>
+				</div>
+			</div>
+			<div class="row form-group">
+				<a href="/Member/viewEdit"><div class="text-right">
+					<button type="submit" class="iptBtn rds5" name="ButtonAction" value="BillingInformationEdit">编辑</button>
+				</div></a>
+			</div>
+    </div>
+	</section>
+<include file="Tpl/PublicFoot"/>

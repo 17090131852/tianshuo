@@ -1,0 +1,136 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+	.MaxWidth h2 {padding-bottom: 1em;color: #0eb493;font-weight: bolder;font-size: 2em;}
+		section .Honor{ padding-top:2em; padding-bottom:3em; }
+		section .Honor .container {width:100%; }
+		.MeinPic h4 {font-size:18px; color:#333; text-align:center; line-height:1.8em;}
+		.MeinPic p { font-size:12px; color:#999; text-align:center; line-height:1.8em;}
+		.MeinPic a { display:	block;}
+		.MeinPic .box {position:relative; margin:0 auto; overflow:hidden; display:block; width:97%; margin-bottom: 1em;}
+		.MeinPic .box .mask { position:absolute;top:-100%;left:0; background:#0eb493; width:100%;height:100%; opacity:.8;transition:all ease-out .5s;-webkit-transition:all ease-out .5s;-moz-transition:all ease-out .5s;-ms-transition:all ease-out .5s;-o-transition:all ease-out .5s;}
+		.MeinPic .box:hover .mask{top:0; }
+		.MeinPic .box img {width:100%;}
+		.MeinPic .box .mask p{ color:#fff;line-height12px;}
+		.MeinPic .box .mask .MaskText {padding-top:40%;}
+		
+		.navComm ul li a{ font-size:.875em; }
+		.pics{ margin-top:1.5em; }
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+		.navComm ul li .ThisActive { border-bottom: 2px solid #0eb493; color: #fff; }
+		/*分页*/
+		.pagination>.active>a { background: #0eb493;border: 1px solid #0eb493; }
+		.pagination>.active>a:hover { background: #0eb493;border: 1px solid #0eb493; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>您的位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('BusiUnion/index')}">招商加盟</a></li>
+			<li class="active">经销商风采</li>
+		</ol>
+	</div>
+	<section>
+		<div class="navComm">
+			<ul class="clearfix">
+				<li class="col-lg-6 col-xs-6" >
+					<!--a class="col-lg-4 col-xs-4" href="javascript:;">在线加盟</a-->
+					<a href="{:U('BusiUnion/index')}">加盟政策</a>
+				</li>
+				<li class="col-lg-6 col-xs-6" >
+					<a class="ThisActive" href="{:U('BusiUnion/dealer')}">经销商风采</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="container MaxWidth Honor clearfix">
+			<h2>经销商风采</h2>
+			
+			<div class="row MeinPic">
+				<div class="pics col-md-3 col-sm-6 col-xs-6">
+					<a class="box" href="{:U('BusiUnion/dealerDetail')}">
+						<div class="mask">
+							<div class="MaskText">
+								<p>时间：2017-03-15</p>
+								<p>应县经销商</p>
+								<p>点击：200次</p>
+							</div>
+						</div>
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/YingXian.jpg" alt="应县经销商盛大开业" title="应县经销商盛大开业" />
+					</a>
+					<h4>应县经销商</h4>
+					<p>热烈庆祝天朔电动汽车应县店盛大开业</p>
+				</div>
+				<div class="pics col-md-3 col-sm-6 col-xs-6">
+					<a class="box" href="{:U('BusiUnion/dealerDetail')}">
+						<div class="mask">
+							<div class="MaskText">
+								<p>时间：2017-03-15</p>
+								<p>平遥经销商</p>
+								<p>点击：200次</p>
+							</div>
+						</div>
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/PingYao.jpg" alt="平遥经销商盛大开业" title="平遥经销商盛大开业" />
+					</a>
+					<h4>平遥经销商</h4>
+					<p>热烈庆祝天朔电动汽车平遥店盛大开业</p>
+				</div>
+				<div class="pics col-md-3 col-sm-6 col-xs-6">
+					<a class="box" href="{:U('BusiUnion/dealerDetail')}">
+						<div class="mask">
+							<div class="MaskText">
+								<p>时间：2017-03-15</p>
+								<p>晋中经销商</p>
+								<p>点击：200次</p>
+							</div>
+						</div>
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/JinZhong.jpg" alt="晋中经销商盛大开业" title="晋中经销商盛大开业"/>
+					</a>
+					<h4>晋中经销商</h4>
+					<p>热烈庆祝天朔电动汽车晋中店盛大开业</p>
+				</div>
+				<div class="pics col-md-3 col-sm-6 col-xs-6">
+					<div>
+					<a class="box" href="{:U('BusiUnion/dealerDetail')}">
+						<div class="mask">
+							<div class="MaskText">
+								<p>时间：2017-03-15</p>
+								<p>定县经销商</p>
+								<p>点击：200次</p>
+							</div>
+						</div>
+						<img src="{:C('UPLOAD_SAVAPATH')}Test/DingXian.jpg" alt="定县经销商盛大开业" title="定县经销商盛大开业" />
+					</a>
+					<h4>定县经销商</h4>
+					<p>热烈庆祝天朔电动汽车定县店盛大开业</p>
+					</div>
+				</div>
+			</div>
+			<!--分页-->
+			<nav>
+			  <ul class="pagination">
+			    <li class="disabled">
+			    	<a href="javascript:;" aria-label="Previous">
+			    		<span aria-hidden="true">&laquo;</span>
+			    	</a>
+			    </li>
+			    <li class="active">
+			    	<a href="javascript:;">1</a>
+			    </li>
+			    <li>
+			    	<a href="javascript:;">2</a>
+			    </li>
+			    <li>
+			    	<a href="javascript:;">3</a>
+			    </li>
+			    <li>
+			      <a href="javascript:;" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</section>
+<include file="Tpl/PublicFoot"/>

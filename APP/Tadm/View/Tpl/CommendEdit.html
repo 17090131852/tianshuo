@@ -1,0 +1,72 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<script type="text/javascript" src="__PUBLIC__/Plugin/AjaxFileUpload/ajaxfileupload.js"></script>
+<div class="admin-content">
+	<div class="am-cf am-padding">
+		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">推荐位管理</strong> / <small>资源管理</small></div>
+	</div>
+
+	<div class="am-g">
+		<div class="am-u-sm-12">
+			<table class="am-table am-table-striped am-table-hover table-main">
+				<thead>
+				<tr>
+					<td>推荐位位置:&nbsp;&nbsp;{$commendInfo.location}</td>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>预览</th>
+					<th>资源描述</th>
+					<th>上传时间</th>
+				</tr>
+				</thead>
+				<tbody>
+				<volist name="resourceList" id="role">
+					<tr>
+						<td>{$role.id}</td>
+						<td><img src="{$role.url}" alt="图片错误" style="width:160px;height: 90px;"></td>
+						<td>{$role.resource_desc}</td>
+						<td>{$role.create_at}</td>
+						<td>
+							<a href="__APP__/../Tadm/Commend/destroyImg/id/{$role.id}" onclick="return dispConfirm()">删除</a>
+						</td>
+					</tr>
+				</volist>
+				</tbody>
+			</table>
+			<hr />
+			<p></p>
+		</div>
+	</div>
+	<div class="am-g">
+		<div class="am-u-sm-12">
+			<input type="button" class="btn-success" onclick="addnode();" value="点击添加" />
+			<form class="upForm" method="post" action="{:U('Commend/uploadImg')}" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="{$commendInfo.id}" />
+				<input type="submit" class="btn btn-success" value="提交" />
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	var i=1;
+	var g=1;
+	function addnode(){
+		//console.log(123);
+		$('form').append('<br /><input type="file" class="iptFile" name='+i+' value='+i+++' />' +
+										 '资源描述：<input type="text" name='+g+' class='+g+++'>');
+	}
+
+	function dispConfirm(){
+		var r=confirm("确定删除图片？");
+		if (r==true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+</script>
+<include file="Tpl/publicFooter" />

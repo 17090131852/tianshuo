@@ -1,0 +1,31 @@
+<include file="Tpl/publicHeader" />
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <!--<img src="/Public/images/logo.jpg">-->
+    <strong>{$Think.config.WEB_TITLE}</strong><small></small>　
+    <span style="cursor: pointer;" class="am-icon-arrows-alt"></span>
+  </div>
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li style="margin:13px 0 0 0;"><span class="am-icon-users"></span> 您好！{$Think.session.admUname} </li>
+      <li><a href="{:U('login/editpwd')}"><span class="am-icon-tag"> 修改密码</a></li>
+      <li><a target="_top" href="{:U('Public/logout')}"><span class="am-icon-sign-out"></span>注销</a></li>
+    </ul>
+  </div>
+</header>
+<include file="Tpl/publicFooter" />
+<script type="text/javascript">
+$(function(){
+    $('.am-icon-arrows-alt').click(function(){
+        var cols = $("#frame", top.document).attr('cols');
+        if(cols != '0,*')
+        {
+            $("#frame", top.document).attr('cols','0,*');
+        }
+        else
+        {
+            $("#frame", top.document).attr('cols','180,*');
+        }
+    });
+})
+</script>

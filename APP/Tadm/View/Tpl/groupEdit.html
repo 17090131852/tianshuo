@@ -1,0 +1,24 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限管理</strong> / <small>修改分组</small></div>
+  </div>
+  <form action="{:U('Authority/groupEdit')}" method="post">
+    <input type="hidden" name="group_id" value="{$group.id}">
+  <table id="add">
+    <tr>
+      <td>分组名称：</td>
+      <td><input type="text" name="title" value="{$group.title}"></td>
+    </tr>
+    <tr>
+      <td>是否开启：</td>
+      <td>　<input type="radio" name="status" value="1" <if condition="$group.status eq 1">checked="checked"</if> > 是 　　<input type="radio" name="status" value="2" <if condition="$group.status eq 2">checked="checked" </if>> 否</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定添加"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

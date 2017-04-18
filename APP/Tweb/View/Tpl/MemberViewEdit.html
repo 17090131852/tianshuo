@@ -1,0 +1,128 @@
+<include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js" /></script>
+<script src="__PUBLIC__/Plugin/City/js/jquery.cityselect.js"></script>
+<style>
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.form-group{ margin-top:1em; color: #666;}
+	.iptText { padding: .5em; }
+	.SexBtn input { margin:0 .2em 0 0;}
+	.form-group .iptBtn {padding: .5em 1em;}
+	#liveCity select { padding: .5em; border: 1px solid #1ea78d; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+	<h1 class="pageTitle">
+		个人资料
+	</h1>
+	<!--真实姓名-->
+	<form action="/Member/viewEdit" method="post" class="AddUserForm">
+		<div class="container">
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">真实姓名：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="realname" value="{$memInfo.realname}"  autocomplete="off" datatype="*" errormsg="内容不能为空">
+				</div>
+			</div>
+			<!--昵称-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">昵称</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="nickname" value="{$memInfo.nickname}"  autocomplete="off" datatype="*" errormsg="内容不能为空">
+				</div>
+			</div>
+
+
+			<!--选择城市-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">地区选择：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<span class="form-control-static field-label">
+						<div id="liveCity">
+							<select class="prov rds5" name="prov"></select>
+							<select class="city rds5" name="city" disabled="disabled"></select>
+							<select class="dist rds5" name="dist" disabled="disabled"></select>
+						</div>
+					</span>
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">街道地址：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="address" value="{$memInfo.address}" datatype="*" errormsg="内容不能为空">
+				</div>
+			</div>
+			<!--生日-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <span class="form-control-static field-label">
+              生日：
+          </span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<!-- <input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="birthday" value="{$memInfo.birthday}"> -->
+					<input class="timeSelect iptText rds5" style="line-height:1em;" name="birthday" type="date" value="{$memInfo.birthday}" datatype="*" errormsg="内容不能为空">
+				</div>
+			</div>
+			<!--性别-->
+			<div class="row form-group SexBtn">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">性别：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="radio" datatype="*" name="sex" value="1" <if condition="$memInfo.sex eq 1"> checked="checked"</if> >男
+					<input type="radio" name="sex" value="2" <if condition="$memInfo.sex eq 2"> checked="checked"</if>>女
+				</div>
+			</div>
+			<!--电邮地址-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">电邮地址：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="email" value="{$memInfo.email}" placeholder="邮箱地址" autocomplete="off" datatype="e" errormsg="邮箱格式错误"/>
+				</div>
+			</div>
+			<!--电话号码-->
+			<!--div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">电话号码：</span>
+				</div>
+				<div class="col-xs-12 col-xs-12 col-sm-8 col-md-8 col-lg-8">
+				<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="email" value="{$memInfo.mobile_phone}" placeholder="手机号" autocomplete="off" datatype="m" errormsg="手机号格式错误" />
+				</div>
+			</div-->
+			
+			<div class="row form-group">
+				<div class="text-right">
+					<button type="submit" class="iptBtn rds5 userAdd">确定</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+<script>
+		//居住地联动
+		$("#liveCity").citySelect({
+			prov:"{$memInfo.prov}",
+			city:"{$memInfo.city}",
+			dist:"{$memInfo.dist}",
+			nodata:"none"
+		});
+		//表单验证
+		$(function(){
+		$(".AddUserForm").Validform({
+			 btnSubmit:".userAdd",
+		});
+	});
+	</script>
+<include file="Tpl/PublicFoot"/>

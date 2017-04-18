@@ -1,0 +1,96 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.familyTree{ margin-top:2em; }
+	.familyTree ul li { margin: .2em 0; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+	.flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+	.listTable{ margin:1em auto; }
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+	.iptText{ padding: .4em .6em; }
+	.iptBtn { padding: .4em 1.5em; }
+	@media screen and (max-width: 425px) {
+			.flatSelect select { margin: .5em 0; }
+			.CenterPhone { text-align: center; }
+		}
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+	<h1 class="pageTitle">
+		家谱树
+	</h1>
+	<div class="familyTree">
+		<ul class="row">
+			<form action="/Agents/family" method="post">
+				<li class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+				<label>会员编号：</label>
+				<input class="iptText rds5" type="text" name="mid" value="{$mid}">
+				</li>
+				<li class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+					<label>会员姓名：</label>
+					<input class="iptText rds5" type="text" name="nickname" value="{$nickname}">
+				</li>
+				<li class="col-lg-2 col-xs-12 col-sm-2 col-md-2">
+					<label></label>
+						<span class="flatSelect">
+						<select  data-criteria="equal" name="level"  class="rds5">
+							<option value="0">会员等级</option>
+							<option value="1"  <if condition="$level eq 1">selected="selected"</if> >第一代</option>
+							<option value="2"  <if condition="$level eq 2">selected="selected"</if>>第二代</option>
+							<option value="3"  <if condition="$level eq 3">selected="selected"</if>>第三代</option>
+						</select>
+						</span>
+				</li>
+				<li class="col-lg-2 col-xs-12 col-sm-2 col-md-2 CenterPhone">
+					<label></label>
+					<input class="iptBtn rds5" type="submit" value="提交">
+				</li>
+			</form>
+		</ul>
+		<table class="row listTable table-hover table">
+			<thead>
+				<tr>
+					<th class="sorting_desc hidden-xs" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="会员编号" aria-sort="descending">
+						会员编号
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="会员姓名" aria-sort="descending">
+						会员姓名
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="直荐会员" aria-sort="descending">
+						直荐会员
+					</th>
+				</tr>
+			</thead>
+			<volist name="selectArray" id="al">
+				<tr>
+					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
+					<td>{$al.nickname}</td>
+					<td>{$al.level|getLevel}</td>
+				</tr>
+			</volist>
+			<volist name="oone" id="al">
+				<tr>
+					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
+					<td>{$al.nickname}</td>
+					<td>第一代</td>
+				</tr>
+			</volist>
+			<volist name="ttwo" id="al">
+				<tr>
+					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
+					<td>{$al.nickname}</td>
+					<td>第二代</td>
+				</tr>
+			</volist>
+			<volist name="tthree" id="al">
+				<tr>
+					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
+					<td>{$al.nickname}</td>
+					<td>第三代</td>
+				</tr>
+			</volist>
+		</table>
+	</div>
+</section>
+<include file="Tpl/PublicFoot"/>

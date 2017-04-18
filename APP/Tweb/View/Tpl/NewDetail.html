@@ -1,0 +1,63 @@
+<include file="Tpl/PublicHead"/>
+	<style>
+		section .News{ padding-top: 4em; padding-bottom: 3em;}
+		section .News dl{ margin-top:1em; padding-bottom:1em; border-bottom: 1px solid #dcdcdc;}
+		section .News dd{ }
+		section .News dd p{font-size: .75em; margin-bottom: 20px; color: #666; line-height: 24px;}
+		section .News dd p span{background: #666; width: 4px; height: 4px; display: block; float: left; margin: 7px 0 0 -8px;}
+		section .News dd h2{font-size: 1.5em; color: #0eb493;  padding-bottom: 15px;}
+		.col-xs-8 h2{ margin-top:0; }
+		.navComm ul li a{ font-size:.75em; }
+		
+		.newContent h1{ line-height:2em; font-size:1.5em; }
+		.newContent h3{ line-height:2em; font-size:1em; color:#666; }
+		.newContent .newCont{ line-height:1.8em; margin-top:2em;  }
+		.bshare-custom{ float:right; margin-top:2em;}
+		
+		@media screen and (max-width: 425px) {
+			section .News dd h2{ font-size:.875em; line-height:1.8em; }
+		}
+		.navComm {background: #333;}
+		.navComm ul li { text-align: center; }
+		.navComm ul li a{ display: inline-block; border-bottom: 2px solid #333; margin-bottom: 0; }
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li class="active">资讯中心</li>
+		</ol>
+	</div>
+	<section class="clearfix">
+		<div class="navComm">
+			<ul class="clearfix container">
+				<li class="col-md-3 col-xs-3">
+					<a href="{:U('News/index')}">天朔新闻</a>
+				</li>
+				<li class="col-md-3 col-xs-3">
+					<a href="__APP__/../News/index/cate/7">媒体报道</a>
+				</li>
+				<li class="col-md-3 col-xs-3">
+					<a href="__APP__/../News/index/cate/14">业界动态</a>
+				</li>
+				<li class="col-md-3 col-xs-3">
+					<a href="__APP__/../News/index/cate/8">精彩视频</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container News clearfix">
+			<if condition="$newInfo['title'] neq ''">
+				<div class="newContent clearfix">
+					<h1>{$newInfo.title}</h1>
+					<h3>作者：{$newInfo.auth} | 来源：{$newInfo.from} | 时间：{$newInfo.uptime|date='Y-m-d H:i:s',###}</h3>
+					<p class="newCont">
+						{$newInfo.content}
+					</p>
+					<div class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+				</div>
+			<else />
+				资讯不存在！
+			</if>
+		</div>
+	</section>
+	<include file="Tpl/PublicFoot"/>

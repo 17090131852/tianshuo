@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>天朔电动汽车有限公司-积分商城</title>
+	<meta name="keywords" content="天朔 天朔电动汽车 山西天朔 天朔汽车 电动未来 天朔电动 电动汽车 " />
+	<meta name="description" content="山西天朔电动汽车有限公司隶属山西天朔集团，是一家集研发，设计，生产销售为一体的新能源电动汽车制造企业。我公司保持以节能减排为宗旨。按照汽车产品的新的设计理念，采用先进的轿车生产工艺和标准。结合乘用车辆配合的性能。打造国内先进的具有开发生产多种类型新能源，电动汽车为主的大型生产企业。" />
+	<link rel="stylesheet" href="__PUBLIC__/Style/Reset.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Plugin/Bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" href="__PUBLIC__/Style/Common.css" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+	<!--[if lte IE 6]><script src="/skin/js/letskillie6.zh_cn.pack.js"></script><![endif]-->
+	<script src="__PUBLIC__/Script/jquery-1.9.1.min.js" ></script>
+	<script src="__PUBLIC__/Plugin/Bootstrap/bootstrap.min.js" ></script>
+	<style>
+		.TopBar{ line-height:32px; background: #1ea78d; color: #fff; font-size: .875em; }
+		.LogoBar { padding:1em 0; }
+		.TopBar a{color: #fff; }
+		.TopBar .BarRight li{ float: left; padding-right: 1em; }
+		.TopBar a{color: #fff; }
+		.pullLeft{ float:left;}
+		.pullRight{ float:right;}
+	</style>
+</head>
+<body>
+<header>
+	<!--顶部条-->
+	<div class="TopBar">
+		<div class="container">
+			<div class="row clearfix">
+				<div class="pullLeft">
+					<span class="hidden-xs">欢迎访问天朔积分商城 | </span>
+					<if condition="$Think.session.msn eq '' ">
+						<a href="{:U('Public/Login')}">登录</a>
+						<else />
+						<a href="{:U('Public/logout')}">退出</a> <a href="{:U('Member/index')}"> {$Think.session.nickname|msubstr=###,0,4}</a>
+					</if>
+				</div>
+				<div class="pullRight">
+					<a href="{:U('Imall/orderList')}">我的订单</a> | <a href="{:U('Imall/cartList')}">购物车</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--LOGO等-->
+	<div class="container LogoBar">
+		<div class="row">
+			<div class="TsLogo col-lg-3 col-md-5 col-sm-5 col-xs-8">
+				<a href="__APP__">
+					<!--<img src="__PUBLIC__/Images/Tweb/logo.png" alt="天朔集团LOGO" title="天朔集团LOGO" />-->
+				</a>
+			</div>
+		</div>
+	</div>
+	<!--导航-->
+	<!--div class="container">
+		<div class="row">
+			<!--nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">快捷菜单</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-center">
+							<li><a href="{:U('Index/index')}"><span></span>首页</a></li>
+							<li><a href="{:U('MotoType/index')}"><span></span>车型总览</a></li>
+							<li><a href="{:U('About/afterService')}"><span></span>售后服务</a></li>
+							<li><a href="{:U('News/index')}"><span></span>资讯中心</a></li>
+							<li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li>
+							<li><a href="{:U('About/index')}"><span></span>关于天朔</a></li>
+							<li><a href="{:U('BusiUnion/index')}"><span></span>招商加盟</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div-->
+</header>

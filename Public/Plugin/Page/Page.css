@@ -1,0 +1,36 @@
+/* custom css style: pageNum,cPageNum */
+.pageNum {
+    color: #666;
+    font-size:12px;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+
+.cPageNum {
+    font-size:12px;
+    background-color: #f5a201;
+    border: 1px solid #ec8807;
+    color:#fff;
+    padding: 6px 12px;
+}
+#pageNav{
+    margin: 40px 0 70px 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+#pageNav a{
+    margin-left:5px;
+}
+#pageNav span{
+    margin-left:5px;
+}
+#pageNav a:hover {
+    color:#222;
+    border: 1px solid #999999;
+    text-decoration: none;
+}

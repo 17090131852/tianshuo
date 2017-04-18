@@ -1,0 +1,79 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+
+	.familyTree{ margin-top:2em; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.iptText{ padding: .4em .6em; }
+	.iptBtn { padding: .4em 1.5em; }
+	.flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+	.flatSelect select{ padding: .5em 1em;border: 1px solid #0eb493;}
+	.listTable{ margin-top:2em; }
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+	@media screen and (max-width: 425px) {
+			.flatSelect select { margin: .5em 0; }
+			.CenterPhone { text-align: center; }
+		}
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+	<h1 class="pageTitle">
+		历史订单
+	</h1>
+	<div class="familyTree">
+		<ul class="row">
+			<form action="/Agents/order" method="post">
+				<li class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+					<label>订单编号：</label>
+					<input class="iptText rds5" type="text" name="order_sn" value="{$order_sn}">
+				</li>
+				<li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+						<span class="flatSelect">
+							<select  data-criteria="equal" name="level" class="rds5" >
+								<option value="0">请选择</option>
+								<option value="1"  <if condition="$sta eq 1">selected="selected"</if> >正常</option>
+								<option value="2"  <if condition="$sta eq 2">selected="selected"</if> >封禁</option>
+								<option value="3"  <if condition="$sta eq 3">selected="selected"</if> >异常</option>
+							</select>
+						</span>
+				</li>
+				<li class="col-lg-6 col-md-6 col-sm-6 col-xs-12 CenterPhone">
+					<input class="iptBtn rds5" type="submit" value="提交">
+				</li>
+			</form>
+		</ul>
+		<div class="table-responsive">
+		<table class="listTable table-hover table">
+			<thead>
+				<tr>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="订单编号" aria-sort="descending">
+						订单编号
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="订单状态" aria-sort="descending">
+						订单状态
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="订单日期" aria-sort="descending">
+						订单日期
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="收货人姓名" aria-sort="descending">
+						收货人姓名
+					</th>
+					<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" aria-label="消费积分" aria-sort="descending">
+						消费积分
+					</th>
+				</tr>
+			</thead>
+			<volist name="orderList" id="al">
+				<tr>
+					<td>{$al.order_sn}</td>
+					<td>{$al.sta|getOfflineOrderSta}</td>
+					<td>{$al.ctime|date="Y-m-d H:i:s",###}</td>
+					<td>{$al.remark}</td>
+					<td>{$al.total}</td>
+				</tr>
+			</volist>
+		</table>
+		</div>
+	</div>
+</section>
+<include file="Tpl/PublicFoot"/>

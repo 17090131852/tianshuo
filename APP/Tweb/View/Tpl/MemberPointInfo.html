@@ -1,0 +1,64 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.familyTree{ margin-top:2em; }
+	.familyTree ul li { margin: .2em 0; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+	.flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+	.listTable{ margin:1em auto; }
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+	.iptText{ padding: .4em .6em; }
+	.iptBtn { padding: .4em 1.5em; }
+	@media screen and (max-width: 425px) {
+		.flatSelect select { margin: .5em 0; }
+		.CenterPhone { text-align: center; }
+	}
+	table tr th {
+		background-color: rgb(76, 140, 43);
+		border: 1px solid #DDD;
+		color: #FFF;
+	}
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container clearfix">
+	<h1 class="pageTitle">
+		我的积分历史
+	</h1>
+
+	<div class="wrapper container center">
+		<ul>
+			<li>
+				<div class="table-responsive">
+					<table class="listTable table-hover table">
+						<thead>
+						<tr>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员编号" aria-sort="descending">
+								会员编号
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="状态" aria-sort="descending">
+								积分类型
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单日期" aria-sort="descending">
+								变更时间
+							</th>
+							<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="消费积分" aria-sort="descending">
+								积分变化
+							</th>
+						</tr>
+						</thead>
+						<volist name="goalPointList" id="al">
+							<tr>
+								<td>{$al.msn}</td>
+								<td>{$al.change_type}</td>
+								<td>{$al.addtime}</td>
+								<td>{$al.op_type}{$al.change_point}&nbsp;BV</td>
+							</tr>
+						</volist>
+					</table>
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<include file="Tpl/PublicFoot"/>

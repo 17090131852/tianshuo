@@ -1,0 +1,30 @@
+<include file="Tpl/publicHeader" />
+<style>
+.am-icon-file:before{padding-right:5px;}
+</style>
+<div class="am-cf admin-main">
+<ul class="am-list admin-sidebar-list">
+    <li><a class="am-cf" href="{:U('main')}"><span class="am-icon-home"></span> 首页</a></li>
+    <foreach name="treeArr" item="app">
+			<li class="admin-parent"><a class="am-cf"><span class="am-icon-file">{$app.title}</span>　<span class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+				<ul class="am-list admin-sidebar-sub am-collapse">
+					<foreach name="app.child" item="L1">	
+						<li><a href="{:U($L1['model'].'/'.$L1['action'])}"><span class="am-icon-tag"></span> {$L1.title}</a></li>	  	
+					</foreach>
+				</ul>		
+    </foreach>
+</ul>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.admin-parent').click(function(){
+	  $(this).next('ul').slideToggle(250);
+   })
+    // $('.am-list li a').hover(function(){
+    //     $(this).addClass('hover');
+    // },function(){
+    //     $(this).removeClass('hover');
+    // })
+})
+</script>
+<include file="Tpl/publicFooter" />

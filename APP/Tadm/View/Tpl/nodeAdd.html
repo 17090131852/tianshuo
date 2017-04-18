@@ -1,0 +1,58 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">节点管理</strong> / <small>添加节点</small></div>
+  </div>
+  <form action="{:U('Node/add')}" method="post">
+  <table id="add">
+    <tr>
+      <td>节点名称：</td>
+      <td><input type="text" name="title"></td>
+    </tr>
+    <tr>
+      <td>　控制器：</td>
+      <td><input type="text" name="model"></td>
+    </tr>
+    <tr>
+      <td>　　方法：</td>
+      <td><input type="text" name="action"></td>
+    </tr>
+    <tr>
+      <td>方法参数：</td>
+      <td><input type="text" name="parma"></td>
+    </tr>
+    <tr>
+      <td>父级节点：</td>
+      <td>
+        <select name="pid" id="">
+          <option value="1">新增父级</option>
+          <volist name="nodes" id="node">
+            <option value="{$node.id}">{$node.title}</option>
+          </volist>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>节点描述：</td>
+      <td><input type="text" name="remark"></td>
+    </tr>
+    <tr>
+      <td>　　层级：</td>
+      <td><input type="text" name="level" value="1"></td>
+    </tr>
+    <tr>
+      <td>　　排序：</td>
+      <td><input type="text" name="ord" value="1"></td>
+    </tr>
+    <tr>
+      <td>设为导航：</td>
+      <td>　<input type="radio" name="sta" value="1" checked="checked"> 是 　　<input type="radio" name="sta" value="2"> 否</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定添加"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

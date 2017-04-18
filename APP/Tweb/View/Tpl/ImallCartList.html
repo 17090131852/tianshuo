@@ -1,0 +1,40 @@
+<include file="Tpl/PublicImallHead" />
+<style>
+	.cartList{ margin-top:1em; }
+	.cartList h1{ line-height:2em; font-size:2em; color:#0EB493; border-bottom:1px solid #0EB493; }
+	.goodItem{ margin-top:1em;  }
+	.goodCase{ border:1px solid #0EB493; padding:1em; }
+	.goodDel{ background:#FF6664; border:1px solid #FF6664; padding:.1em .2em; text-decoration: none}
+	.goodDel:hover{ color:#fff; text-decoration: none }
+	.totalIntergral{ border-top:1px solid #0EB493; line-height:3em;font-size:1.25em; color:#FF6664; margin-top:1em; }
+	.iptBtn {padding: .5em 1em;}
+</style>
+<div class="container cartList">
+	<h1>购物车</h1>
+	<form action="{:U('Imall/balanceCart')}" method="post">
+		<input type="hidden" class="goodsJson" name="goodsJson" value='{$cartListJson}' title="" />
+			<if condition="$cartList.sum eq null">
+				<a href="{:U('Imall/index')}">购物车为空，请选购商品</a>
+			<else />
+				<ul class="row clearfix">
+					<volist name="cartList['items']" id="cvo">
+						<li class="goodItem col-lg-6">
+							<div class="goodCase rds5">
+								<p>商品编码：{$cvo.goods_code}</p>
+								<p>商品名称：{$cvo.goods_name}</p>
+								<p>商品总积分：{$cvo.total_price} BV</p>
+								<p>商品数量：{$cvo.num}</p>
+								<a class="iptBtn rds5 goodDel" href="__APP__/Imall/deleteCart/id/{$cvo.id}" onclick="if(confirm('确定删除?')==false){ return false; }">删除</a>
+							</div>
+						</li>
+					</volist>
+				</ul>
+				<div class="totalIntergral col-lg-12" >总积分：{$cartList['sum']} BV</div>
+				<div class="col-lg-12" style="text-align:right">
+					<a href="__APP__/Imall/cleanCart/">清空购物车</a>
+					<input class="iptBtn rds5" type="submit" value="去结算" />
+				</div>
+			</if>
+		</form>
+</div>
+<include file="Tpl/PublicFoot" />

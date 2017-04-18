@@ -1,0 +1,80 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单管理</strong> / <small>线上订单详情</small></div>
+    </div>
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><middle class="am-text-primary am-text-lg">订单主信息</middle> </div>
+    </div>
+    <table id="add">
+        <tr>
+            <td>订单编号：<span>{$data.order_sn}</span></td>
+        </tr>
+        <tr>
+            <td>订单积分：<span>{$data.integral}BV</span></td>
+        </tr>
+        <tr>
+            <td>订单状态：<span>{$data.order_status|getOrderStatus}</span></td>
+        </tr>
+        <tr>
+            <td>配送状态：<span>{$data.shipping_status|getOrderShippingStatus}</span></td>
+        </tr>
+        <tr>
+            <td>下单时间：<span>{$data.create_time}</span></td>
+        </tr>
+        <tr>
+            <td>用户姓名：<span>{$member_data.realname}</span></td>
+        </tr>
+        <tr>
+            <td>用户编号：<span>{$member_data.msn}</span></td>
+        </tr>
+        <tr>
+            <td>收货人姓名：<span>{$data.realname}</span></td>
+        </tr>
+        <tr>
+            <td>收货人电话：<span>{$data.tel}</span></td>
+        </tr>
+        <tr>
+            <td>收货人地址：<span>{$data.province}{$data.city}{$data.county}{$data.address}</span></td>
+        </tr>
+        <tr>
+            <td>收货人邮编：<span>{$data.zipcode}</span></td>
+        </tr>
+    </table>
+</div>
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><middle class="am-text-primary am-text-lg">订单商品信息</middle> </div>
+</div>
+<div class="am-g">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>商品数量</th>
+                <th>商品单价</th>
+                <th>商品总价</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="goods_data" id="value" empty="暂时没有数据" >
+                <tr>
+                    <td><?=$key+1?></td>
+                    <td>{$value.goods_code}</td>
+                    <td>{$value.goods_name}</td>
+                    <td>{$value.goods_num}</td>
+                    <td>{$value.goods_code|getGoodsScore}</td>
+                    <td>{$value.total_score}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        <hr />
+        <p></p>
+    </div>
+</div>
+<include file="Tpl/publicFooter" />

@@ -1,0 +1,146 @@
+<style>
+	.headArea{  line-height:40px; font-size:.875em; border-bottom:1px solid #062033; margin: 0; background: #0eb493;}
+	.logout{ line-height:40px; }
+	.memBasic { float: left; padding-left: 1em; }
+	.logout { float: right;padding-right: 1em; }
+	.memBasic img{ margin:0 auto;}
+	.memBasic p{ margin-bottom: 0; color: #fff; }
+	.memBasic a,.logout a{ color: #fff; }
+	.logout a:hover{ color: red; }
+	.nav{ margin:0; padding:0}
+	.nav .open>a, .nav .open>a:hover, .nav .open>a:focus{ border-color:#35bca1; }
+
+	.nav-tabs>li>a{ color: #333;padding: .8em 1em; text-align: right;}
+	.nav-tabs>li{margin:2px; width: 138px;}
+	/*顶部 返回首页 退出 种子会员*/
+	.logout i,.backIndex i { position: relative; top: 4px; display: inline-block; width: 20px; height: 18px; }
+	.logoutIcon { background: url("/Public/Images/Tweb/logout.png") no-repeat 2px 2px; }
+	.backIndexIcon { background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0; }
+	.seedMember { background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0; }
+	.backIndex a:hover { color: #fff; }
+	.lineBar { display: inline-block; color: #fff; padding: 0 .4em 0 1em; }
+	.nav-tabs { margin-top: 1.6em; }
+</style>
+
+<div class="headArea">
+	<div class="container">
+		<div class="row">
+			<div class="memBasic">
+				<p><a href="{:U('Member/view')}" title="{$Think.session.nickname}">{$Think.session.nickname|msubstr=###,0,4}</a>[{$Think.session.msn|getMemberType|getMemType}]</p>
+			</div>
+			<div class="logout">
+				<i class="logoutIcon"></i>
+				<a href="{:U('Public/logout')}">退出</a>
+			</div>
+			<div class="logout backIndex">
+				<i class="backIndexIcon"></i> 
+				<a href="{:U('Member/index')}"> 返回首页</a>
+				<span class="lineBar">/</span>
+			</div>
+			<!-- <div class="logout backIndex">
+				<i class="seedMember"></i> 
+				<a href="{:U('Public/addSeed')}"> 种子会员</a>
+				<span class="lineBar">/</span>
+			</div> -->
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- 轮播图 按钮 -->
+		<ol class="carousel-indicators">
+			<volist name="resourceList" id="item">
+				<li data-target="#carousel-example-generic" data-slide-to="{$i-1}" class="<if condition='$key eq 1 '>active</if>"></li>
+			</volist>
+		</ol>
+		<!-- 轮播图 内容 -->
+		<div class="carousel-inner">
+			<volist name="resourceList" id="item">
+				<div class="item <if condition='$i eq 1 '>active</if>">
+					<img class="img-responsive center-block" src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1" />
+				</div>
+			</volist>
+		</div>
+		<!-- 左右滑动按钮 -->
+		<a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
+<!-- 导航条描边样式 -->
+<style type="text/css">
+	.navNewMember { border: 2px solid rgb(66, 176, 216); }
+	.navAccData { border: 2px solid rgb( 63, 187, 155); }
+	.navCarSupermaket {border: 2px solid rgb(141,192,88);}
+	.navOder {border: 2px solid rgb(238,171,171);}
+	.navReport {border: 2px solid rgb(239, 189, 125);}
+	.navHistory {border: 2px solid rgb(252, 141, 107) ;}
+	.navMoney {border: 2px solid rgb( 224, 100, 83);}
+	.navStore {border: 2px solid rgb( 239, 44, 44);}
+
+	.nav-tabs>li>a { margin-right: 0; width: 134px; }
+	.nav-tabs li i { position: relative;left: 0px; bottom: 5px; float: left; display: inline-block; }
+	.memberIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 0; width: 32px;height: 27px; }/*新会员*/
+	.dataIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -34px -2px; width: 35px;height: 26px; }/*账户资料*/
+	.superMaketIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -69px -2px; width: 32px;height: 27px; }/*汽车超市*/
+	.oderIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -102px -1px; width: 32px;height: 29px; }/*订单*/
+	.reportIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 -29px; width: 25px;height: 27px; }/*报告*/
+	.historyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -24px -29px; width: 24px;height: 27px; }/*奖励历史*/
+	.moneyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -48px -30px; width: 27px;height: 28px; }/*电子钱包*/
+	.storeIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -75px -30px; width: 36px;height: 28px; }/*积分商城*/
+</style>
+<!--导航条-->
+<div class="container">
+<ul class="row nav nav-tabs col-lg-12 clearfix">
+	<li class="navNewMember"><a href="{:U('Member/add')}"><i class="memberIcon"></i>新会员</a></li>
+	<li class="navAccData" role="presentation" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">
+		<i class="dataIcon"></i>
+			帐户资料<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li> <a href="{:U('Member/view')}">个人资料</a> </li>
+			<li><a href="{:U('Member/postAddr')}">收货地址</a></li>
+			<li><a href="{:U('Member/changePwd')}">修改密码</a></li>
+		</ul>
+	</li>
+	<li role="presentation" class="navCarSupermaket dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">
+			<i class="superMaketIcon"></i>汽车超市<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="{:U('MotoType/index')}"><span></span>车型总览</a></li>
+			<li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li>
+		</ul>
+	</li>
+	<li class="navOder" role="presentation" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">
+			<i class="oderIcon"></i>
+			订单<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="{:U('Agents/order')}">历史订单</a></li>
+			<!--li><a href="{:U('Agents/orderList')}">积分订单</a></li-->
+		</ul>
+	</li>
+	<li class="navReport" role="presentation" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">
+		<i class="reportIcon"></i>
+			报告<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li> <a href="{:U('Agents/report')}">下属报告</a></li>
+			<li> <a href="{:U('Agents/family')}">家谱树</a></li>
+		</ul>
+	</li>
+	<li class="navHistory"><a href="{:U('Wallet/index')}"><i class="historyIcon"></i>奖励历史</a></li>
+	<li class="navMoney"><a href="{:U('Award/index')}"><i class="moneyIcon"></i>电子钱包</a></li>
+	<li class="navStore"><a href="{:U('Imall/index')}"><i class="storeIcon"></i>积分商城</a></li>
+
+</ul>
+</div>

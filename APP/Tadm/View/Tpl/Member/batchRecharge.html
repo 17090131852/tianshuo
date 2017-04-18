@@ -1,0 +1,29 @@
+<include file="Tpl/publicHeader" />
+<style>
+    .upForm{  }
+    .upForm input{ margin-top:1em; }
+    .iptFile{ display:inline }
+</style>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">充值管理</strong> / <small>线下充值导入</small></div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <a class="btn btn-success" href="javascript:;" onclick="addnode();">添加文件</a>
+            <form class="upForm" method="post" action="{:U('Member/batchRecharge')}" enctype="multipart/form-data">
+                <input type="submit" class="btn btn-success" value="提交" />
+            </form>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    var i=1;
+    var g='excel'
+    function addnode(){
+        //console.log(123);
+        $('form').append('<input type="file" class="iptFile" name='+g+''+i+' value='+i+++' />');
+    }
+</script>
+<include file="Tpl/publicFooter" />

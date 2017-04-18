@@ -1,0 +1,62 @@
+<include file="Tpl/PublicHead"/>
+	<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+	<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js" /></script>
+	<style>
+		section .FirmName{text-align: center;}
+		section .FirmName > p{margin-top:2em;font-size: 1.125em; color: #8d9298;}
+		.container h2{font-size: 1.75em; color: #0eb493; font-weight: bolder; padding-top: 3em;}
+		.container h2 span{color: #f97433;}
+		.container .col-xs-12{ padding-top:1em; }
+		section .FirmName b{display: inline-block; margin: 0 auto; padding-top: 23px;}
+		section .MessAge{ width:94%; margin:0 auto; text-align: center; padding:0 1em 3em 1em;}
+		section .MessAge input{ border: none; height: 48px; border-bottom: 1px solid #ddd; margin-top: 1.5em; padding:0; margin:0}
+		section .MessAge .iptbtn{ height: 1em; margin-top: 2em; }
+		
+		@media screen and (min-width: 768px) {
+			section .MessAge{ width:640px; }
+			.container .col-xs-12{padding-top:0;}
+		}
+		@media screen and (max-width: 425px) {
+			.container .col-xs-12{padding-top:0;}
+			section .FirmName{padding-top:3em;}
+		}
+	</style>
+	<div class="breadNav">
+		<ol class="breadcrumb">
+			<li>当前位置：</li>
+			<li><a href="__APP__">主页</a></li>
+			<li><a href="{:U('MotoType/index')}">车型总览</a></li>
+			<li class="active">预约试驾</li>
+		</ol>
+	</div>
+	<section class="clearfix">
+		<div id="myCarousel" class="carousel slide clearfix">
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+		</div>
+		<div class="container MaxWidth breadNav clearfix">
+			<div class="FirmName clearfix">
+				<h2 class="col-xs-12">预约试驾</h2>
+				<b><img src="__PUBLIC__/Images/Tweb/title.png" alt="" /></b>
+				<p style="font-size:.875em;">请留下您的联系方式，我们会在24小时内与您回复!</p>
+			</div>
+			<form action="{:U('MotoType/testDrive')}" class="MessAge clearfix" method="post">
+				<div class="row">
+					<input class="col-lg-12 col-xs-12" type="text" placeholder="姓名" name="name" datatype="s2-12" errormsg="姓名长度2-12字符" />
+					<input class="col-lg-12 col-xs-12" type="text" placeholder="电话" name="mobile" datatype="m" errormsg="手机格式错误" />
+					<input class="col-lg-12 col-xs-12" type="text" placeholder="试驾车型" name="" datatype="s1-30" errormsg="试驾车型不能为空" />
+					<input class="col-lg-12 col-xs-12" type="text" placeholder="试驾城市" name="city" datatype="s1-30" errormsg="城市不能为空" />
+					<!-- <input type="text" placeholder="试驾城市"> -->
+					<input class="col-lg-12 col-xs-12" type="submit" class="iptBtn rds5">
+				</div>
+			</form>
+		</div>
+	</section>
+	<script>
+		$(function(){
+			$(".MessAge").Validform({
+				 btnSubmit:".iptBtn",
+			});
+		})
+	</script>
+	<include file="Tpl/PublicFoot"/>

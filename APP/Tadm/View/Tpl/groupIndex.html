@@ -1,0 +1,42 @@
+<include file="Tpl/publicHeader" />
+ <!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">权限控制</strong> / <small>角色列表</small></div>
+    </div>
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>组类型</th>
+                <th>状态</th>
+                <th style="text-align:center; width:21%;" >操作</th>
+              </tr>
+          </thead>
+          <tbody>
+          <volist name="roles" id="role">           
+            <tr>
+              <td>{$role.id}</td>
+              <td><a href="{:U('Authority/userIndex',['group_id'=>$role['id']])}">{$role.title}</a></td>
+              <td><if condition="$role.status eq 1"><span style="color:green;">开启</span><else /><span style="color:red;">关闭</span></if></td>
+              <td align="center">
+                <a href="{:U('Authority/access', "group_id=$role[id]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">配置权限</a>
+                <a href="{:U('Authority/groupEdit', "group_id=$role[id]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">编辑</a>
+              </td>
+            </tr>
+          </volist>
+          </tbody>
+        </table>
+		<div class="am-cf page">	  
+			{$page}  
+		</div>
+ 
+          <hr />
+          <p></p>
+      </div>
+    </div>
+  <!-- content end -->
+</div>
+<include file="Tpl/publicFooter" />

@@ -1,0 +1,36 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> / <small>审核一个用户</small></div>
+  </div>
+  <!-- <form action="{:U('Node/add')}" method="post"> -->
+  <table id="add">
+    <tr>
+      <td>用户ID：<span>{$memInfo.mid}</span></td>
+    </tr>  
+    <tr>
+      <td>用户昵称：<span>{$memInfo.nickname}</span></td>
+    </tr>  
+    <tr>
+      <td>手机号码：<span>{$memInfo.mobile_phone}</span></td>
+    </tr>  
+    <tr>
+      <td>会员类型：<span>{$memInfo.type|getMemType}</span></td>
+    </tr>  
+    <tr>
+      <td>推荐人：<span>{$memInfo.recom_id|getNickname}</span></td>
+    </tr>  
+    <tr>
+      <td>推荐人手机：<span>{$memInfo.recom_mobile}</span></td>
+    </tr>  
+    <tr>
+      <td>注册时间：<span>{$memInfo.reg_time|date="Y-m-d H:i:s",###}</span></td>
+    </tr>  
+    <tr>
+      <td><a href="{:U('Member/pass',array('mid'=>$memInfo['mid']))}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o" onclick="if(confirm('确定通过[{$memInfo.nickname}]的注册审核?')==false){ return false; }">通过审核</a></td>
+    </tr>
+  </table>
+  <!-- </form> -->
+</div>
+<include file="Tpl/publicFooter" />

@@ -1,0 +1,27 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.memberNick{ font-size:1.5em; line-height:2em; border-bottom:2px solid #1EA78D; }
+	.memList li{ line-height:2em;  }
+	.headPic{ width:180px; height:180px; border:1px solid #eee; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container clearfix">
+	<h1 class="pageTitle"> 会员详情 </h1>
+	<div class="container clearfix">
+		<img class="headPic col-lg-4" src="{:C('DOMAIN_NAME')}/{$data.headimg}" title="" alt="" />
+		<ul class="memList col-lg-9">
+			<li><span class="memberNick">{$data.nickname}</span></li>
+			<li>会员编号：{$data.msn}</li>
+			<li>会员类别：{$data.type|getMemType}</li>
+			<li>电话号码：{$data.mobile_phone}</li>
+			<li>电邮地址：{$data.email}</li>
+
+			<!--<li>个人小组积分(：</li>-->
+			<!--会员类型：1，众筹股会员 2，合伙人会员 3，汽车VIP会员-->
+		</ul>
+	</div>
+
+
+</section>
+<include file="Tpl/publicFoot"/>

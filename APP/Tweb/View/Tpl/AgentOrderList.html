@@ -1,0 +1,73 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.container{ padding-bottom:2em; }
+	.familyTree{ margin-top:2em; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+	.flatSelect select{ margin:-2px; }
+	.listTable{ margin-top:2em; }
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+</style>
+<section class="container">
+	<include file="Tpl/PublicMemMenu"/>
+	<h1 class="row pageTitle">
+		积分消费历史订单
+	</h1>
+	<div class="familyTree">
+		<ul class="row">
+			<form action="/Agents/orderList" method="post">
+				<li class="col-lg-3">订单编号:<input class="iptText rds5" type="text" name="order_sn" value="{$order_sn}"></li>
+				<li class="col-lg-3">
+						<span class="flatSelect">
+						<select data-criteria="equal" name="pay_status" >
+							<option value="3">请选择</option>
+							<option value="0"  <if condition="$pay_status eq '0'"></if> >未支付</option>
+							<option value="1"  <if condition="$pay_status eq '1'"></if> >已支付</option>
+						</select>
+						</span>
+				</li>
+				<li class="col-lg-3"><input class="iptBtn rds5" type="submit" value="提交"></li>
+			</form>
+		</ul>
+		<table class="row listTable">
+			<tr>
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单编号" aria-sort="descending">
+					订单编号
+				</th>
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员id" aria-sort="descending">
+					会员编号
+				</th>
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="状态" aria-sort="descending">
+					状态
+				</th>
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单日期" aria-sort="descending">
+					订单日期
+				</th>
+
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员姓名" aria-sort="descending">
+					会员姓名
+				</th>
+				<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="消费积分" aria-sort="descending">
+					消费积分
+				</th>
+			</tr>
+			<volist name="orderList" id="al">
+				<tr>
+					<td>{$al.order_sn}</td>
+					<td>{$al.msn}</td>
+					<td>
+						<if condition="$al.pay_status eq 1 ">已审核付款
+							<else /> 未审核付款
+						</if>
+					</td>
+					<td>{$al.ctime|date="Y-m-d",###}</td>
+					<td>{$al.realname}</td>
+					<td>{$al.integral}</td>
+				</tr>
+			</volist>
+		</table>
+	</div>
+</section>
+
+<include file="Tpl/publicFoot"/>

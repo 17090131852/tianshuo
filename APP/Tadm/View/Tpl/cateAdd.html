@@ -1,0 +1,48 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>添加分类</small></div>
+  </div>
+  <form action="{:U('Category/add')}" method="post">
+  <table id="add">
+    <tr>
+      <td>　分类名称：</td>
+      <td><input type="text" name="title"></td>
+    </tr>
+    <tr>
+      <td>　父级分类：</td>
+      <td>
+        <select name="pid" id="">
+          <volist name="cates" id="cate">
+            <option value="{$cate.id}">{$cate.level|str_repeat="&nbsp;&nbsp;&nbsp;&nbsp;",###}{$cate.title}</option> 
+          </volist>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>　分类描述：</td>
+      <td><input type="text" name="intr"></td>
+    </tr>
+    <tr>
+      <td>　　　排序：</td>
+      <td><input type="text" name="ord" value="1"></td>
+    </tr>
+    
+   <tr>
+      <td>　　　状态：</td>
+      <td>
+          <select name="sta" id="">
+            <option value="1">正常</option>
+            <option value="2">异常</option>
+            <option value="3">封禁</option>
+          </select>
+      </td>
+   </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定添加"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />

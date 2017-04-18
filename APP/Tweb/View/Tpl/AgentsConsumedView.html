@@ -1,0 +1,65 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.ucenter{ padding-bottom:2em; }
+	.ucenter ul li{ width:30%; float:left; margin:2em 0 0 3%;height:200px; border:1px solid #ddd; }
+	.ucenter ul li h3{ margin:0; font-size:1em; color:#999; line-height:2.2em; text-indent:1em; border-bottom:1px solid #ddd;  }
+	.ucenter ul li div img{ width:80px; float:left; margin:1.5em; }
+	.ucenter ul li div div{ float:right; margin:1em 1em 0 0;  }
+	.ucenter ul li div div{ float:right; margin:1em 1em 0 0;  }
+	.ucenter ul li div div p{ line-height:1.8em; text-align:right; }
+	.ucenterHead{ background:#f6f6f6; margin-bottom: 1em; }
+	.ucenterHead h1{ font-size:1.125em; }
+	.ucenterHead h1 span{ float:right; font-size:.875em; }
+
+	.listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+	.listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+	table tr th {
+		background-color: rgb(76, 140, 43);
+		border: 1px solid #DDD;
+		color: #FFF;
+	}
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="clearfix">
+	<div class="wrapper container center">
+			<!--  3-25日  周亮 -->
+			<div class="table-responsive">
+				<table class="listTable table-hover table">
+				<thead>
+					<tr>
+						<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="订单日期" aria-sort="descending">
+							订单日期
+						</th>
+						<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员编号" aria-sort="descending">
+							会员编号
+						</th>
+						<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="会员姓名" aria-sort="descending">
+							会员姓名
+						</th>
+						<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="加入日期" aria-sort="descending">
+							加入日期
+						</th>
+						<th class="sorting_desc" tabindex="0" aria-controls="datatable-generation-tree-report" rowspan="1" colspan="1" style="width: 272px;" aria-label="消费积分" aria-sort="descending">
+							消费积分
+						</th>
+					</tr>
+					</thead>
+					<tbody id="cont">
+						<volist name="data" id="al">
+							<tr>
+								<td>{$al.orderdate}</td>
+								<td>{$al.msn}</td>
+								<td>{$al.nickname}</td>
+								<td>{$al.regdate}</td>
+								<td>{$al.sum}</td>
+							</tr>
+						</volist>
+					</tbody>
+				</table>
+			</div>
+
+		</ul>
+	</div>
+</section>
+<include file="Tpl/publicFoot"/>

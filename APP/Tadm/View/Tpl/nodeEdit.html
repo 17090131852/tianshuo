@@ -1,0 +1,64 @@
+<include file="Tpl/publicHeader" />
+<!-- content start -->
+<div class="admin-content">
+  <div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">节点管理</strong> / <small>添加节点</small></div>
+  </div>
+  <form action="{:U('Node/Edit')}" method="post">
+  <input type="hidden" name="id" value="{$nodeInfo.id}" />
+  <table id="add">
+    <tr>
+      <td>节点名称：</td>
+      <td><input type="text" name="title" value="{$nodeInfo.title}"></td>
+    </tr>
+    <tr>
+      <td>　控制器：</td>
+      <td><input type="text" name="model" value="{$nodeInfo.model}"></td>
+    </tr>
+    <tr>
+      <td>　　方法：</td>
+      <td><input type="text" name="action" value="{$nodeInfo.action}"></td>
+    </tr>
+    <tr>
+      <td>方法参数：</td>
+      <td><input type="text" name="parma" value="{$nodeInfo.parma}"></td>
+    </tr>
+    <tr>
+      <td>父级节点：</td>
+      <td>
+        <select name="pid" id="">
+          <option value="1">新增父级</option>
+          <volist name="nodes" id="node">
+            <option value="{$node.id}">{$node.title}</option>
+          </volist>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>节点描述：</td>
+      <td><input type="text" name="remark" value="{$nodeInfo.remark}"></td>
+    </tr>
+    <tr>
+      <td>　　层级：</td>
+      <td><input type="text" name="level" value="{$nodeInfo.level}"></td>
+    </tr>
+    <tr>
+      <td>　　排序：</td>
+      <td><input type="text" name="ord" value="{$nodeInfo.ord}"></td>
+    </tr>
+    <tr>
+      <td>　　状态：</td>
+      <td><input type="radio" name="sta" value="1" <if condition="$nodeInfo.sta eq 1"> checked="checked"</if> > 正常 　<input type="radio" name="sta" value="2" <if condition="$nodeInfo.sta eq 2"> checked="checked"</if>> 禁用</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="确定修改"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+<include file="Tpl/publicFooter" />
+<script>
+$("select[name=pid]").val({$nodeInfo.pid})
+
+
+</script>
