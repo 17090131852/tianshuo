@@ -1,0 +1,217 @@
+<include file="Tpl/PublicHead"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
+<style>
+    footer {
+        margin-top: 2em;
+        border-top: 5px solid #062033;
+        background: #1ea78d;
+    }
+
+    footer .FirmBottom {
+        margin: 0 auto;
+    }
+
+    footer .FirmBottom ul li {
+        font-size: .875em;
+        padding-left: 0;
+    }
+
+    footer .FirmBottom ul li a {
+        color: #fff;
+    }
+
+    footer .FirmBottom .FirmCall {
+        padding-top: 20px;
+        color: #fff;
+    }
+
+    footer .FirmBottom .FirmCall ol {
+        font-size: .875em;
+    }
+
+    footer .FirmBottom .FirmCall ol li {
+        padding-left: 0;
+        margin-left: 0;
+        line-height: 2.5em;
+    }
+
+    footer .FirmBottom .FirmCall ol li a {
+        padding-left: 0;
+        color: #fff;
+        font-size: 1em;
+    }
+
+    footer .FirmBottom .FirmCall ol li span {
+        padding-left: 0;
+    }
+
+    footer .FirmCopy {
+        text-align: center;
+        font-size: .875em;
+    }
+
+    footer .FirmCopy p {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: #fff;
+    }
+
+    footer .row {
+        margin: 0 auto;
+    }
+
+    footer .FirmLogo img {
+        width: 158px;
+        padding-bottom: 1em;
+    }
+
+    footer .FirmLogo span {
+        color: #fff;
+        font-size: .75em;
+    }
+
+    footer .FirmLogo a {
+        display: block;
+        margin-top: 1.6em;
+    }
+
+    footer .AttenTion p {
+        float: left;
+        margin-right: 30px;
+        display: inline-block;
+        text-align: center;
+        font-size: 1em;
+        color: #fff;
+    }
+
+    footer .AttenTion p img {
+        padding-bottom: 1em;
+    }
+</style>
+<!--底部导航css-->
+<style>
+    .navbar-default {
+        padding: 1.5em 0 1em 0;
+        margin-bottom: 0;
+        background: #fff;
+        border: 0;
+    }
+
+    .nav li a:hover {
+        color: #3da654;
+        border-bottom: 2px solid #3da654;
+    }
+
+    .LogoImg {
+        margin-left: 1em;
+    }
+
+    .pullRight {
+        float: right;
+    }
+
+    .FirmTop {
+        background: #0eb493;
+        color: #fff;
+        line-height: 2em;
+    }
+
+    .FirmTop a {
+        color: #fff;
+    }
+
+    .navbar-nav li a {
+        border-bottom: 2px solid #fff;
+    }
+
+    /*种子会员 样式*/
+    .vipMember {
+        float: left;
+        margin-right: 1em;
+    }
+
+    .logout i, .vipMember i {
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        width: 20px;
+        height: 18px;
+    }
+
+    .backIndexIcon {
+        background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+    }
+
+    .seedMember {
+        background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+    }
+
+    .vipMember a:hover {
+        color: #fff;
+    }
+
+    .lineBar {
+        display: inline-block;
+        color: #fff;
+        padding: 0 .4em 0 1em;
+    }
+</style>
+<style>
+    .pandectStrip {
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .pandectStrip a {
+        text-decoration: none;
+        color: #999;
+        font-size: 12px;
+    }
+    .duihao{
+        width: 100%;
+        padding: 20px;
+        border-bottom: 1px dashed #1c977e;
+        margin-bottom: 20px;
+    }
+    .duihao img{
+        display: block;
+        margin: auto;
+    }
+    .newText{
+        width: 71%;
+        border:1px solid #ddd;
+        background: #b9e9e0;
+        margin:auto;
+        margin-top: 40px;
+    }
+    .newText .back{
+        background-color: #fff;
+        margin: 14px 10px 37px 10px;
+    }
+    .colorlan{
+        color: #1EA78D!important;
+    }
+    .mb150{
+        margin-bottom: 150px;
+    }
+</style>
+
+<section class="container">
+    <!--位置导航-->
+    <div class="pandectStrip fs12 color999">
+        <span>当前位置：</span><a href="{:C('DOMAIN_NAME')}">主页 </a> <span> > </span> <a href=""> 预约试驾</a>
+    </div>
+<div class="duihao">
+    <img src="__PUBLIC__/Images/Tweb/duihao.png" alt="">
+</div>
+    <div class="newText">
+<div class="back">
+    <h1 class="fs26 color000 pl20 pt20">预约成功</h1>
+    <p class="fs24 color000 pl20">预约车型：<span class="colorlan">{$data.type}</span></p>
+    <p class="fs24 color000 pl20">预约6S店：<span class="colorlan">{$data.services_name}</span></p>
+    <p class="fs24 color000 pl20 pb10">客服稍后会与您确认预约信息，请保持手机畅通，祝您试驾愉快</p>
+</div>
+    </div>
+    <a class="colorlan fs16 db tac mt60 mb150" href="/">返回首页</a>
+</section>
+<include file="Tpl/PublicFoot" />

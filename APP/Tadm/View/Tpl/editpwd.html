@@ -16,7 +16,7 @@ function formuser()
 		document.user.password.focus();
 		return false;
 	}
-	
+
 	if(document.user.password.value != document.user.password2.value)
 	{
 		alert('两次新密码不一致！');
@@ -32,36 +32,28 @@ function formuser()
 	}
 }
 
-function change_code()
-{
-  $("#verify").attr('src','{:U("login/verify")}?' + Math.random() + '');
-}
-
 </script>
 <div class="admin-content">
   <div class="am-cf am-padding">
     <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户</strong> / <small>修改密码</small></div>
   </div>
-  <form name="user" action="{:U('login/editpwd')}" method="post" onsubmit="return formuser();">
+  <form name="user" action="{:U('Public/Editpwd')}" method="post" onsubmit="return formuser();">
   <table id="add">
     <tr>
       <td width="90" align="right">原密码：</td>
-      <td><input type="password" name="old_pwd"></td>
+      <td><input type="password" name="oldPwd"></td>
     </tr>
     <tr>
       <td width="90" align="right">新密码：</td>
-      <td><input type="password" name="password"></td>
+      <td><input type="password" name="pwd"></td>
     </tr>
     <tr>
       <td width="90" align="right">确认新密码：</td>
-      <td><input type="password" name="password2"></td>
+      <td><input type="password" name="rePwd"></td>
     </tr>
     <tr>
-    	<td width="90" align="right">验证码：</td>
-    	<td><input type="text" name="verify" size="8">　<img id="verify" onclick="change_code();" src="{:U('login/verify')}" style=" margin-top: 2px;"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type="submit" value="确定修改"></td>
+      <td width="90" align="right"></td>
+      <td colspan="2"><input type="submit" style="width: 176px;border-radius:4px" value="确定修改"></td>
     </tr>
   </table>
   </form>

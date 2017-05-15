@@ -13,7 +13,7 @@ class NodeModel extends Model{
 
 	//获取全部节点数组，用于生成树形图
 	public function getAll($field=''){
-		$rs = M('node')->field($field)->order('pid,ord')->select();
+		$rs = M('node')->field($field)->order('pid,ord')->where("sta=1")->select();
 		return $rs;
 	}
 	//根据ID获取一行数据

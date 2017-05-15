@@ -26,11 +26,11 @@ class WalletController extends Base
      * 查询电子钱包
      */
     public function index(){
-        $msn = $_SESSION['msn'];
-        $data = M('member_commission')->where("member_msn='{$msn}'")->select();
+        // $msn = $_SESSION['msn'];
+        // $data = M('member_commission')->order('id desc')->where("member_msn='{$msn}'")->select();
 
-        $this->assign('data',$data);
 
+        // $this->assign('data',$data);
     }
 
 }

@@ -1,5 +1,5 @@
 <include file="Tpl/PublicMemIndex"/>
-	<style>
+<style>
 		.ucenter{ padding:1em; }
 		.ucenter li{ margin:1em 0;  }
 		.ucenter li h3{ margin:0; font-size:1.4em; color:#333; line-height:2.2em; text-indent:1em; border-bottom:1px solid #ddd;  }
@@ -9,68 +9,90 @@
 		.ucenter li div div p{text-align:right; }
 		.memSta{ border:1px solid #ddd; }
 	</style>
-	
-	<include file="Tpl/PublicMemMenu"/>
-	<section class="container">
-		<ul class="ucenter clearfix">
-			<li class="col-lg-6">
-				<a href="{:U('Member/view')}">
-					<div class="memSta clearfix">
-						<h3>会员状态</h3>
-						<div>
-							<img class="menuPic" src="{$memData.imgPath}" width="120" height="120" />
-							<div class="txtInfo">
-								<p>
-								会员级别：<span>{$memData.type}</span>
-								</p>
-								<p>注册时间：<span>{$memData.reg_time}</span>	</p>
-							</div>
+
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+	<ul class="ucenter clearfix">
+		<li class="col-lg-6">
+			<a href="{:U('Member/view')}">
+				<div class="memSta clearfix">
+					<h3>会员状态</h3>
+					<div>
+						<img class="menuPic" src="{$memData.imgPath}" width="120" height="120" />
+						<div class="txtInfo">
+							<p>
+								会员级别：
+								<span>{$memData.type}</span>
+							</p>
+							<p>
+								注册时间：
+								<span>{$memData.reg_time}</span>
+							</p>
 						</div>
 					</div>
-				</a>
-			</li>
-			<li class="col-lg-6">
-				<a href="{:U('Agents/family')}">
-					<div class="memSta clearfix">
-						<h3>家谱树</h3>
-						<div>
-							<img src="__PUBLIC__/Images/Tweb/homeTreeIcon.jpg" width="120" height="120" />
-							<div class="txtInfo">
-								<p>第一代总人数：<span>{$memData.one}</span></p>
-								<p>第二代总人数：<span>{$memData.two}</span></p>
-								<p>第三代总人数：<span>{$memData.three}</span></p>
-							</div>
+				</div>
+			</a>
+		</li>
+		<li class="col-lg-6">
+			<a href="{:U('Agents/family')}">
+				<div class="memSta clearfix">
+					<h3>家谱树</h3>
+					<div>
+						<img src="__PUBLIC__/Images/Tweb/homeTreeIcon.jpg" width="120" height="120" />
+						<div class="txtInfo">
+							<p>
+								第一代总人数：
+								<span>{$memData.one}</span>
+							</p>
+							<p>
+								第二代总人数：
+								<span>{$memData.two}</span>
+							</p>
+							<p>
+								第三代总人数：
+								<span>{$memData.three}</span>
+							</p>
 						</div>
 					</div>
-				</a>
-			</li>
-			<li class="col-lg-6">
-				<a href="{:U('Member/pointList')}">
-					<div class="memSta clearfix">
+				</div>
+			</a>
+		</li>
+		<li class="col-lg-6">
+			<a href="{:U('Member/pointList')}">
+				<div class="memSta clearfix">
 					<h3>积分</h3>
 					<div>
 						<img src="__PUBLIC__/Images/Tweb/integralIcon.jpg" width="120" height="120" />
-							<div class="txtInfo">
-								<p>剩余积分：<span>{$memData.leave_score}&nbsp;BV</span></p>
-								<p>剩余定向积分：<span>{$memData.leave_orient_score}&nbsp;BV</span></p>
-							</div>
+						<div class="txtInfo">
+							<p>
+								剩余积分：
+								<span>{$memData.leave_score}&nbsp;BV</span>
+							</p>
+							<p>
+								剩余定向积分：
+								<span>{$memData.leave_orient_score}&nbsp;BV</span>
+							</p>
 						</div>
 					</div>
-				</a>
-			</li>
-			<li class="col-lg-6">
-				<a href="{:U('Award/index')}">
-					<div class="memSta clearfix">
+				</div>
+			</a>
+		</li>
+		<li class="col-lg-6">
+			<a href="{:U('Award/index')}">
+				<div class="memSta clearfix">
 					<h3>电子钱包</h3>
 					<div>
 						<img src="__PUBLIC__/Images/Tweb/moneyIcon.jpg" width="120" height="120" />
 						<div class="txtInfo">
-							<p>全部未提现金额：<span>{$memData.leave_money}</span></p>
+							<p>
+								全部未提现金额：
+								<span>{$memData.leave_money}</span>
+							</p>
 						</div>
 					</div>
 				</div>
-				</a>
-			</li>
-		</ul>
-	</section>
+			</a>
+		</li>
+	</ul>
+</section>
 <include file="Tpl/PublicFoot"/>

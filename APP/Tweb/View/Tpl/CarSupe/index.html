@@ -1,0 +1,106 @@
+<include file="Tpl/PublicCarSupeHead" />
+<!--底部导航css-->
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/carSupeIndex.css">
+
+<section class="container">
+    <!--位置导航-->
+    <div class="pandectStrip fs12 color999">
+        <span>当前位置：</span>
+        <a href="{:C('DOMAIN_NAME')}">主页</a>
+        <span>></span>
+        <a href="">汽车总览</a>
+    </div>
+    <!--一个类型的车，下边都是一样的，只换h1里的文字就行-->
+    <div class="ListBox">
+        <volist name="goods" id="vItem">
+        <h1 class="fs20 color000">{$vItem.title}</h1>
+        <div class="container-fluid">
+            <div class="row-fluid overflow">
+                <volist name="vItem.goods" id="gItem" offset="0" length='4'>
+                <div class="col-lg-3 col-md-6">
+                    <a href="__APP__/CarSupe/Info/goods_id/{$gItem.goods_id}"><img src="{$gItem.goods_thumb}"/></a>
+                    <p class="text-center"><a href="__APP__/CarSupe/Info/goods_id/{$gItem.goods_id}">{$gItem.goods_name|msubstr=###,0,12}</a></p>
+                 <!--    <p class="text-center">市场价：{$gItem.goods_market_price}元</p>
+                    <p class="text-center">
+                        会员价：
+                        <span class="colorh">{$gItem.goods_price}元</span>
+                    </p> -->
+                    <div class="m_auto tac">
+                    <!-- 隐藏元素 start -->                    
+                    <input type="hidden" name="goods_id" value="{$gItem.goods_id}" />                    
+                    <input type="hidden" name="goods_code" value="{$gItem.goods_code}" />                    
+                    <input type="hidden" name="cnum" value="1" />                   
+                    <!-- 隐藏元素 end -->                    
+                    <a href="" class="btn bay buyNow" href="javascript:;" type="button">订购</a>
+
+                    <a href="{:U('Services/index',array('id'=>$gItem['goods_id']))}" class="btn try" type="button">试驾</a>
+                    </div>
+                </div>
+                </volist>
+            </div>
+            <!--需要点击展开的列表放在这里-->
+            <div class="hiddenClick overflow dn">
+                <?php $clength = count($vItem['goods'])-1;?>
+                <volist name="vItem.goods" id="gItem" offset="4" length='$clength'>
+                <div class="col-lg-3 col-md-6">
+                    <a href="__APP__/CarSupe/info/goods_id/{$gItem.goods_id}"><img src="{$gItem.goods_thumb}"/></a>
+                    <p class="text-center"><a href="__APP__/CarSupe/info/goods_id/{$gItem.goods_id}">{$gItem.goods_name|msubstr=###,0,12}</a></p>
+                    <!-- <p class="text-center">市场价：{$gItem.goods_market_price}元</p> -->
+                  <!--   <p class="text-center">
+                        会员价：
+                        <span class="colorh">{$gItem.goods_price}元</span>
+                    </p> -->
+                    <div class="m_auto tac">
+                    <!-- 隐藏元素 start -->                    
+                    <input type="hidden" name="goods_id" value="{$gItem.goods_id}" />                    
+                    <input type="hidden" name="goods_code" value="{$gItem.goods_code}" />                    
+                    <input type="hidden" name="cnum" value="1" />                   
+                    <!-- 隐藏元素 end -->                    
+                    <a href="" class="btn bay buyNow" href="javascript:;" type="button">订购</a>
+
+                    <a href="{:U('Services/index',array('id'=>$gItem['goods_id']))}" class="btn try" type="button">试驾</a>
+                    </div>
+                </div>
+                </volist>
+     
+            </div>
+            <!--需要点击结束-->
+            <div class="line"></div>
+            <div class="jjA"></div>
+        </div>
+        </volist>
+    </div>
+    <!--一个类型的车结束-->
+
+</section>
+<!--底部导航-->
+<include file="Tpl/PublicFoot" />
+<script>
+    $('document').ready(function(){
+        //立即购买
+        $('.buyNow').click(function(){
+            var goods_id   = $(this).parent().children('input[name=goods_id]').val();
+            var goods_code = $(this).parent().children('input[name=goods_code]').val();
+            var gNum       = $(this).parent().children('input[name=cnum]').val();
+
+            $.post("__APP__/../CarSupe/buyNow",{num:gNum,id:goods_id},function(rs){
+                if(rs.code==1){
+                    window.location.href='/CarSupe/confirm?goods_code='+goods_code+'&gNum='+gNum;
+                }else{
+                    alert(rs.msg);
+                }
+            },'json');
+        });
+    });
+         //商品折叠
+    $('.jjA').click(function () {
+        $(this).parent().parent().siblings('.ListBox').find('.jjA').removeClass('trans');
+        $(this).parent().parent().siblings('.ListBox').find('.hiddenClick').addClass('dn');
+        $(this).toggleClass('trans');
+        $(this).siblings('.hiddenClick').toggleClass('dn');
+    })
+</script>
+
+</body>
+</html>

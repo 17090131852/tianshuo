@@ -3,12 +3,17 @@ namespace Tadm\Controller;
 
 use Tadm\Biz\Commission;
 use Tadm\Biz\Levels;
+use Tadm\Biz\Goods;
 
 class GoodsController extends Base
 {
     public function index()
     {
-        $map        = array('1=1'); //条件数组
+
+        $goodsbiz = new Goods();
+        $cat_id   = $goodsbiz->getCatidByPidTitle('积分商城');
+        
+        $map        = array("cat_id in($cat_id)"); //条件数组
         $pagesize   = 10;
         $is_show    = $this->request('is_show', 'int', 0);    //是否在售：1是，0下架
         $start_time = $this->request('start_time', 'string', '');
@@ -70,12 +75,20 @@ class GoodsController extends Base
         if (empty($data)) {
             $this->error('商品信息有误', '/Tadm/goods/index');
         }
-        $this->data = $data;
+        // 查询该商品组图
+        $goods_images = M('goods_images')->where("goods_id='{$id}'")->select();
+
+        $this->goods_images = $goods_images;
+        $this->data         = $data;
     }
 
     public function add()
     {
-        $data = array();
+        $goods_images = array();
+        $cat          = array();
+        $cat_two      = array();
+        $data         = array();
+        $pid          = 0;
         $id   = $this->get('id', 'int', 0);
         if ($id) {
             //商品信息
@@ -84,76 +97,115 @@ class GoodsController extends Base
             if (empty($data)) {
                 $this->error('商品信息有误', '/Tadm/goods/index');
             }
-        }
+            // 查询该商品组图
+            $goods_images = M('goods_images')->where("goods_id='{$id}'")->select();
 
-        //查询分类
+            //查询该商品父类
+            $pid = M('category')->field('pid')->where("id='{$data[cat_id]}'")->find();
+            //查询该父类下的所有子类
+            $cat_two = M('category')->where("pid='{$pid[pid]}'")->select();
+        }
+        //查询所有的一级分类
         $catobj = M('category');
         $cat    = $catobj->where("id>='17' and pid=1")->select(); //一级分类
 
-        $this->cat  = $cat;
-        $this->data = $data;
-        $this->id   = $id;
+        $this->goods_images = $goods_images; //组图
+        $this->cat          = $cat;
+        $this->cat_two      = $cat_two;
+        $this->pid          = $pid;
+        $this->data         = $data;
+        $this->id           = $id;
     }
+
+
 
     public function save()
     {
+        $data     = array();
+        $data['goods_name']         = $this->request('goods_name', 'string', '');
+        $data['goods_price']        = $this->request('goods_price', 'float', 0.00);
+        $data['goods_market_price'] = $this->request('goods_market_price', 'float', 0.00);
+        $data['goods_num']          = $this->request('goods_num', 'int', 0);
+        $data['goods_sale_num']     = $this->request('goods_sale_num', 'int', 0);
+        $data['is_show']            = $this->request('is_show', 'int', 0);
+        $data['cat_one']            = $this->request('cat_one', 'int', 0);
+        $data['cat_two']            = $this->request('cat_two', 'int', 0);
+        // $data['goods_desc']      = $this->request('editorValue');
+        $data['is_real']            = $this->request('is_real', 'int', 0);
+        $data['is_hot']             = $this->request('is_hot', 'int', 0);
+        $data['is_new']             = $this->request('is_new', 'int', 0);
+        $data['give_score']         = $this->request('give_score', 'int', 0);
+        $data['goods_brief']        = $this->request('goods_brief', 'string', '');
+        $data['goods_desc']     = $_REQUEST['goods_desc'];
 
-        $data                   = array();
-        $data['goods_name']     = $this->request('goods_name', 'string', '');
-        $data['goods_price']    = $this->request('goods_price', 'float', 0.00);
-        $data['goods_score']    = $this->request('goods_score', 'float', 0.00);
-        $data['goods_num']      = $this->request('goods_num', 'int', 0);
-        $data['goods_sale_num'] = $this->request('goods_sale_num', 'int', 0);
-        $data['is_show']        = $this->request('is_show', 'int', 0);
-        $data['cat_one']        = $this->request('cat_one', 'int', 0);
-        $data['cat_two']        = $this->request('cat_two', 'int', 0);
-        $data['goods_desc']     = $this->request('editorValue');
-        $data['is_real']        = $this->request('is_real', 'int', 0);
-        $data['is_hot']         = $this->request('is_hot', 'int', 0);
-        $data['is_new']         = $this->request('is_new', 'int', 0);
-        $data['give_score']     = $this->request('give_score', 'int', 0);
+        $id                 = $this->request("id", "int", 0);
+        $data['cat_id']     = $data['cat_two'] ?: $data['cat_one'];
+        // 组图
+        $goods_img    = $this->request('goods_img','array');
+        $goodsimg_old = $this->request('goods_img_old','array');
+        // 新上传图片，并且是修改状态下
+        if(!empty($goods_img) && $id){
+            // 删除原有组图
+            M('goods_images')->where("goods_id='{$id}'")->delete(); 
+            $data['goods_thumb'] = $goods_img[0];
+            $data['goods_img']   = $goods_img[0];
+        }else{
+            $data['goods_thumb'] = $goodsimg_old[0];
+            $data['goods_img']   = $goodsimg_old[0];
+        }
 
-        $data['cat_id'] = $data['cat_two'] ?: $data['cat_one'];
-        $id             = $this->request("id", "int", 0);
+        if ($id) {
+            $data['update_time']   = date("Y-m-d H:i:s");
+            M("goods")->where("goods_id='{$id}'")->save($data);
+        } else {
+            $data['goods_code']  = \Tweb\Biz\Crpty::makeProductSN();
+            $data['add_time']    = date("Y-m-d H:i:s");
+            $data['update_time'] = date("Y-m-d H:i:s");
+            $data['goods_sort']  = 50;
+            $id = M("goods")->add($data);
+        }
 
-        $upload           = new \Think\Upload();// 实例化上传类
-        $upload->maxSize  = C('UPLOAD_MAX_SIZE');
-        $upload->rootPath = './Upload/Goods/';
-        $upload->savePath = '';
-        $upload->saveName = array('uniqid', '');
-        $upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
-        $upload->autoSub  = true;
-        $upload->subName  = array('date', 'Ymd');
 
-				if(!$_FILES){
-					$this->error('请上传图片');
-				}else {
-					// 上传文件
-					$info = $upload->upload();
-//					dump($info);die;
-					if (!$info) {// 上传错误提示错误信息
-						$this->error($upload->getError());
-					} else {// 上传成功
-						$rootPath = '/Upload/Goods/';
-						$data['goods_thumb'] = $rootPath.$info['goods_img']['savepath'].$info['goods_img']['savename'];
-						$data['goods_img'] = $rootPath.$info['goods_img']['savepath'].$info['goods_img']['savename'];
-					}
+        if(!empty($goods_img)){
+            foreach ($goods_img as $key => $value) {
+                $goods_images = M("goods_images"); 
+                $data['goods_id']  = $id;
+                $data['image_url'] = $value;
+                $goods_images->add($data);
+            }
+        }
 
-					//$data['goods_img'] = $info['goods_img']['savepath'].$info['goods_img']['savename'];
-//        print_r($data);
-					$data['goods_code'] = \Tweb\Biz\Crpty::makeProductSN();
-					$data['add_time'] = date("Y-m-d H:i:s");
-					$data['goods_sort'] = 50;
-					$goods = M("goods");
-					if ($id) {
-						$goods->where("goods_id='{$id}'")->save($data);
-					} else {
-						$goods->add($data);
-					}
+        $this->redirect("/Tadm/Goods/index");
+        exit;
 
-					$this->redirect("/Tadm/Goods/index");
-					exit;
-				}
+        // 上传封面图片
+        // $upload           = new \Think\Upload();// 实例化上传类
+        // $upload->maxSize  = C('UPLOAD_MAX_SIZE');
+        // $upload->rootPath = './Upload/Goods/';
+        // $upload->savePath = '';
+        // $upload->saveName = array('uniqid', '');
+        // $upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
+        // $upload->autoSub  = true;
+        // $upload->subName  = array('date', 'Ymd');
+
+// 		if(!$_FILES){
+// 			$this->error('请上传图片');
+// 		}else {
+// 			// 上传文件
+// 			$info = $upload->upload();
+// //					dump($info);die;
+// 			if (!$info) {// 上传错误提示错误信息
+// 				$this->error($upload->getError());
+// 			} else {// 上传成功
+// 				$rootPath = '/Upload/Goods/';
+//                 $data['goods_thumb'] = $rootPath.$info['goods_img']['savepath'].$info['goods_img']['savename'];
+//                 $data['goods_img']   = $rootPath.$info['goods_img']['savepath'].$info['goods_img']['savename'];
+// 			}
+
+// 			//$data['goods_img'] = $info['goods_img']['savepath'].$info['goods_img']['savename'];
+// //        print_r($data);
+			
+// 		}
     }
 
     /**

@@ -32,6 +32,33 @@
     #cont tr{ line-height:1.8em; font-size:.875em; }
     /*分页*/
     #pageNav_1{ margin: 2em 0; }
+    .extract{
+        padding: .5em 1em;
+        border: 1px solid #0eb493;
+        border-bottom-right-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .extinp{
+        padding: .5em 1em;
+        border: 1px solid #0eb493;
+        border-right:0;
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+    .ml48em{
+        margin-left:4.8em;
+    }
+    .extBtn{
+        background-color: #0eb493;
+        color: white;
+
+    }
+    @media screen and (max-width: 1200px) {
+        .ml48em{
+            margin-left:0;
+            display: block;
+        }
+    }
 </style>
 
 <style>
@@ -191,18 +218,27 @@
 					</select>
 				</span>
             </li>
+            <li class="col-lg-5 col-xs-12 col-sm-3 col-md-3"></li>
+            <li class="col-lg-5  col-xs-12 col-sm-12 col-md-12">
+                <label style="display: block; margin-bottom: 0">&nbsp;</label>
+                <label class="ml48em">可提现金额：</label>
+                <span><input type='text' class="extinp" value='' id='amount' placeholder="可提现金额<?php echo ($all_money); ?>元" name="acount"><input type="button" onClick='cashwith()' class="extract extBtn" value="提取"/></span>
+                <input type="hidden" value='<?php echo ($all_money); ?>' id='max_amount' name='max_amount'>
+                <a href='/Award/play_money'>提现记录</a>
+            </li>
             <!--<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">-->
                 <!--<input class="iptBtn rds5" type="button" value="提交" onclick="getu(1)">-->
             <!--</li>-->
         </ul>
         <div class="table-responsive">
+
             <table class="listTable table-hover table" >
                 <thead>
                 <tr>
                     <th>奖励生效日期</th>
                     <th>星期</th>
                     <th>可提现金额</th>
-                    <th>操作</th>
+                    <!-- <th>操作</th> -->
                 </tr>
                 </thead>
                 <tbody id="cont">
@@ -212,16 +248,16 @@
                         <td><?php echo ($vo["submittime"]); ?></td>
                         <td><?php echo ($vo["starttime"]); ?>~<?php echo ($vo["endtime"]); ?></td>
                         <td><?php echo ($vo["amount"]); ?></td>
-                        <td>
+                       <!--  <td>
                             <?php
  if($vo['amount']>0 && $vo['state'] ==0): ?>
                             <form action="/Award/submit" method="post">
                                 <input type="hidden" name="id" value="<?php echo ($vo["id"]); ?>" />
-                                <input type="submit" value="提取"/>
+                                <input type="submit" class="extract" value="提取"/>
                             </form>
                         <?php
  else: switch($vo['state']){ case 1: echo "已提交申请"; break; case 2: echo "申请已通过"; break; case 3: echo "已支付"; break; default: echo "无记录"; break; } endif; ?>
-                        </td>
+                        </td> -->
                     </tr><?php endforeach; endif; ?>
                 </tbody>
             </table>
@@ -237,6 +273,17 @@
     .cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
 </style>
 <script type="text/javascript">
+    function cashwith(){
+        amount      = eval($('#amount').val());
+        max_amount  = eval($('#max_amount').val());
+
+        if(amount>max_amount){
+            alert('提现金额超限');
+            return false;
+        }
+        window.location.href='/Award/cashWithdrawal?amount='+amount;
+    }
+
     $("#date").on("change",function(){
         var url = "/Award/index?week="+$(this).val();
         window.location.href = url;

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>签到</title>
+    <link rel="stylesheet" href="__PUBLIC__/wx/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/wx/gb.css">
+    <script src='__PUBLIC__/wx/js/zepto.min.js'></script>
+    <script src='__PUBLIC__/Script/iscroll-lite.js'></script>
+
+
+    <script>
+    ! function(N, M) {
+        function L() {
+            var a = I.getBoundingClientRect().width;
+            a / F > 540 && (a = 540 * F);
+            var d = a / 10;
+            I.style.fontSize = d + "px", D.rem = N.rem = d
+        }
+        var K, J = N.document,
+            I = J.documentElement,
+            H = J.querySelector('meta[name="viewport"]'),
+            G = J.querySelector('meta[name="flexible"]'),
+            F = 0,
+            E = 0,
+            D = M.flexible || (M.flexible = {});
+        if (H) {
+            console.warn("将根据已有的meta标签来设置缩放比例");
+            var C = H.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+            C && (E = parseFloat(C[1]), F = parseInt(1 / E))
+        } else {
+            if (G) {
+                var B = G.getAttribute("content");
+                if (B) {
+                    var A = B.match(/initial\-dpr=([\d\.]+)/),
+                        z = B.match(/maximum\-dpr=([\d\.]+)/);
+                    A && (F = parseFloat(A[1]), E = parseFloat((1 / F).toFixed(2))), z && (F = parseFloat(z[1]), E = parseFloat((1 / F).toFixed(2)))
+                }
+            }
+        }
+        if (!F && !E) {
+            var y = N.navigator.userAgent,
+                x = (!!y.match(/android/gi), !!y.match(/iphone/gi)),
+                w = x && !!y.match(/OS 9_3/),
+                v = N.devicePixelRatio;
+            F = x && !w ? v >= 3 && (!F || F >= 3) ? 3 : v >= 2 && (!F || F >= 2) ? 2 : 1 : 1, E = 1 / F
+        }
+        if (I.setAttribute("data-dpr", F), !H) {
+            if (H = J.createElement("meta"), H.setAttribute("name", "viewport"), H.setAttribute("content", "initial-scale=" + E + ", maximum-scale=" + E + ", minimum-scale=" + E + ", user-scalable=no"), I.firstElementChild) {
+                I.firstElementChild.appendChild(H)
+            } else {
+                var u = J.createElement("div");
+                u.appendChild(H), J.write(u.innerHTML)
+            }
+        }
+        N.addEventListener("resize", function() {
+            clearTimeout(K), K = setTimeout(L, 300)
+        }, !1), N.addEventListener("pageshow", function(b) {
+            b.persisted && (clearTimeout(K), K = setTimeout(L, 300))
+        }, !1), "complete" === J.readyState ? J.body.style.fontSize = 12 * F + "px" : J.addEventListener("DOMContentLoaded", function() {
+            J.body.style.fontSize = 12 * F + "px"
+        }, !1), L(), D.dpr = N.dpr = F, D.refreshRem = L, D.rem2px = function(d) {
+            var c = parseFloat(d) * this.rem;
+            return "string" == typeof d && d.match(/rem$/) && (c += "px"), c
+        }, D.px2rem = function(d) {
+            var c = parseFloat(d) / this.rem;
+            return "string" == typeof d && d.match(/px$/) && (c += "rem"), c
+        }
+    }(window, window.lib || (window.lib = {}));
+    </script>
+    <style type="text/css">
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+}
+
+body,ul,li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    font-size: 12px;
+    font-family: ubuntu, helvetica, arial;
+    overflow: hidden; /* this is important to prevent the whole page to bounce */
+}
+
+
+#wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    bottom: 115px;
+    left: 0;
+    width: 100%;
+    background: #f4f0f0;
+    overflow: hidden;
+}
+
+#scroller {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+#scroller ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+
+.newFiex{
+    z-index:999;
+}
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="scroller" class='backColor'>
+        <ul class="newsList" id="newsList">
+            
+        </ul>
+    </div>
+</div>
+    <div class="backColor" id="backColor">
+        <div class="hiddenInput" style="width: 9.0625rem;"></div>
+        <ul class="newsList" id="">
+            
+        </ul>
+        <div id="foot"></div>
+    </div>
+    <div class="newFiex">
+        <div class="fiexBox">
+            <span class="newIcon"></span>
+            <textarea class="textarea" name="contron" id="emojiInput" placeholder="" ></textarea>
+            <span class="newIcon1"></span>
+            <button class="send" id="sendmsg">发送</button>
+        </div>
+        <div class="emoji-mod dn" data-textmod="emoji" id="emojiContainer">
+        </div>
+        <div class="friend-mod" data-textmod="friend" style="display: none;"></div>
+        <div class="ps dn">
+            <div><img class="psicon" src="__PUBLIC__/wx/img/psIcon.png" alt=""></div>
+            <div><img class="psicon1" src="__PUBLIC__/wx/img/psIcon1.png" alt=""></div>
+            <div><a href="/wx/timetable"><img class="psicon2" src="__PUBLIC__/wx/img/psIcon2.png" alt=""></a></div>
+        </div>
+    </div>
+<input type="file" name="" class="hiddbtn" style="display: none">
+    <script src='__PUBLIC__/wx/js/comm.js'></script>
+    <script src="__PUBLIC__/wx/js/ZeptoEmoji.js"></script>
+    <script src="__PUBLIC__/wx/js/script.js"></script>
+<script src='__PUBLIC__/Script/jquery-1.9.1.min.js'></script>
+<script src='__PUBLIC__/wx/js/tmpl.js'></script>
+</body>
+
+<script type="text/javascript">
+    $('.psicon').click(function () {
+        $('.hiddbtn').click()
+    })
+</script>
+<script>
+
+var myScroll;
+var openid = '{$openid}';
+function loaded () {
+    myScroll = new IScroll('#wrapper', { mouseWheel: true });
+}
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+var lasttime = 0;
+$(function($){
+    $("#wrapper").css("bottom",$(".newFiex").height());
+    var t1 = window.setInterval(getMsgs,3000);
+    $("#sendmsg").click(function(){
+        val = $("#emojiInput").val();
+        if(val){
+            $.get("/wx/sendmsg",{msg:val},function(){
+                $("#emojiInput").val("");
+            });
+        }
+    });
+    loaded();
+});
+
+function getMsgs(){
+
+    $.getJSON('/wx/getmsgs',{datetime:lasttime}, function(data){
+        var eachData = {};
+        var count = 0;
+        eachData['list'] = data;
+        eachData['openids'] = openid;
+        $.each(data,function(i,value){
+            lasttime = value.createtime;
+            count++;
+        });
+        $("#tpl_job").tmpl(eachData).appendTo('#newsList');
+        if(count>0){
+            myScroll.refresh();
+            myScroll.scrollTo(0, -myScroll.scrollerHeight+$('#wrapper').height() ,1000);
+            // $('.backColor').animate({
+            //     scrollTop: $('.backColor')[0].scrollHeight-$('.backColor').height()-200,
+            // }, 400);
+        }
+       
+    });
+}
+</script>
+
+<script type="text/template" id="tpl_job">
+    {{each(i,user) list}}
+     <li><span class="time">{{= user.createtime}}</span></li>
+            <li>
+            {{if openids == user.openid}}
+                <div class="listBox inews">
+            {{else}}
+                <div class="listBox">
+            {{/if}}
+                
+                    <!-- 获取用户头像 {{=openid}}-->
+                    <img class="nameImg" src="{{= user.face}}" alt="{{= openids}}">
+                    <!-- 获取用户登录名 -->
+                    <div class="newName" alt="{{= user.openid}}">{{= user.username}}</div>
+                    <span class="newText">{{= user.msg}}</span>
+                </div>
+            </li>
+    {{/each}}
+</script>
+</html>

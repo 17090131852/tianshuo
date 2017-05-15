@@ -50,7 +50,7 @@ class Order
             $relation['goods_name']   = $goodInfo['goods_name'];
             $relation['goods_thumb']  = $goodInfo['goods_thumb'];
             $relation['goods_num']    = $cart['items']['num'];
-            $relation['total_score']  = $cart['items']['num'] * $goodInfo['goods_score'];
+            $relation['total_score']  = $cart['items']['num'] * $goodInfo['goods_price'];
             $relation['create_at']    = date("Y-m-d H:i:s", strtotime("now"));
             $relation['update_at']    = date("Y-m-d H:i:s", strtotime("now"));
             $newRelation              = $objOrderRelation->add($relation);

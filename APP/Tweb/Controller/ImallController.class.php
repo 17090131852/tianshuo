@@ -11,11 +11,13 @@ namespace Tweb\Controller;
 use Think\Controller;
 use Tadm\Biz\Commission;
 use Tadm\Biz\Levels;
+use Tweb\Biz\Goods;
 
 class ImallController extends Controller
 {
 
 	public function _initialize(){
+        header("Content-type: text/html; charset=utf-8");
 		//返回轮播图资源
 		$objCommend = M('commends');
 		$objResource = M('resources');
@@ -155,26 +157,43 @@ class ImallController extends Controller
     //积分商城列表
     public function index()
     {
-			$objGoods     = M('goods');
-			$objCategory  = M('category');
-			$categoryList = $objCategory->select();
-			foreach ($categoryList as $key => $value) {
-				$where['cat_id'] = $value['id'];
-				$where['is_show'] = 1;
-				$goodsList = $objGoods->where($where)->select();
-				if ($goodsList) {
-					$result[$key]['title'] = $value['title'];
-					$result[$key]['goods'] = $goodsList;
-				}
+        $allow_cat_id = array(); //积分商城分类id
+        $pid          = M('category')->field('id')->where("title='积分商城'")->find();
+        $categoryList = M('category')->where("pid='{$pid['id']}'")->select();
+
+		foreach ($categoryList as $key => $value) {
+            $where['cat_id']  = $value['id'];
+            $where['is_show'] = 1;
+			$goodsList = M('goods')->where($where)->select();
+			if ($goodsList) {
+				$result[$key]['title'] = $value['title'];
+				$result[$key]['goods'] = $goodsList;
 			}
-			//返回轮播图资源
-			$objCommend = M('commends');
-			$objResource = M('resources');
-			$commendStatus = $objCommend->where('location = "积分商城"')->find();
-			$resourceList = $objResource->where('resource_id="'.$commendStatus['id'].'"')->select();
-			$this->resourceList = $resourceList;
-			$this->goods = $result;
-			$this->display(C('DEFAULT_TPL') . '/ImallIndex');
+
+            $allow_cat_id[] = $value['id'];
+		}
+		//返回轮播图资源
+		$objCommend = M('commends');
+		$objResource = M('resources');
+		$commendStatus = $objCommend->where('location = "积分商城"')->find();
+		$resourceList = $objResource->where('resource_id="'.$commendStatus['id'].'"')->select();
+
+		//精品推荐
+        if($allow_cat_id){
+            $cat_id        = implode(',', $allow_cat_id);
+            $map['cat_id'] = array('in', $cat_id);   
+        }else{
+            $map[] = false;
+        }
+
+        $map["is_hot"]  = 1;
+        $map['is_show'] = 1;
+        $goodsHot = M("goods")->limit(6)->where($map)->select();
+//        var_dump($goodsHot);
+        $this->resourceList = $resourceList;
+        $this->goods        = $result;
+        $this->goodsHot     = $goodsHot;
+        $this->display(C('DEFAULT_TPL') . '/ImallIndex');
     }
 
     /**
@@ -217,13 +236,28 @@ class ImallController extends Controller
     //商品详情
     public function info()
     {
-        $id = $_GET['goods_id'];
+        $images = array();
+        $id     = $_GET['goods_id'];
         if (!$id) {
             $this->error('商品不存在');
         }
-        $goods      = M('goods');
-        $goodsInfo  = $goods->where('goods_id=' . $id)->find();
-        $this->data = $goodsInfo;
+
+        $cond[] = "goods_id='{$id}'";
+        $cond[] = "is_pass='2'";
+        $cond[] = "is_del='0'";
+
+        $Goods         = new Goods();
+        //得到商品各等级评论数量
+        $LevelsComment = $Goods->CommentLevelCount($cond);
+        
+        $goods     = M('goods');
+        $goodsInfo = $goods->where('goods_id=' . $id)->find();
+        // 得到商品组图
+        $images = M('goods_images')->where('goods_id='.$id)->select();
+
+        $this->data          = $goodsInfo;
+        $this->images        = $images;
+        $this->LevelsComment = $LevelsComment;
         $this->display(C('DEFAULT_TPL') . '/ImallInfo');
     }
 
@@ -290,6 +324,7 @@ class ImallController extends Controller
     //地址列表
     public function addressList()
     {
+
         $msn = session('msn');
         if (!$msn) {
             $this->error('用户未登录');
@@ -375,7 +410,7 @@ class ImallController extends Controller
         if ($objAddress->create($data)) {
             $result = $objAddress->where('id="' . $id . '"')->save($data);
             if ($result !== false) {
-                $this->success('地址修改成功', '/Imall/balanceCart', 1);
+                 $this->success('地址修改成功', '/Imall/balanceCart', 1);
             }
         } else {
             $this->error($objAddress->getError());
@@ -384,7 +419,7 @@ class ImallController extends Controller
 
     //设置默认地址
     public function setDefaultAddress()
-    {
+    {   
         $msn = session('msn');
         if (!$msn) {
             $this->error('用户未登录');
@@ -450,7 +485,7 @@ class ImallController extends Controller
         $goodsInfo          = $objGoods->where('goods_id=' . $postCart['id'])->find();
         $postCart['msn']    = $msn;
         $count              = $postCart['num'];
-        $sum                = $goodsInfo['goods_score'] * $count;
+        $sum                = $goodsInfo['goods_price'] * $count;
         $rule['msn']        = $msn;
         $rule['goods_code'] = $goodsInfo['goods_code'];
         $cartInfo           = $objCart->where($rule)->find();
@@ -619,7 +654,7 @@ class ImallController extends Controller
         }
         $perpage         = 15;
         $objList         = M('order');
-        $arrList         = $objList->where('msn="' . $msn . '"')->page(I('p'), $perpage)->order('update_time DESC')->select();
+        $arrList         = $objList->where("msn='{$msn}' and type=1")->page(I('p'), $perpage)->order('update_time DESC')->select();
         $count           = $objList->count();
         $Page            = new \Think\Page($count, $perpage);
         $paginate        = $Page->show();
@@ -684,8 +719,22 @@ class ImallController extends Controller
                 $this->error($objOrder->getError());
             }else{
                 //更新等级
-                $level = new Levels($msn);
-                $rs    = $level->check($orderInfo['integral']);
+                // $level = new Levels($msn);
+                // $rs    = $level->check($orderInfo['integral']);
+                //插入消费记录
+                $member_point = M('member_point');
+                $member_point->msn           = $msn;
+                $member_point->change_point  = $orderInfo['integral'];
+                $member_point->change_type   = 2;//线上订单
+                $member_point->op_type       = 2;//减少积分
+                $member_point->addtime       = time();
+                $member_point->remark        = '线上积分商城商品';
+                $member_point->operator_id   = 0;
+                $member_point->operator_name = '';
+                $result = $member_point->add();
+                if (!$result) {
+                    $this->error($member_point->getError());
+                }
             }
             $result   = $objOrder->add($orderData);
             $newOrder = $objOrder->where('id=' . $result)->find();
@@ -700,7 +749,7 @@ class ImallController extends Controller
                 $relation['goods_name']   = $goodInfo['goods_name'];
                 $relation['goods_thumb']  = $goodInfo['goods_thumb'];
                 $relation['goods_num']    = $value['num'];
-                $relation['total_score']  = $value['num'] * $goodInfo['goods_score'];
+                $relation['total_score']  = $value['num'] * $goodInfo['goods_price'];
                 $relation['create_at']    = date("Y-m-d H:i:s", strtotime("now"));
                 $relation['update_at']    = date("Y-m-d H:i:s", strtotime("now"));
                 $newRelation              = $objOrderRelation->add($relation);

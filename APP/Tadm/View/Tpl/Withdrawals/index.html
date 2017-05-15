@@ -1,0 +1,125 @@
+<include file="Tpl/publicHeader" />
+<script src="__PUBLIC__/Admin/js/jquery.datetimepicker.js"></script>
+
+<style type="text/css">
+
+    .custom-date-style {
+        background-color: red !important;
+    }
+    .check{
+        margin-bottom: 20px;
+    }
+    .check td{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+    .check input{
+        height:30px;
+    }
+    .check select{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+
+    #check_title{
+        margin-left: 10px;
+    }
+</style>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">提现管理</strong> / <small>提现列表</small></div>
+    </div>
+    <div class="check">
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf" id="check_title"><middle class="am-text-primary am-text-lg">提现查询<middle/></div>
+        </div>
+        <form action="/Tadm/Withdrawals/index" method="post">
+            <table>
+                <tr>
+                    <td>用户编号：</td>
+                    <td class="check_left"><input name="msn" value="{$member_msn}"></td>
+                    <td>提现状态：</td>
+                    <td style="text-align: left">
+                        <select name="state">
+                            <option value="0" <?php if($state==0):?>selected<?php endif;?>>--请选择--</option>
+                            <option value="1" <?php if($state==1):?>selected<?php endif;?>>已提交</option>
+                            <option value="2" <?php if($state==2):?>selected<?php endif;?>>审核失败</option>
+                            <option value="3" <?php if($state==3):?>selected<?php endif;?>>审核成功</option>
+                            <option value="4" <?php if($state==4):?>selected<?php endif;?>>打款失败</option>
+                            <option value="4" <?php if($state==5):?>selected<?php endif;?>>打款成功</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td><td></td><td></td><td></td><td></td> <td><input type="submit" value="提交" /></td></tr>
+            </table>
+        </form>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>用户编号</th>
+                    <th>用户姓名</th>
+                    <th>用户电话</th>
+                    <th>提现总金额</th>
+                    <!-- <th>打款金额</th> -->
+                    <!-- <th>手续费</th> -->
+                    <!-- <th>手续费率</th> -->
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="data" id="value" empty="暂时没有数据" >
+                    <tr>
+                        <td><?=$key+1?></td>
+                        <td>{$value.msn}</td>
+                        <td>{$value.nickname}</td>
+                        <td>{$value.mobile_phone}</td>
+                        <td>{$value.amount}</td>
+                       <!--  <td><?=$value['amount']-($value['amount']/100*$fee);?></td> -->
+                      <!--   <td><?=($value['amount']/100*$fee);?></td> -->
+                      <!--   <td><?=$fee;?>%</td> -->
+                        <td>{$value.state|getPlayState}</td>
+                        <td>{$value.addtime}</td>
+                        <td>
+                            <a href="__APP__/Tadm/Withdrawals/view?id={$value.id}&bank_id={$value.bank_id}">[查看]</a>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            <div class="am-cf page">
+                {$page}
+            </div>
+
+            <hr />
+            <p></p>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    $('#datetimepicker').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+    $('#datetimepicker1').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+</script>
+<include file="Tpl/publicFooter" />

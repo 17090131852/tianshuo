@@ -1,0 +1,6 @@
+<foreach name="data" item="vo" key="k" >
+    <option value="<?=$vo['id']?:-1?>"> {$vo.name}{$vo.tel} </option>
+    <foreach name="res" item="val" key="k" >
+    <option value="#">{$val.content}</option>
+    </foreach>
+</foreach>

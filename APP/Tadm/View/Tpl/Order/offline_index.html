@@ -29,23 +29,23 @@
 </style>
 <div class="admin-content">
     <div class="am-cf am-padding">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单管理</strong> / <small>线下订单列表</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">订单管理</strong> / <small>线上订单列表</small></div>
     </div>
     <div class="check">
         <div class="am-cf am-padding">
             <div class="am-fl am-cf" id="check_title"><middle class="am-text-primary am-text-lg">订单查询<middle/></div>
         </div>
-        <form action="/Tadm/Order/offline_index" method="post">
+        <form action="/Tadm/Order/index" method="post">
             <table>
                 <tr>
                     <td>订单编号：</td>
                     <td class="check_left"><input name="order_sn" value="{$order_sn}"></td>
                     <td>用户编号：</td>
                     <td><input name="msn" value="{$msn}"></td>
-                    <td>审核人：</td>
-                    <td><input name="auth" value="{$auth}"></td>
-                    <td>用户手机号：</td>
-                    <td><input name="mobile_phone" value="{$mobile_phone}"></td>
+                    <td>用户姓名：</td>
+                    <td><input name="realname" value="{$realname}"></td>
+                    <td>用户电话：</td>
+                    <td><input name="tel" value="{$tel}"></td>
                 </tr>
                 <tr>
                     <td>开始时间：</td>
@@ -58,10 +58,20 @@
                     </td>
                     <td>订单状态：</td>
                     <td style="text-align: left">
-                        <select name="order_sta">
-                            <option value="0" <?php if($order_sta==0):?>selected<?php endif;?>>--请选择--</option>
-                            <option value="1" <?php if($order_sta==1):?>selected<?php endif;?>>未审核</option>
-                            <option value="2" <?php if($order_sta==2):?>selected<?php endif;?>>已审核</option>
+                        <select name="order_status">
+                            <option value="0" <?php if($order_status==0):?>selected<?php endif;?>>--请选择--</option>
+                            <option value="1" <?php if($order_status==1):?>selected<?php endif;?>>未付款</option>
+                            <option value="2" <?php if($order_status==2):?>selected<?php endif;?>>已付款</option>
+                            <option value="3" <?php if($order_status==3):?>selected<?php endif;?>>已关闭</option>
+                        </select>
+                    </td>
+                    <td>配送状态：</td>
+                    <td style="text-align: left">
+                        <select name="shipping_status">
+                            <option value="0" <?php if($shipping_status==0):?>selected<?php endif;?>>--请选择--</option>
+                            <option value="1" <?php if($shipping_status==1):?>selected<?php endif;?>>未发货</option>
+                            <option value="2" <?php if($shipping_status==2):?>selected<?php endif;?>>已发货</option>
+                            <option value="3" <?php if($shipping_status==3):?>selected<?php endif;?>>已确认收货</option>
                         </select>
                     </td>
                 </tr>
@@ -76,17 +86,16 @@
                 <tr>
                     <th>序号</th>
                     <th>订单编号</th>
-                    <th>商品名称</th>
-                    <th>商品数量</th>
-                    <th>商品单价</th>
-                    <th>订单总积分</th>
                     <th>用户编号</th>
-                    <th>用户手机号</th>
-                    <th>推荐人编号</th>
-                    <th>创建时间</th>
-                    <th>审核人</th>
-                    <th>备注</th>
+                    <th>用户姓名</th>
+                    <th>用户电话</th>
+                    <th>收货人地址</th>
+                    <th>收货人电话</th>
+                    <th>订单金额</th>
+                    <th>下单时间</th>
                     <th>订单状态</th>
+                    <th>发货状态</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -94,17 +103,27 @@
                     <tr>
                         <td><?=$key+1?></td>
                         <td>{$value.order_sn}</td>
-                        <td>{$value.carno}</td>
-                        <td>{$value.num}</td>
-                        <td>{$value.price}</td>
-                        <td>{$value.total}</td>
-                        <td>{$value.msn}</td>
+                        <td>{$value.o_msn}</td>
+                        <td>{$value.m_realname}</td>
                         <td>{$value.mobile_phone}</td>
-                        <td>{$value.recom}</td>
-                        <td>{$value.ctime|date='Y-m-d H:i',###}</td>
-                        <td>{$value.auth}</td>
-                        <td>{$value.remark}</td>
-                        <td><?php if($value['order_sta']==0):?>未审核<?php else:?>已审核<?php endif;?></td>
+                        <td>{$value.province}{$value.o_city}{$value.county}{$value.o_address}</td>
+                        <td>{$value.tel}</td>
+                        <td>{$value.integral}¥</td>
+                        <td>{$value.create_time}</td>
+                        <td>{$value.order_status|getOrderStatus}</td>
+                        <td>{$value.shipping_status|getOrderShippingStatus}</td>
+                        <td>
+                            <a href="__APP__/Tadm/Order/view?id={$value.id}">[查看]</a>
+                            <!-- 判断是否付款 -->
+                            <?php if($value['order_status']==0):?>
+                            <a href="__APP__/Tadm/Order/changeOrderStatus?id={$value.id}&status=1">[付款]</a>
+                            <?php else:?>
+                                <!-- 判断是否发货 -->
+                                <?php if($value['shipping_status']==0 && $value['order_status']==1):?>
+                                <a href="__APP__/Tadm/Order/changeOrderShippingStatus?id={$value.id}&status=1">[发货]</a>
+                                <?php endif;?>
+                            <?php endif;?>
+                        </td>
                     </tr>
                 </volist>
                 </tbody>

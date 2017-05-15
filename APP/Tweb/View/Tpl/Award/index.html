@@ -1,4 +1,5 @@
 <include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
 <style>
     td{ width:350px;}
     .subTitle{ font-size:1.125em; color:#1ea78d; margin-top:1em; line-height:2em; }
@@ -17,6 +18,42 @@
     #cont tr{ line-height:1.8em; font-size:.875em; }
     /*分页*/
     #pageNav_1{ margin: 2em 0; }
+    .extract{
+        padding: .5em 1em;
+        border: 1px solid #0eb493;
+        border-bottom-right-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .extinp{
+        padding: .5em 1em;
+        border: 1px solid #0eb493;
+        border-right:0;
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+    .ml48em{
+        margin-left:4.8em;
+    }
+    .extBtn{
+        background-color: #0eb493;
+        color: white;
+
+    }
+    @media screen and (max-width: 1200px) {
+        .ml48em{
+            margin-left:0;
+            display: block;
+        }
+    }
+    .mt35{
+        margin-top: 35px!important;
+    }
+    @media (max-width: 992px){
+        .mt35{
+            margin-top: 13px!important;
+        }
+    }
+
 </style>
 
 <include file="Tpl/PublicMemMenu"/>
@@ -25,7 +62,7 @@
     <div class="news_list" >
         <ul class="row">
             <!--会员类型-->
-            <li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">
+            <li class="col-lg-2 col-xs-12 col-sm-5 col-md-3">
                 <label>会员类型：</label>
                 <span class="flatSelect">
 					<select name="date" id="date" class="rds5">
@@ -37,18 +74,23 @@
 					</select>
 				</span>
             </li>
+            <li class="col-lg-5  col-xs-12 col-sm-6 col-md-6 mt35">
+                <span><a href='/Award/cash'>提取</a></span>
+                <a href='/Award/play_money'>提现记录</a>
+            </li>
             <!--<li class="col-lg-2 col-xs-12 col-sm-3 col-md-3">-->
                 <!--<input class="iptBtn rds5" type="button" value="提交" onclick="getu(1)">-->
             <!--</li>-->
         </ul>
         <div class="table-responsive">
+
             <table class="listTable table-hover table" >
                 <thead>
                 <tr>
                     <th>奖励生效日期</th>
                     <th>星期</th>
                     <th>可提现金额</th>
-                    <th>操作</th>
+                    <!-- <th>操作</th> -->
                 </tr>
                 </thead>
                 <tbody id="cont">
@@ -64,13 +106,13 @@
                         <td>{$vo.submittime}</td>
                         <td>{$vo.starttime}~{$vo.endtime}</td>
                         <td>{$vo.amount}</td>
-                        <td>
+                       <!--  <td>
                             <?php
                         if($vo['amount']>0 && $vo['state'] ==0):
                         ?>
                             <form action="/Award/submit" method="post">
                                 <input type="hidden" name="id" value="{$vo.id}" />
-                                <input type="submit" value="提取"/>
+                                <input type="submit" class="extract" value="提取"/>
                             </form>
                         <?php
                         else:
@@ -90,7 +132,7 @@
                             }
                         endif;
                         ?>
-                        </td>
+                        </td> -->
                     </tr>
                 </foreach>
                 </tbody>
@@ -107,6 +149,17 @@
     .cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
 </style>
 <script type="text/javascript">
+    // function cashwith(){
+    //     amount      = eval($('#amount').val());
+    //     max_amount  = eval($('#max_amount').val());
+
+    //     if(amount>max_amount){
+    //         alert('提现金额超限');
+    //         return false;
+    //     }
+    //     window.location.href='/Award/cashWithdrawal?amount='+amount;
+    // }
+
     $("#date").on("change",function(){
         var url = "/Award/index?week="+$(this).val();
         window.location.href = url;

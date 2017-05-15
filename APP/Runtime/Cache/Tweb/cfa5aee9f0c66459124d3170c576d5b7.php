@@ -173,7 +173,7 @@
 </ul>
 </div>
 <section class="container">
-	<form action="<?php echo U('Member/add');?>" method="post" id="regForm" class="AddUserForm">
+	<form action="<?php echo U('Award/bank');?>" method="post" id="regForm" class="AddUserForm">
 		<fieldset class="row col-lg-12">
 			<legend>添加用户</legend>
 			<!--昵称-->

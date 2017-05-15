@@ -1,0 +1,134 @@
+<include file="Tpl/publicHeader" />
+<script src="__PUBLIC__/Admin/js/jquery.datetimepicker.js"></script>
+
+<style type="text/css">
+
+    .custom-date-style {
+        background-color: red !important;
+    }
+    .check{
+        margin-bottom: 20px;
+    }
+    .check td{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+    .check input{
+        height:30px;
+    }
+    .check select{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+
+    #check_title{
+        margin-left: 10px;
+    }
+</style>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">评论管理</strong> / <small>评论列表</small></div>
+    </div>
+    <div class="check">
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf" id="check_title"><middle class="am-text-primary am-text-lg">评论查询<middle/></div>
+        </div>
+        <form action="/Tadm/Comment/index" method="post">
+            <table>
+                <tr>
+                    <td>真实姓名：</td>
+                    <td class="check_left"><input name="member_name" value="{$member_name}"></td>
+                    <td>商品名称：</td>
+                    <td><input name="goods_name" value="{$goods_name}"></td>
+                    <td>是否审核：</td>
+                    <td style="text-align: left">
+                        <select name="is_pass">
+                            <option value="0" <?php if($is_pass==0):?>selected<?php endif;?>>--请选择--</option>
+                            <option value="1" <?php if($is_pass==1):?>selected<?php endif;?>>未审核</option>
+                            <option value="2" <?php if($is_pass==2):?>selected<?php endif;?>>已审核</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>开始时间：</td>
+                    <td>
+                        <input name="start_time" type="text"  readonly="true" value="{$start_time}" id="datetimepicker"> </td>
+                    <td>结束时间：</td>
+                    <td>
+                        <input name="end_time" type="text" readonly="true" value="{$end_time}" id="datetimepicker1"> </td>
+
+                    </td>
+
+                </tr>
+                <tr><td></td><td></td><td><td></td><td></td><td></td><td></td> <td><input type="submit" value="提交" /></td></tr>
+            </table>
+        </form>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>订单编号</th>
+                    <th>商品名称</th>
+                    <th>用户编号</th>
+                    <th>真实姓名</th>
+                    <th>评论内容</th>
+                    <th>评论星级</th>
+                    <th>添加时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="data" id="value" empty="暂时没有数据" >
+                    <tr>
+                        <td><?=$key+1?></td>
+                        <td>{$value.order_id|getOrderSnById}</td>
+                        <td>{$value.goods_name}</td>
+                        <td>{$value.member_msn}</td>
+                        <td>{$value.member_name}</td>
+                        <td>{$value.content}</td>
+                        <td><?=$value['star']/2?>星</td>
+                        <td>{$value.createtime|date="Y-m-d H:i:s",###}</td>
+                        <td>
+                        	<?php if($value['is_pass']==1):?>               
+                        	<a href="__APP__/Tadm/Comment/changeStatus?id={$value.id}">[审核]</a>
+                        	<?php else:?>                        
+                        	已审核
+                        	<?php endif;?></td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            <div class="am-cf page">
+                {$page}
+            </div>
+
+            <hr />
+            <p></p>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    $('#datetimepicker').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+    $('#datetimepicker1').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+</script>
+<include file="Tpl/publicFooter" />

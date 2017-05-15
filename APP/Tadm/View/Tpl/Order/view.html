@@ -13,8 +13,13 @@
             <td>订单编号：<span>{$data.order_sn}</span></td>
         </tr>
         <tr>
+            <?php if($data['type']==1):?>
             <td>订单积分：<span>{$data.integral}BV</span></td>
+            <?php else:?>
+            <td>订单金额：<span>{$data.integral}¥</span></td>
+            <?php endif;?>
         </tr>
+
         <tr>
             <td>订单状态：<span>{$data.order_status|getOrderStatus}</span></td>
         </tr>
@@ -67,7 +72,7 @@
                     <td>{$value.goods_code}</td>
                     <td>{$value.goods_name}</td>
                     <td>{$value.goods_num}</td>
-                    <td>{$value.goods_code|getGoodsScore}</td>
+                    <td><?=$value['total_score']/$value['goods_num']?></td>
                     <td>{$value.total_score}</td>
                 </tr>
             </volist>

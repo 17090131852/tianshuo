@@ -1,0 +1,260 @@
+<include file="Tpl/PublicCarSupeHead" />
+<style>
+
+        /*精品推荐*/
+        .recomArea{ margin-top:2em; }
+        .recomList{ margin-top:2em; }
+        .recomArea h2, .cargoArea h2{ font-size:1.5em; }
+        .recomArea .ItemBox { padding: .2em 0; }
+
+    .recomList {
+        margin-top: 2em;
+    }
+
+    .cargoArea {
+        margin-top: 2em;
+    }
+
+    .cargoList a {
+        text-decoration: none;
+    }
+
+    .cargoList li {
+        margin-top: 1em;
+        padding: 0 .4em;
+    }
+
+    .goodItemCase {
+        border: 1px solid #eee;
+        padding: 1em .5em;
+    }
+
+    .goodsImg {
+        border: 1px solid #eee;
+    }
+
+    .goodsImg img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .cargoProperty {
+        margin-top: 1em;
+    }
+
+    .cargoProperty p {
+        line-height: 1em;
+    }
+
+    .cargoProperty p:first-child {
+        font-weight: bold;
+        font-size: 1.125em;
+    }
+
+    /*数量加减*/
+    .addMin {
+    }
+
+    .addMin a {
+        float: left;
+        margin-top: .2em;
+        display: block;
+        color: #fff;
+        width: 1.25em;
+        height: 1.25em;
+        background: #0eb493;
+        text-align: center;
+        line-height: 1.25em;
+    }
+
+    .addMin input {
+        float: left;
+        width: 4em;
+        margin: 0 .5em;
+        text-align: center;
+    }
+
+    .iptBtn {
+        display: block;
+        width: 100%;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .iptBtn:hover, .iptBtn:visited, .iptBtn:active {
+        color: #fff;
+    }
+
+    .carouselopactiy {
+        width: 100%;
+        height:400px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .carouselopactiy img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 2s;
+    }
+    .op0{
+        opacity: 0;
+        filter:alpha(opacity=0);
+        -moz-opacity:0;
+    }
+    .lis{
+        list-style: none;
+        position: absolute;
+        margin-left: 50%;
+        top: 80%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+    }
+    .lis li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #1ea78d;
+        border-radius: 50%;
+        margin: 0 8px;
+        background: none;
+        transition: all 2s;
+        cursor: pointer;
+    }
+    .lis .acty{
+        background: #1ea78d;
+    }
+        @media screen and (max-width: 1200px) {
+            .carouselopactiy {
+                width: 100%;
+                height:300px;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+        @media screen and (max-width: 760px) {
+            .carouselopactiy {
+                width: 100%;
+                height:200px;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+</style>
+
+<div class="container cargoArea">
+    <volist name="goods" id="vItem">
+        <h2 class="row">{$vItem.title}</h2>
+        <ul class="row cargoList">
+            <volist name="vItem.goods" id="gItem">
+                <li class="col-lg-2">
+                    <div class="goodItemCase">
+                        <div class="goodsImg">
+                            <a href="__APP__/Imall/info/goods_id/{$gItem.goods_id}">
+                                <img src="{$gItem.goods_thumb}" alt="" />
+                            </a>
+                        </div>
+                        <div class="cargoProperty">
+                            <input type="hidden" name="goodsCode" value="{$gItem.goods_id}" />
+                            <input type="hidden" name="goods_code" value="{$gItem.goods_code}" />
+                            <p>
+                                <a href="__APP__/Imall/info/goods_id/{$gItem.goods_id}">{$gItem.goods_name|msubstr=###,0,12}</a>
+                            </p>
+                            <p>所需积分：{$gItem.goods_price}&nbsp;BV</p>
+                            <p class="addMin clearfix">
+                                <a class="rds5 minNum" href="javascript:;">-</a>
+                                <input class="carnoNum iptText rds5" type="text" name="cnum" value="1" title="数量" />
+                                <a class="rds5 addNum" href="javascript:;">+</a>
+                            </p>
+                            <a class="iptBtn rds5 buyNow" href="javascript:;">立即购买</a>
+                    </div>
+                </div>
+            </li>
+        </volist>
+    </ul>
+</volist>
+</div>
+<script>
+        //          获取轮播图个数
+        $(document).ready(function () {
+            var ind = 0;
+            var f = $('.carouselopactiy').find('img').length;
+            var g = $('.lis').find('li').length;
+            var li = '<li></li>';
+            if(f>g){
+                for (var i = g ; i < f ; i ++){
+                    $('.lis').append(li)
+                }
+            }
+            $('.center-block').eq(ind).removeClass('op0');
+            $('.lis').find('li').click(function () {
+                ind = $(this).index();
+                $('.center-block').addClass('op0');
+                $('li').removeClass('acty');
+                $('li').eq(ind).addClass('acty');
+                $('.center-block').eq(ind).removeClass('op0');
+            });
+
+            var clear =  setInterval(function () {
+                if(ind<f-1){
+                    ++ind;
+                    $('.lis').find('li').eq(ind).click();
+                }else {ind=-1}
+
+            },2500);
+//            hover暂停、播放
+            $('.carouselopactiy').hover(function () {
+                clearInterval(clear);
+            },function () {
+                clear =  setInterval(function () {
+                    if(ind<f-1){
+                        ++ind;
+                        $('.lis').find('li').eq(ind).click();
+                    }else {ind=-1}
+
+                },2500);
+            })
+        });
+        $('document').ready(function(){
+            //立即购买
+            $('.buyNow').click(function(){
+                var gCode = $(this).parent().children('input[name=goodsCode]').val();
+                var goods_code = $(this).parent().children('input[name=goods_code]').val();
+                var gNum = $(this).parent().children('p').children('.carnoNum').val();
+                $.post("__APP__/../CarSupe/buyNow",{num:gNum,id:gCode},function(rs){
+                    if(rs.code==1){
+                        window.location.href='/CarSupe/confirm?goods_code='+goods_code+'&gNum='+gNum;
+                    }else{
+                        alert(rs.msg);
+                    }
+                },'json');
+            });
+
+            //产品数量加
+            $('.addNum').click(function(){
+                var numNow = $(this).parent().children('.carnoNum').val();
+                if(numNow < 999){
+                    numNow++;
+                    $(this).parent().children('.carnoNum').val(numNow);
+                }
+            });
+            //产品数量减
+            $('.minNum').click(function(){
+                var numNow = $(this).parent().children('.carnoNum').val();
+                if(numNow > 1){
+                    numNow--;
+                    $(this).parent().children('.carnoNum').val(numNow);
+                }
+            });
+        });
+    </script>
+<include file="Tpl/PublicFoot" />

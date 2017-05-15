@@ -13,6 +13,7 @@
 	
 	<!--[if lte IE 6]><script src="/skin/js/letskillie6.zh_cn.pack.js"></script><![endif]-->
 	<script src="__PUBLIC__/Script/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="__PUBLIC__/Script/jquery.flexslider-min.js" type="text/javascript"></script>
 	<script src="__PUBLIC__/Plugin/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 	<style>
@@ -40,14 +41,14 @@
 		.MeinPic .box .mask { position:absolute;top:-100%;left:0; background:#0eb493; width:100%;height:100%; opacity:.8;transition:all ease-out .5s;-webkit-transition:all ease-out .5s;-moz-transition:all ease-out .5s;-ms-transition:all ease-out .5s;-o-transition:all ease-out .5s;}
 		.MeinPic .box:hover .mask{top:0; }
 		.MeinPic .box img {width:100%;}
-		.MeinPic .box .mask p{ color:#fff;line-height12px;}
+		.MeinPic .box .mask p{ color:#fff; line-height:12px; }
 		.MeinPic .box .mask .MaskText {padding-top:40%;}
 	</style>
 
 	<style>
 		.navbar-default{ padding:1.5em 0 1em 0; margin-bottom:0; background:#fff; border:0; }
 		.nav li a:hover{ color:#3da654; border-bottom: 2px solid #3da654; }
-		.LogoImg{ margin-left:1em; }
+		.LogoImg{ margin-left:1em;}
 		.pullRight{ float:right; }
 		.FirmTop{background: #0eb493;color: #fff; line-height: 2em;}
 		.FirmTop a{color: #fff;}
@@ -59,13 +60,109 @@
 		.seedMember { background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0; }
 		.vipMember a:hover { color: #fff; }
 		.lineBar { display: inline-block; color: #fff; padding: 0 .4em 0 1em; }
+		/*!*在线咨询*!*/
+		/*.qqFixed{*/
+			/*position: fixed;*/
+			/*right: 10px;*/
+			/*top: 50%;*/
+			/*transform: translateY(-50%);*/
+			/*-webkit-transform: translateY(-50%);*/
+			/*-moz-transform: translateY(-50%);*/
+			/*-ms-transform: translateY(-50%);*/
+			/*-o-transform: translateY(-50%);*/
+			/*background: url("/Public/Images/Tweb/qqBack.png");*/
+			/*width: 101px;*/
+			/*height: 186px;*/
+			/*z-index:1000;*/
+		/*}*/
+		/*.qqFixed:hover .qqLogo{*/
+			/*transform: translateX(-54%) scale(1);*/
+			/*-webkit-transform: translateX(-54%) scale(1);*/
+			/*-moz-transform: translateX(-54%) scale(1);*/
+			/*-ms-transform: translateX(-54%) scale(1);*/
+			/*-o-transform: translateX(-54%) scale(1);*/
+		/*}*/
+		/*.qq{*/
+			/*position: relative;*/
+			/*width: 75px;*/
+			/*height: 75px;*/
+			/*margin: auto;*/
+			/*margin-top: 11px;*/
+			/*border-radius: 50%;*/
+			/*overflow: hidden;*/
+			/*z-index:1000;*/
+		/*}*/
+		/*.qqTle{*/
+			/*position: absolute;*/
+			/*width: 100%;*/
+			/*text-align: center;*/
+			/*color: #1ea78d;*/
+			/*bottom: 15px;*/
+			/*left: 0;*/
+		/*}*/
+		/*.qqLogo{*/
+			/*width: 82px;*/
+			/*height:86px;*/
+			/*margin-left: 50%;*/
+			/*transform: translateX(-50%) scale(0.7);*/
+			/*-webkit-transform: translateX(-50%) scale(0.7);*/
+			/*-moz-transform: translateX(-50%) scale(0.7);*/
+			/*-ms-transform: translateX(-50%) scale(0.7);*/
+			/*-o-transform: translateX(-50%) scale(0.7);*/
+			/*transform-origin: 43% 26%;*/
+			/*-webkit-transition: transform 0.3s;*/
+			/*-moz-transition: transform 0.3s;*/
+			/*-ms-transition: transform 0.3s;*/
+			/*-o-transition: transform 0.3s;*/
+			/*transition: transform 0.3s*/
+		/*}*/
+
+/*轮播图*/
+		.flexslider{
+			position:relative;
+			overflow:hidden;
+			background:url(/Public/Images/Tweb/loading.gif) 50% no-repeat;
+		}
+		.slides{position:relative;z-index:1;}
+		.slides li img{
+			width: 100%;}
+		.flex-control-nav{
+			position:absolute;
+			bottom:10px;
+			z-index:2;
+			width:100%;
+			text-align:center;
+		}
+		.flex-control-nav li{
+			display:inline-block;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #1ea78d;
+			border-radius: 50%;
+			margin: 0 8px;
+			background: none;
+			transition: all 2s;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		.flex-control-nav a{
+			line-height: 60px;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+		.flex-control-nav .flex-active{
+			background: #1ea78d;
+		}
+		.flex-direction-nav{position:absolute;z-index:3;width:100%;top:45%;}
+		.flex-direction-nav li a{display:block;width:50px;height:50px;overflow:hidden;cursor:pointer;position:absolute;}
 	</style>
 
 	<header class="clearfix">
 	<!--top bar-->
 		<div class="FirmTop clearfix ">
 			<div class="MaxWidth container">
-				<span>客服电话：4008916400</span>
+				<span>客服电话：010-53322763</span>
 				<span class="pullRight">
 					<if condition="$Think.session.msn eq '' ">
 						<a href="{:U('Public/Login')}">登录</a>
@@ -98,7 +195,7 @@
 					<a href="javascript:;">
 						<div class="LogoImg">
 							<a href="{:U('/Index/index')}">
-								<img src="__PUBLIC__/Images/Tweb/logo.png" alt="天朔集团LOGO" title="天朔集团LOGO" />
+								<img src="__PUBLIC__/Images/Tweb/logo1.png" alt="天朔集团LOGO" title="天朔集团LOGO" />
 							</a>
 						</div>
 					</a>
@@ -111,14 +208,14 @@
 								汽车超市<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="{:U('MotoType/index')}"><span></span>车型总览</a></li>
-								<li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li>
+								<li><a href="{:U('CarSupe/index')}"><span></span>车型总览</a></li>
+								<li><a href="{:U('Services/index')}"><span></span>预约试驾</a></li>
 							</ul>
 						</li>
 						<li><a href="{:U('About/afterService')}"><span></span>售后服务</a></li>
 						<li><a href="{:U('News/index')}"><span></span>会员中心</a></li>
-						<li><a href="{:U('About/index')}"><span></span>关于天朔</a></li>
 						<li><a href="{:U('Imall/index')}"><span></span>积分商城</a></li>
+						<li><a href="{:U('About/index')}"><span></span>关于天朔</a></li>
 					</ul>
 				</div>
 			</div>
@@ -126,32 +223,14 @@
 	</header>
 
 	<section class="clearfix">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		<!-- 轮播图 按钮 -->
-			<ol class="carousel-indicators">
-			<volist name="resourceList" id="item">
-				<li data-target="#carousel-example-generic" data-slide-to="{$i-1}" class="<if condition='$key eq 1 '>active</if>"></li>
-			</volist>
-			</ol>
 			<!-- 轮播图 内容 -->
-			<div class="carousel-inner">
-				<volist name="resourceList" id="item">
-						<div class="item <if condition='$i eq 1 '>active</if>">
-							<img class="img-responsive center-block" src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1" />
-						</div>
-				</volist>
+			<div class="flexslider">
+				<ul class="slides">
+					<volist name="resourceList" id="item">
+					<li><img src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1"></li>
+					</volist>
+				</ul>
 			</div>
-			<!-- 左右滑动按钮 -->
-			<a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-
 		<!--三大会员体系-->
 		<div class="container FirmName clearfix">
 			<h2 class="col-lg-12 col-xs-12">三大会员体系</h2>
@@ -193,14 +272,6 @@
 			<p>我们6S店主要以客户为主体，创建的一个集汽车超市、商业化运营、综合服务、大健康一站式商业中心，体现车-家-生活的新概念，其中全新的科技展厅可以享受新能源产品的宣传体验，让客户有一种家的温暖，给客户带来全新的体验。</p>
 			<div class="row"><img class="col-md-12 col-sm-12 col-xs-12" src="__PUBLIC__/Images/Tweb/Index6sFloor.jpg" alt="店的设计与功能" title="店的设计与功能" /></div>
 		</div>
-		<!--商业运营体系-->
-		<!-- <div class="container FirmName">
-			<h2>商业运营体系</h2>
-			<b><img src="__PUBLIC__/Images/Tweb/title.png" alt="商业运营体系下标" title="商业运营体系下标" /></b>
-			<p>我们6s店的主要体现了XXX，需要文案支持，这里保持两行，文字，颜色，间距，之后需要文案来填充.文案需要策划 尽快提供好填写此内容来完成，完成现在的样式设计</p>
-			<div class="row"><img class="col-md-12 col-sm-12 col-xs-12" src="__PUBLIC__/Images/Tweb/IndexBusiness.jpg" alt="商业运营体系" title="商业运营体系" /></div>
-		</div> -->
-		<!--我们的活动-->
 		<div class="container FirmName">
 			<h2>我们的活动</h2>
 			<b><img src="__PUBLIC__/Images/Tweb/title.png" alt="" /></b>
@@ -264,4 +335,21 @@
 			<img style="width: 100%;" src="__PUBLIC__/Images/Tweb/map.jpg" alt="地图" />
 		</div>
 	</section>
+<!--QQ聊天-->
+<!--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1580163636&site=qq&menu=yes" class="qqFixed">-->
+	<!--<div class="qq">-->
+		<!--<img class="qqLogo" src="/Public/Images/Tweb/qq.png" alt="">-->
+	<!--</div>-->
+	<!--<div class="qqTle">010-53322763</div>-->
+<!--</a>-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.flexslider').flexslider({
+            directionNav: false,
+            pauseOnAction: false,
+            slideshowSpeed: 3000,
+            pauseOnHover:true
+        });
+    });
+</script>
 <include file="Tpl/PublicFoot"/>

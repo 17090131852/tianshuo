@@ -114,12 +114,22 @@
                         <td>{$value.shipping_status|getOrderShippingStatus}</td>
                         <td>
                             <a href="__APP__/Tadm/Order/view?id={$value.id}">[查看]</a>
-                            <?php if($value['order_status']==0):?>
+
+                           <!--  <?php if($value['order_status']==0):?>
                             <a href="__APP__/Tadm/Order/changeOrderStatus?id={$value.id}&status=1">[付款]</a>
+                            <?php endif;?> -->
+                            <!-- 审核 -->
+                            <?php if($value['is_audit']==0):?>
+                            <a href="__APP__/Tadm/Order/is_audit?id={$value.id}">[审核]</a>
+                            <?php else:?>
+                                <!-- 发货 -->
+                                <?php if($value['shipping_status']==0 && $value['order_status']==1):?>
+                                <a href="__APP__/Tadm/Order/changeOrderShippingStatus?id={$value.id}&status=1">[发货]</a>
+                                <?php endif;?>
                             <?php endif;?>
-                            <?php if($value['shipping_status']==0 && $value['order_status']==1):?>
-                            <a href="__APP__/Tadm/Order/changeOrderShippingStatus?id={$value.id}&status=1">[发货]</a>
-                            <?php endif;?>
+
+                            
+
                         </td>
                     </tr>
                 </volist>

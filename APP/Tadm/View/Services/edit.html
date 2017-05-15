@@ -1,0 +1,160 @@
+<include file="Tpl/publicHeader" />
+<script src="__PUBLIC__/Script/jquery.ld.js"></script>
+<style>
+    #add tr td:first-child{text-align:right;width:100px;}
+</style>
+<!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>添加分类</small></div>
+    </div>
+    <form action="{:U('Services/save')}" method="post">
+        <input type="hidden" name="id" value="{$id}">
+        <table id="add">
+            <tr>
+                <td>店名称：</td>
+                <td><input type="text" name="data[name]" value="{$data.name}"></td>
+            </tr>
+            <tr>
+                <td>所在省：</td>
+                <td>
+                    <input type="hidden" id="private_name" name="data[private_name]" value="{$data.private_name}">
+                    <select name="data[private_id]" class="ld-select-1">
+                        <option value="0">请选择省</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>所在市：</td>
+                <td>
+                    <input type="hidden" id="city_name" name="data[city_name]" value="{$data.city_name}">
+                    <select name="data[city_id]" class="ld-select-1">
+                        <option value="0">请选择市</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>联系人：</td>
+                <td><input type="text" name="data[contact_name]"  value="{$data.contact_name}"></td>
+            </tr>
+            <tr>
+                <td>联系电话：</td>
+                <td><input type="text" name="data[contact_phone]"  value="{$data.contact_phone}"></td>
+            </tr>
+            <tr>
+                <td>地址：</td>
+                <td><input type="text" name="data[addr]" value="{$data.addr}"></td>
+            </tr>
+            <tr>
+                <td>地图坐标：</td>
+                <td><input type="text" name="data[points]" value="{$data.points}" id="points"></td>
+                <input type="hidden" id="px" name="data[x]" value="{$data.x}" /><input id="py" type="hidden" name="data[y]" value="{$data.y}" />
+            </tr>
+            <tr>
+                <td>选择地图位置：</td>
+                <td><div class="map">
+                    <div id="l-map"></div>
+                    <div id="r-result">请输入地名搜索:<input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                </div></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="确定添加"></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+
+<style type="text/css">
+    .map{
+        width:500px;
+    }
+    #l-map{height:300px;width:100%;}
+    #r-result{width:100%;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=edCFrSrDutPQAYemqzedwuZD0mDErfV8"></script>
+<script>
+    $(document).ready(function(){
+        var $ld =$(".ld-select-1").ld({ajaxOptions : {"url" : "/services/getAreas"},
+            field : {
+                region_id : "area_id",
+                region_name : "area_name",
+                parent_id : "pid"
+            }
+        });
+
+        $(".ld-select-1").bind('change',function(){
+            var obj = $(this);
+            var text = $(this).find("option:selected").text();
+            console.log(obj.attr('name'));
+            if(obj.attr('name') == 'data[private_id]'){
+                $('#private_name').val(text);
+            }else{
+                $('#city_name').val(text);
+            }
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+    function showInfo(e){
+        $('#px').val(e.point.lng);
+        $('#py').val(e.point.lat);
+        $('#points').val(e.point.lng + ", " + e.point.lat);
+    }
+    map.addEventListener("click", showInfo);
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {"input" : "suggestId"
+            ,"location" : map
+        });
+
+    ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+        setPlace();
+    });
+
+    function setPlace(){
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+</script>
+<include file="Tpl/publicFooter" />

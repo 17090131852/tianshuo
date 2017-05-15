@@ -8,11 +8,11 @@ use Tadm\Biz\Levels;
 class OrderController extends Base
 {
     /**
-     * 线上订单列表
+     * 积分商城
      */
     public function index()
     {
-        $map             = array('1=1'); //条件数组
+        $map             = 'ts_order.type=1'; //条件数组 积分商城
         $pagesize        = 10;
         $order_status    = $this->request('order_status', 'int', 0);    //订单状态：0未付款；1已付款；2关闭
         $shipping_status = $this->request('shipping_status', 'int', 0); //商品配送状态：0未发货；1已发货；2已确认收货
@@ -61,7 +61,7 @@ class OrderController extends Base
 
         $data = $model
             ->where($map)
-            ->field('id,order_sn,ts_order.msn as o_msn,order_status,shipping_status,ts_order.realname as o_name,province,ts_order.city as o_city,county,ts_order.address as o_address,tel,create_time,integral,ts_member.nickname as m_nickname,ts_member.realname as m_realname,mobile_phone')
+            ->field('id,order_sn,ts_order.msn as o_msn,order_status,shipping_status,ts_order.realname as o_name,province,ts_order.city as o_city,county,ts_order.address as o_address,tel,create_time,integral,ts_member.nickname as m_nickname,ts_member.realname as m_realname,mobile_phone,is_audit')
             ->join('ts_member on ts_order.msn=ts_member.msn', 'LEFT')
             ->order('id desc')
             ->limit($Page->firstRow . ',' . $Page->listRows)->select();
@@ -144,6 +144,31 @@ class OrderController extends Base
     }
 
     /**
+     * 更新订单审核状态
+     * @return boolean [description]
+     */
+    public function is_audit(){
+        $id = $this->get('id','int',0);
+         if (!$id) {
+            $this->error('订单信息有误！', '/Tadm/Order/index');
+        }
+
+        //更新订单状态
+        $orderobj    = M("order");
+        $data['is_audit'] = 1;
+        $res           = $orderobj->where("id='{$id}'")->save($data);
+
+        if (!$res) {
+            $this->error('订单审核失败', '/Tadm/Order/index');
+            exit;
+        }
+
+        $this->success('订单审核成功', '/Tadm/Order/index');
+        exit;     
+
+    }
+
+    /**
      * 更新订单配送状态
      */
     public function changeOrderShippingStatus()
@@ -171,85 +196,157 @@ class OrderController extends Base
     /**
      * 线下订单列表
      */
-    public function offline_index()
-    {
-        $map          = array('1=1'); //条件数组
-        $pagesize     = 10;
-        $order_sta    = $this->request('order_sta', 'int', 0);    //订单状态：0未审核；1已审核；
-        $start_time   = $this->request('start_time', 'string', '');
-        $end_time     = $this->request('end_time', 'string', '');
-        $order_sn     = $this->request('order_sn', 'string', '');
-        $carno        = $this->request('carno', 'string', '');
-        $msn          = $this->request('msn', 'string', '');
-        $mobile_phone = $this->request('mobile_phone', 'string', '');
-        $auth         = $this->request('auth', 'string', '');
-        $recom        = $this->request('recom', 'string', '');
+//     public function offline_index()
+//     {
+//         $map          = array('1=1'); //条件数组
+//         $pagesize     = 10;
+//         $order_sta    = $this->request('order_sta', 'int', 0);    //订单状态：0未审核；1已审核；
+//         $start_time   = $this->request('start_time', 'string', '');
+//         $end_time     = $this->request('end_time', 'string', '');
+//         $order_sn     = $this->request('order_sn', 'string', '');
+//         $carno        = $this->request('carno', 'string', '');
+//         $msn          = $this->request('msn', 'string', '');
+//         $mobile_phone = $this->request('mobile_phone', 'string', '');
+//         $auth         = $this->request('auth', 'string', '');
+//         $recom        = $this->request('recom', 'string', '');
 
-        $starttime = strtotime($start_time);
-        $endtime   = strtotime($end_time);
+//         $starttime = strtotime($start_time);
+//         $endtime   = strtotime($end_time);
 
-        if ($order_sta) {
-            $map['order_sta'] = $order_sta - 1;
+//         if ($order_sta) {
+//             $map['order_sta'] = $order_sta - 1;
+//         }
+
+//         if (!empty($start_time) && empty($end_time)) {
+//             $map['ctime'] = array('egt', $starttime);
+//         }
+
+//         if (!empty($end_time) && empty($start_time)) {
+//             $map['ctime'] = array('elt', $endtime);
+//         }
+
+//         if (!empty($start_time) && !empty($end_time)) {
+//             $map['ctime'] = array('between', "{$starttime},{$endtime}");
+//         }
+
+//         if (!empty($order_sn)) {
+//             $map['order_sn'] = array('like', $order_sn . '%');
+//         }
+
+//         if (!empty($carno)) {
+//             $map['carno'] = array('like', $carno . '%');
+//         }
+
+//         if (!empty($msn)) {
+//             $map['msn'] = array('like', $msn . '%');
+//         }
+//         if (!empty($mobile_phone)) {
+//             $map['mobile_phone'] = $mobile_phone;
+//         }
+//         if (!empty($auth)) {
+//             $map['auth'] = array('like', $auth . '%');
+//         }
+//         if (!empty($recom)) {
+//             $map['recom'] = array('like', $msn . '%');
+//         }
+
+//         $model = M('offline_order');
+//         $count = $model->where($map)->count();
+
+//         $Page = new \Think\Page($count, $pagesize);
+//         $show = $Page->show();
+
+//         $data = $model
+//             ->where($map)
+//             ->order('id desc')
+//             ->limit($Page->firstRow . ',' . $Page->listRows)->select();
+// //        echo $model->getLastSql();
+
+//         $this->order_sta    = $order_sta;
+//         $this->start_time   = $start_time;
+//         $this->end_time     = $end_time;
+//         $this->order_sn     = $order_sn;
+//         $this->mobile_phone = $mobile_phone;
+//         $this->auth         = $auth;
+//         $this->order_sn     = $order_sn;
+//         $this->msn          = $msn;
+//         $this->recom        = $recom;
+//         $this->data         = $data;
+//         $this->page         = $show;
+//     }
+
+    /**
+     * 汽车超市
+     * @return [type] [description]
+     */
+    public function offline_index(){
+        $map             = 'ts_order.type=2'; //条件数组 汽车超市
+        $pagesize        = 10;
+        $order_status    = $this->request('order_status', 'int', 0);    //订单状态：0未付款；1已付款；2关闭
+        $shipping_status = $this->request('shipping_status', 'int', 0); //商品配送状态：0未发货；1已发货；2已确认收货
+        $start_time      = $this->request('start_time', 'string', '');
+        $end_time        = $this->request('end_time', 'string', '');
+        $order_sn        = $this->request('order_sn', 'string', '');
+        $tel             = $this->request('tel', 'string', '');
+        $realname        = $this->request('realname', 'string', '');
+        $msn             = $this->request('msn', 'string', '');
+
+        if ($order_status) {
+            $map['order_status'] = $order_status - 1;
         }
-
+        if ($shipping_status) {
+            $map['shipping_status'] = $shipping_status - 1;
+        }
         if (!empty($start_time) && empty($end_time)) {
-            $map['ctime'] = array('egt', $starttime);
+            $map['create_time'] = array('egt', $start_time);
         }
-
         if (!empty($end_time) && empty($start_time)) {
-            $map['ctime'] = array('elt', $endtime);
+            $map['create_time'] = array('elt', $end_time);
         }
-
         if (!empty($start_time) && !empty($end_time)) {
-            $map['ctime'] = array('between', "{$starttime},{$endtime}");
+            $map['create_time'] = array('between', "{$start_time},{$end_time}");
         }
-
         if (!empty($order_sn)) {
             $map['order_sn'] = array('like', $order_sn . '%');
         }
-
-        if (!empty($carno)) {
-            $map['carno'] = array('like', $carno . '%');
-        }
-
         if (!empty($msn)) {
-            $map['msn'] = array('like', $msn . '%');
+            $map['ts_member.msn'] = array('like', $msn . '%');
         }
-        if (!empty($mobile_phone)) {
-            $map['mobile_phone'] = $mobile_phone;
+        if (!empty($tel)) {
+            $map['tel'] = $tel;
         }
-        if (!empty($auth)) {
-            $map['auth'] = array('like', $auth . '%');
-        }
-        if (!empty($recom)) {
-            $map['recom'] = array('like', $msn . '%');
+        if (!empty($realname)) {
+            $map['ts_member.realname'] = array('like', $realname . '%');
         }
 
-        $model = M('offline_order');
-        $count = $model->where($map)->count();
+        $model = M('order');
+        $count = $model->where($map)
+            ->join('ts_member on ts_order.msn=ts_member.msn', 'LEFT')
+            ->count();
 
         $Page = new \Think\Page($count, $pagesize);
         $show = $Page->show();
 
         $data = $model
             ->where($map)
+            ->field('id,order_sn,ts_order.msn as o_msn,order_status,shipping_status,ts_order.realname as o_name,province,ts_order.city as o_city,county,ts_order.address as o_address,tel,create_time,integral,ts_member.nickname as m_nickname,ts_member.realname as m_realname,mobile_phone,is_audit')
+            ->join('ts_member on ts_order.msn=ts_member.msn', 'LEFT')
             ->order('id desc')
             ->limit($Page->firstRow . ',' . $Page->listRows)->select();
 //        echo $model->getLastSql();
 
-        $this->order_sta    = $order_sta;
-        $this->start_time   = $start_time;
-        $this->end_time     = $end_time;
-        $this->order_sn     = $order_sn;
-        $this->mobile_phone = $mobile_phone;
-        $this->auth         = $auth;
-        $this->order_sn     = $order_sn;
-        $this->msn          = $msn;
-        $this->recom        = $recom;
-        $this->data         = $data;
-        $this->page         = $show;
+        $this->order_status    = $order_status;
+        $this->shipping_status = $shipping_status;
+        $this->start_time      = $start_time;
+        $this->end_time        = $end_time;
+        $this->order_sn        = $order_sn;
+        $this->tel             = $tel;
+        $this->realname        = $realname;
+        $this->order_sn        = $order_sn;
+        $this->msn             = $msn;
+        $this->data            = $data;
+        $this->page            = $show;
     }
-
     //线下订单录入
     public function add()
     {
@@ -292,4 +389,6 @@ class OrderController extends Base
             }
         }
     }
+
+
 }

@@ -1,0 +1,473 @@
+.navbar-default {
+    padding: 1.5em 0 1em 0;
+    margin-bottom: 0;
+    background: #fff;
+    border: 0;
+}
+
+.nav li a:hover {
+    color: #3da654;
+    border-bottom: 2px solid #3da654;
+}
+
+.LogoImg {
+    margin-left: 1em;
+}
+
+.pullRight {
+    float: right;
+}
+
+.FirmTop {
+    background: #0eb493;
+    color: #fff;
+    line-height: 2em;
+}
+
+.FirmTop a {
+    color: #fff;
+}
+
+.navbar-nav li a {
+    border-bottom: 2px solid #fff;
+}
+
+/*种子会员 样式*/
+.vipMember {
+    float: left;
+    margin-right: 1em;
+}
+
+.logout i, .vipMember i {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+}
+
+.backIndexIcon {
+    background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+}
+
+.seedMember {
+    background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+}
+
+.vipMember a:hover {
+    color: #fff;
+}
+
+.lineBar {
+    display: inline-block;
+    color: #fff;
+    padding: 0 .4em 0 1em;
+}
+section .carDetel {
+    margin: 2em 0;
+}
+
+section .carDetel h2, h4 {
+    margin-bottom: 1em;
+}
+
+section .carDetel .PowerTime {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eeeaea;
+}
+
+section .carDetel .ChangeColor p {
+    display: inline-block;
+    padding: 1.5em 4em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: .2em;
+}
+
+section .carDetel .ChangeColor p b {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+section .PicShow {
+    margin: 0 auto;
+}
+
+section .PicShow .container {
+    padding: 0;
+}
+
+section .PicShow .container .well {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+section .PicShow .container .well .thumbnail {
+    background: none;
+    border: none;
+}
+
+section .PicShow .container .well .carousel-indicators {
+    margin-top: 60px;
+    position: inherit;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    margin-left: 0;
+}
+
+section .PicShow .container .well .carousel-indicators .active {
+    background-color: #333;
+}
+
+section .PicShow .container .well .carousel-indicators li {
+    border-color: #999;
+}
+/* clearfix */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .clearfix {
+    zoom: 1;
+}
+/* smallImg */
+.smallImg {
+    position: relative;
+    height: 52px;
+    margin-top: 1px;
+    background-color: #F1F0F0;
+    padding: 6px 5px;
+    width: 320px;
+    overflow: hidden;
+    float: left;
+}
+
+.scrollbutton {
+    width: 14px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+
+.scrollbutton.smallImgUp, .scrollbutton.smallImgUp.disabled {
+    background: url("../../../../../Upload/Test/CarDetail/images/d_08.png") no-repeat;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+.scrollbutton.smallImgDown, .scrollbutton.smallImgDown.disabled {
+    background: url("../Images/d_09.png") no-repeat;
+    margin-left: 300px;
+    margin-top: -55px;
+}
+
+#imageMenu {
+    height: 50px;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 0;
+    float: left;
+}
+
+#imageMenu li {
+    height: 50px;
+    width: 60px;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+}
+
+#imageMenu li img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#imageMenu li#onlickImg img, #imageMenu li:hover img {
+    width: 44px;
+    height: 44px;
+    border: 3px solid #0eb493;
+}
+
+/* bigImg */
+.bigImg {
+    position: relative;
+    float: left;
+    width: 320px;
+    height: 300px;
+    overflow: hidden;
+    border: 2px solid #dddddd
+}
+
+.bigImg #midimg {
+    width: 316px;
+    height: 297px;
+}
+
+.bigImg #winSelector {
+    width: 235px;
+    height: 210px;
+}
+
+#winSelector {
+    position: absolute;
+    cursor: crosshair;
+    filter: alpha(opacity=15);
+    -moz-opacity: 0.15;
+    opacity: 0.15;
+    background-color: #000;
+    border: 1px solid #fff;
+}
+
+/* bigView */
+#bigView {
+    position: absolute;
+    border: 1px solid #0eb493;
+    overflow: hidden;
+    z-index: 999;
+}
+
+#bigView img {
+    position: absolute;
+}
+
+.backDeta {
+    background: #eeeaea;
+    width: 100%;
+    height: 88px;
+}
+.detaboxL{
+    padding: 20px 0 0 14px;
+    float: left;
+    width: 33%;
+}
+.boxR{
+    margin-top: 20px;
+    padding: 0 0 0 6px;
+    width: 33%;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-right:66px;
+}
+.detaboxR{
+    width: 33%;
+    margin-top: 20px;
+}
+.detaboxR div{
+
+    padding-left: 6px;
+}
+@media (min-width: 992px) {
+    .col-md-i {
+        width: 326px;
+    }
+    .col-md-u {
+        width: 844px;
+    }
+
+}
+.addMin {
+    display: block;
+    margin: 0 .5em;
+    float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    text-align: center;
+    padding: 1px;
+    border: 2px solid #0EB493;
+    margin-top: .5em;
+}
+.carnoNum {
+    float: left;
+    height: 1.5em;
+    margin-top: .4em;
+    line-height: 1;
+    border: 2px solid #0EB493;
+    text-align: center;
+}
+.ber1{
+    margin: .5em;
+}
+.btnG{
+    margin-left: .5em;
+}
+.btnG .bg{
+    height: 38px;
+    font-size: 16px;
+    padding: 0 1em ;
+    line-height: 38px;
+    border: 1px solid #1ea78d;
+    margin-right: 16px;
+    text-decoration: none;
+    background-color: #1ea78d;
+    color: #fff;
+}
+.bg1{
+    height: 38px;
+    font-size: 16px;
+    padding: 0 1em ;
+    line-height: 38px;
+    border: 1px solid #1ea78d;
+    margin-right: 16px;
+    text-decoration: none;
+    background: none;
+    color: #1ea78d;
+}
+.bg1:hover{
+    opacity:0.8;
+    color: #1ea78d;
+    text-decoration: none;
+}
+.btnG .bg:hover{
+    opacity:0.8;
+}
+/*商品展示*/
+.listCar{
+    width: 100%;
+    overflow: hidden;
+    background-color: #eeeaea;
+}
+.listCar li{
+    width: 195px;
+    line-height: 38px;
+    height: 38px;
+    float: left;
+    border-right: 1px solid #dddddd;
+    font-size: 16px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.listCar .actList{
+    background-color: #fff;
+    border-top: 1px solid #1ea78d;
+}
+.br5{
+    border-radius: 5px;
+}
+.assess li{
+    margin-bottom: 38px;
+    color: #666;
+    font-size: 14px;
+}
+.assess li a{
+    color: #666;
+    text-decoration: none;
+}
+.assText p{
+    font-size: 14px ;
+    color: #000;
+}
+.dn{
+    display: none;
+}
+.tit{
+    width: 120px;
+    text-align: center;
+    margin:20px auto;
+    font-size: 28px;
+    color: #000;
+    border-bottom: 1px solid #1ea78d;
+    padding-bottom: 7px;
+}
+.zhinengImg{
+    float: left;
+    width: 650px;
+    height: 486px;
+    border-radius: 10px;
+    margin: 30px 0;
+    border: 2px solid #dddddd;
+}
+.zhinengList{
+    list-style: initial;
+    margin-left: 20px;
+    line-height: 2em;
+    font-size: 14px;
+    color: #666;
+    width: 428px;
+    margin-right: 20px;
+}
+.carListImg{
+    border: 1px solid #ddd;
+    width: 100%;
+}
+.dib{
+    display: inline-block;
+}
+.kuchun{  }
+.iph{
+    padding-left: 14px;
+    margin-top: 5px;
+}
+@media screen and (max-width: 768px) {
+    .bigImg{
+        float: none;
+        margin: auto;
+    }
+    .smallImg{
+        float: none;
+        margin: auto;
+    }
+    .col-md-u{
+        margin-top: 20px;
+    }
+    .backDeta{
+        height:170px;
+    }
+    .boxR{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .detaboxR{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .detaboxL{
+        padding-left: 6px;
+        width: 100%;
+    }
+    .btnG{
+        width: 100%;
+        text-align: center;
+    }
+    .btnG .bg{
+        width: 40%;
+        text-align: center;
+        display: inline-block;
+    }
+    .btnG .bg1{
+        width: 40%;
+        text-align: center;
+        display: inline-block;
+    }
+    .tab img{
+        width: 90%;
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .iph{
+        display: block;
+        padding-left: 6px;
+        margin-top:10px!important;
+    }
+    .minpl{
+        padding-left: 6px;
+    }
+    .listCar li{
+        width: 100%;
+    }
+
+}

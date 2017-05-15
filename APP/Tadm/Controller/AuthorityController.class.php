@@ -80,7 +80,8 @@ class AuthorityController extends BaseController
 	//添加一个管理员
 	public function userAdd(){
 		if(!IS_POST){
-			$this->groups = M('auth_group')->where("id!=1")->select();
+			// $this->groups = M('auth_group')->where("id!=1")->select();
+			$this->groups = M('auth_group')->where("status=1")->select();
 			$this->display(C('DEFAULT_TPL').'/userAdd');
 		}else{
 			$model = D('user');

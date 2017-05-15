@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>互动大屏</title>
+    <script src='__PUBLIC__/Script/jquery-1.9.1.min.js'></script>
+    <script src='__PUBLIC__/wx/js/tmpl.js'></script>
+    <link rel="stylesheet" href="__PUBLIC__/pc/css/style.css"></head>
+    <script type="text/javascript" src="__PUBLIC__/pc/js/scroll.js"></script>
+<body>
+
+    <div class="back">
+        <div class="w1200">
+            <div class="jiantou"></div>
+            <div class="backopactiy"></div>
+            <div class="title">
+                <div class="name">中制家车“千城万店”<br>项目签约仪式</div>
+                <div class="huiname">
+                    <div style="font-size: 2.1vw" class="">微信墙</div>
+                    <div style="font-size: 1.56vw;margin-top: 0.8857vw;">扫描右侧二维码参与互动</div>
+                </div>
+                <div class="ewm"></div>
+            </div>
+            <div class="boxinter">
+
+                <div class="box" >
+                    <ul class="interList" id="newsList">
+                    </ul>
+                    <div class="cb"></div>
+                </div>
+                <div id="fotop"></div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="opac"></div>
+            <div class="w1200 z10">
+                <a class="activity a a1" href="/Wallpc/index">互动大屏</a>
+                <!-- <a class="a a2" href="/Wallpc/interaction">抽奖</a> -->
+            </div>
+        </div>
+    </div>
+
+<body>
+<script>
+    $(function(){
+        $("div.box").myScroll({
+
+            speed:1, //数值越大，速度越慢
+
+            rowHeight:68 //li的高度
+
+        });
+
+    });
+var lasttime = 0;
+$(function($){
+    $("#wrapper").css("bottom",$(".newFiex").height());
+    var t1 = window.setInterval(getMsgs,3000);
+});
+var su=100;
+//自动滚动
+$(document).ready(function () {
+setInterval(function () {
+    su+=300;
+    $(".boxinter").animate({"scrollTop":su}, 3000);
+},5000)
+
+});
+
+function getMsgs(){
+    $.getJSON('/wx/getmsgs',{datetime:lasttime}, function(data){
+        var eachData = {};
+        var count = 0;
+        eachData['list'] = data;
+        $.each(data,function(i,value){
+            lasttime = value.createtime;
+            count++;
+        })
+        $("#tpl_job").tmpl(eachData).appendTo('#newsList');
+    });
+}
+
+$('.jiantou').click(function () {
+   $('.foot').toggleClass('badmin')
+});
+</script>
+
+<script type="text/template" id="tpl_job">
+{{each(i,user) list}}
+<li>
+  <img src="{{= user.face}}" alt="">                
+  <span class="fr1">
+    <span class="nema1">{{= user.username}}</span>
+    <span class="text1">{{= user.msg}}</span>
+  </span>
+  <span class="time">{{= user.createtime}}</span>
+  <div class="cb"></div>
+</li>
+{{/each}}
+</script>
+
+</html>

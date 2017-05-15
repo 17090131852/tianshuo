@@ -41,8 +41,7 @@ class Levels
         $endtime = $datetime->getTimestamp();
         $datetime->sub(new \DateInterval("P6M"));
         $starttime = $datetime->getTimestamp();
-        $sql = "select sum(change_point) as point from ts_member_point where msn = '{$this->msn}' and op_type='2' and addtime between {$starttime} and {$endtime}";
-//        echo $sql;
+        $sql = "select sum(change_point) as point from ts_member_point where msn = '{$this->msn}' and op_type='1' and addtime between {$starttime} and {$endtime}";
         $db = M();
         $rs = $db->query($sql);
         $point = $rs[0]['point'];
@@ -50,12 +49,12 @@ class Levels
     }
 
     public function check($point = 0){
-        if($this->member['type'] < 3) return 0;
+        // if($this->member['type'] < 3) return 0;
         $levels = $this->member['type'];
+        //直接升级为股东会员
         if($this->toLevel1($point)) return;
         switch ($levels){
-
-            // 3.汽车VIP会员(铜牌)
+            // 3.VIP会员(铜牌)
             case 3:
                 $this->toLevel2();
                 break;
@@ -81,7 +80,7 @@ class Levels
     private function toLevel2(){
         $point = 10000;
         $nowpoint = $this->getPointByRange();
-        if($nowpoint>=$point){
+        if(intval($nowpoint)>=$point){
 //            echo "Level Up 2";
            M("member")->where("msn='{$this->msn}'")->save(array("type"=>2));
             return true;

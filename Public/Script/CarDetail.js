@@ -130,7 +130,7 @@
         var scrollX = X * $viewImgWidth / $imgWidth;
         var scrollY = Y * $viewImgHeight / $imgHeight;
         $("#bigView img").css({ "left": scrollX * -1, "top": scrollY * -1 });
-        $("#bigView").css({ "top": 75, "left": $(".preview").offset().left + $(".preview").width() + 15 });
+        $("#bigView").css({ "top": 0, "left": $(".preview").offset().left + $(".preview").width() + 15 });
         return { left: X, top: Y };
       }
     });

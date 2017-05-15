@@ -7,98 +7,167 @@
 		.recomArea h2, .cargoArea h2{ font-size:1.5em; }
 		.recomArea .ItemBox { padding: .2em 0; }
 
-		.cargoArea{ margin-top:2em; }
-		.cargoList a{ text-decoration: none; }
-		.cargoList li{ margin-top:1em;  padding:0 .4em;}
-		.goodItemCase{ border:1px solid #eee; padding:1em .5em;}
-		.goodsImg{ border:1px solid #eee;  }
-		.goodsImg img{ width:100%; margin:0 auto; }
-		.cargoProperty{ margin-top:1em; }
-		.cargoProperty p{ line-height:1em; }
-		.cargoProperty p:first-child{ font-weight:bold; font-size:1.125em; }
-		/*数量加减*/
-		.addMin{  }
-		.addMin a{ float:left; margin-top:.2em; display:block; color:#fff; width:1.25em; height:1.25em; background:#0eb493; text-align:center; line-height:1.25em;  }
-		.addMin input{ float:left; width:4em; margin:0 .5em;text-align: center; }
-		.iptBtn{ display:block;width:100%; height:2em; line-height:2em; text-align:center; font-weight:bold; }
-		.iptBtn:hover, .iptBtn:visited, .iptBtn:active{ color:#fff; }
-	</style>
+    .recomList {
+        margin-top: 2em;
+    }
 
-	<!-- 轮播图 -->
-	<div class="container">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<!-- 轮播图 按钮 -->
-			<ol class="carousel-indicators">
-				<volist name="resourceList" id="item">
-					<li data-target="#carousel-example-generic" data-slide-to="{$i-1}" class="<if condition='$key eq 1 '>active</if>"></li>
-				</volist>
-			</ol>
-			<!-- 轮播图 内容 -->
-			<div class="carousel-inner">
-				<volist name="resourceList" id="item">
-					<div class="item <if condition='$i eq 1 '>active</if>">
-						<img class="img-responsive center-block" src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1" />
-					</div>
-				</volist>
-			</div>
-			<!-- 左右滑动按钮 -->
-			<a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
+    .cargoArea {
+        margin-top: 2em;
+    }
+
+    .cargoList a {
+        text-decoration: none;
+    }
+
+    .cargoList li {
+        margin-top: 1em;
+        padding: 0 .4em;
+    }
+
+    .goodItemCase {
+        border: 1px solid #eee;
+        padding: 1em .5em;
+    }
+
+    .goodsImg {
+        border: 1px solid #eee;
+    }
+
+    .goodsImg img {
+		width: 100%;
+		margin: 0 auto;
+    }
+
+    .cargoProperty {
+        margin-top: 1em;
+    }
+
+    .cargoProperty p {
+        line-height: 1em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+    }
+
+    .cargoProperty p:first-child {
+        font-weight: bold;
+        font-size: 1.125em;
+    }
+
+    /*数量加减*/
+    .addMin {
+    }
+
+    .addMin a {
+        float: left;
+        margin-top: .2em;
+        display: block;
+        color: #fff;
+        width: 1.25em;
+        height: 1.25em;
+        background: #0eb493;
+        text-align: center;
+        line-height: 1.25em;
+    }
+
+    .addMin input {
+        float: left;
+        width: 4em;
+        margin: 0 .5em;
+        text-align: center;
+    }
+
+    .iptBtn {
+        display: block;
+        width: 100%;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .iptBtn:hover, .iptBtn:visited, .iptBtn:active {
+        color: #fff;
+    }
+		/*轮播图*/
+		.flexslider{
+			position:relative;
+			overflow:hidden;
+			background:url(/Public/Images/Tweb/loading.gif) 50% no-repeat;
+		}
+		.slides{position:relative;z-index:1;}
+		.slides li img{
+			width: 100%;}
+		.flex-control-nav{
+			position:absolute;
+			bottom:10px;
+			z-index:2;
+			width:100%;
+			text-align:center;
+		}
+		.flex-control-nav li{
+			display:inline-block;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #1ea78d;
+			border-radius: 50%;
+			margin: 0 8px;
+			background: none;
+			transition: all 2s;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		.flex-control-nav a{
+			line-height: 60px;
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+		}
+		.flex-control-nav .flex-active{
+			background: #1ea78d;
+		}
+		.flex-direction-nav{position:absolute;z-index:3;width:100%;top:45%;}
+		.flex-direction-nav li a{display:block;width:50px;height:50px;overflow:hidden;cursor:pointer;position:absolute;}
+
+</style>
+
+<!-- 轮播图 -->
+<div class="container">
+	<div class="flexslider">
+		<ul class="slides">
+			<volist name="resourceList" id="item">
+				<li><img src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1"></li>
+			</volist>
+		</ul>
 	</div>
-
+</div>
+<!--轮播图end-->
 	<!-- 1楼 -->
 	<div class="container recomArea">
 		<h2 class="row">精品推荐</h2>
 		<div class="row recomList">
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/2.jpg" width="100%" />
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/1.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/1.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="{:C('UPLOAD_SAVAPATH')}Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
+			<ul>
+				<volist name="goodsHot" id="gItem">
+					<li class="col-lg-2">
+						<div class="goodItemCase">
+							<div class="goodsImg">
+								<a href="__APP__/Imall/info/goods_id/{$gItem.goods_id}"><img src="{$gItem.goods_thumb}" alt="" /></a>
+							</div>
+							<div class="cargoProperty">
+								<input type="hidden" name="goodsCode" value="{$gItem.goods_id}" />
+								<p><a href="__APP__/Imall/info/goods_id/{$gItem.goods_id}">{$gItem.goods_name|msubstr=###,0,12}</a></p>
+								<p>所需积分：<?=number_format($gItem['goods_price'])?>&nbsp;BV</p>
+								<p class="addMin clearfix">
+									<a class="rds5 minNum" href="javascript:;">-</a>
+									<input class="carnoNum iptText rds5" type="text" name="cnum" value="1" title="数量" />
+									<a class="rds5 addNum" href="javascript:;">+</a>
+								</p>
+								<a class="iptBtn rds5 addCart" href="javascript:;">加入购物车</a>
+							</div>
+						</div>
+					</li>
+				</volist>
+			</ul>
 		</div>
 	</div>
 	<div class="container cargoArea">
@@ -114,7 +183,7 @@
 							<div class="cargoProperty">
 								<input type="hidden" name="goodsCode" value="{$gItem.goods_id}" />
 								<p><a href="__APP__/Imall/info/goods_id/{$gItem.goods_id}">{$gItem.goods_name|msubstr=###,0,12}</a></p>
-								<p>所需积分：{$gItem.goods_score}&nbsp;BV</p>
+								<p>所需积分：<?=number_format($gItem['goods_price'])?>&nbsp;BV</p>
 								<p class="addMin clearfix">
 									<a class="rds5 minNum" href="javascript:;">-</a>
 									<input class="carnoNum iptText rds5" type="text" name="cnum" value="1" title="数量" />
@@ -129,15 +198,23 @@
 			</ul>
 		</volist>
 	</div>
+<script src="__PUBLIC__/Script/jquery.flexslider-min.js" type="text/javascript"></script>
 	<script>
+		//轮播图
+        $(document).ready(function(){
+            $('.flexslider').flexslider({
+                directionNav: false,
+                pauseOnAction: false,
+                slideshowSpeed: 3000,
+                pauseOnHover:true
+            });
+        });
 		$('document').ready(function(){
 			//添加购物车
 			$('.addCart').click(function(){
 				var gCode = $(this).parent().children('input[name=goodsCode]').val();
 				var gNum = $(this).parent().children('p').children('.carnoNum').val();
-				//console.log(gNum+gCode);return false;
 				$.post("__APP__/../Imall/addCart",{num:gNum,id:gCode},function(rs){
-					//console.log(rs.code);
 					alert(rs.msg);
 				},'json');
 			});
@@ -157,7 +234,6 @@
 					$(this).parent().children('.carnoNum').val(numNow);
 				}
 			});
-
 		});
 	</script>
 <include file="Tpl/PublicFoot" />

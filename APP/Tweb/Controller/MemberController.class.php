@@ -5,7 +5,7 @@ class MemberController extends LogchkController {
 /**
  * @佛主保佑，永无BUG
  **********************************************
- 
+
 										_oo0oo_
 									 088888880
 									 88" . "88
@@ -24,7 +24,7 @@ class MemberController extends LogchkController {
 			\  \ '_.   \_ __\ /__ _/   .-' /  /
 	====='-.____'.___ \_____/___.-'____.-'=====
 										'=---='
-										
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 					佛祖保佑    !!!    永无BUG
  *
@@ -210,16 +210,17 @@ class MemberController extends LogchkController {
 			$this->display(C('DEFAULT_TPL').'/MemberAdd');
 		}else{
 			$defaultPwd = 'ts123456';
-			$nickname     = I('post.nickname');//用户昵称
+			// $nickname     = I('post.nickname');//用户昵称
+			$realname     = I('post.realname');//用户真实项目
 			$mobile_phone = I('post.mobile_phone');; //用户手机号
 			$type         = 4; //用户类型
 			$password     = $defaultPwd;; //用户密码
-			$repassword   = $defaultPwd; //用户重复密码
+			// $repassword   = $defaultPwd; //用户重复密码
 
 			$objmember = D('member');
-			$objmember->realname = $nickname;
+			// $objmember->realname = $realname;
 //			dump($objmember);die;
-			$res = $objmember->saveMember($nickname,$mobile_phone,$type,$password);
+			$res = $objmember->saveMember($realname,$mobile_phone,$type,$password);
 			if($res['status']==1){
 				$this->success('添加成功！',U('Member/index'),1);
 			}else{
@@ -272,7 +273,7 @@ class MemberController extends LogchkController {
 	 * @apiSuccessExample {json} Success-Response:
 	 * HTTP/1.1 204 Updated
 	 * {
-	 *   
+	 *
 	 * }
 	 * @apiErrorExample {json} 需要登录:
 	 * HTTP/1.1 401 Unauthorized
@@ -334,23 +335,23 @@ class MemberController extends LogchkController {
 //		$count = count($currentPointList);
 //		$currentPage = new \Think\Page($count,$perpage);
 //		$paginate = $currentPage->show();
-		foreach($currentPointList as $key => $value){
-			$userPointList[$key] = $value;
-			$userPointList[$key]['addtime'] = date('Y-m-d H:i:s',$value['addtime']);
-			if($value['change_type'] == 1){
-				$changeType = "定向消费积分";
-			}else{
-				$changeType = "积分";
-			}
-			if($value['op_type'] == 1){
-				$opType = "+";
-			}else{
-				$opType = "-";
-			}
-			$userPointList[$key]['change_type'] = $changeType;
-			$userPointList[$key]['op_type'] = $opType;
-		}
-		$this->currentPointList = $userPointList;
+		// foreach($currentPointList as $key => $value){
+		// 	// $userPointList[$key] = $value;
+		// 	// $userPointList[$key]['addtime'] = date('Y-m-d H:i:s',$value['addtime']);
+		// 	// if($value['change_type'] == 1){
+		// 	// 	$changeType = "定向消费积分";
+		// 	// }else{
+		// 	// 	$changeType = "积分";
+		// 	// }
+		// 	// if($value['op_type'] == 1){
+		// 	// 	$opType = "+";
+		// 	// }else{
+		// 	// 	$opType = "-";
+		// 	// }
+		// 	// $userPointList[$key]['change_type'] = $changeType;
+		// 	// $userPointList[$key]['op_type'] = $opType;
+		// }
+		$this->currentPointList = $currentPointList;
 
 		$post = array_filter($_POST);
 		if ($post) {

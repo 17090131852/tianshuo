@@ -1,0 +1,108 @@
+<include file="Tpl/publicHeader"/>
+<script src="__PUBLIC__/Script/jquery.ld.js"></script>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户管理</strong> /
+            <small>用户列表</small>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <form action="{:U('Services/index')}" method="post" style="margin-bottom: 1em">
+                <table>
+                    <tr>
+                        <td class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+                            <label>省：</label>
+                            <select name="province" class="ld">
+                                <option value="0">选择省</option>
+                            </select>
+                        </td>
+                        <td class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+                            <label>市：</label>
+                            <select name="city"  class="ld">
+                                <option value="0">选择市</option>
+                            </select>
+                        </td>
+                        <td class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+                            <label>名称：</label>
+                            <input class="iptText rds5" type="text" name="name" value="{$name}">
+                        </td>
+                        <td class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+
+                            <input style="margin: 0 0 0 .4em;border-radius: 5px" type="submit"
+                                   value="提交" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>省</th>
+                    <th>市</th>
+                    <th>联系人</th>
+                    <th>联系电话</th>
+                    <th>地址</th>
+
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="data" id="mvo">
+                    <tr>
+                        <td>{$mvo.id}</td>
+                        <td>{$mvo.name}</td>
+                        <td>{$mvo.private_name}</td>
+                        <td>{$mvo.city_name}</td>
+                        <td>{$mvo.contact_name}</td>
+                        <td>{$mvo.contact_phone}</td>
+                        <td>{$mvo.addr}</td>
+
+                        <td>
+                            <a href="{:U('Services/edit',array('id'=>$mvo['id']))}">修改</a>
+                            <a href="#">删除</a>
+
+                        </td>
+                    </tr>
+                    <!--<volist name="tvo.child" id="cvo">-->
+                    <!--<tr>-->
+                    <!--<td>{$cvo.id}</td>-->
+                    <!--<td>{$cvo.pid}</td>-->
+                    <!--<td style="text-align:left;padding-left:2em">|-{$cvo.title}</td>-->
+                    <!--<td>{$cvo.sta|getSta}</td>-->
+                    <!--<td>{$cvo.ord}</td>-->
+                    <!--<td>{$cvo.intr}</td>-->
+                    <!--<td>-->
+                    <!--<a href="__APP__/../Tadm/category/edit/id/{$cvo.id}">[改]</a> |-->
+
+                    <!--</td>-->
+                    <!--</tr>-->
+                    <!--</volist>-->
+                </volist>
+                </tbody>
+            </table>
+            <div class="am-cf page">
+                {$page}
+            </div>
+
+            <hr/>
+            <p></p>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    $(document).ready(function() {
+        var $ld = $(".ld").ld({
+            ajaxOptions: {"url": "/services/getAreas"},
+            field: {
+                region_id: "area_id",
+                region_name: "area_name",
+                parent_id: "pid"
+            }
+        });
+    });
+</script>
+<include file="Tpl/publicFooter"/>

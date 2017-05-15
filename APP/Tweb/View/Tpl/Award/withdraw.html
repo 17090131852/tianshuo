@@ -1,0 +1,50 @@
+<include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js"></script>
+<style>
+
+	.form-group{ line-height: 36px;}
+	.form-group .item-label{text-align: right;}
+	.item-text{ text-indent:.5em;border: 1px solid #ccc;overflow: hidden;}
+	.item-select{float: left;height: 34px;border: 1px solid #ccc;margin-left: 10px;font-size: 14px;padding: 6px 0px;}
+	.item-submit{border:0; background:#1ea78d; color:#fff; }
+	input.error{border: 1px solid #E6594E;}
+	input.highlight{border: 1px solid #7abd54;}
+
+	#regForm{ padding-bottom:2em;}
+	.row legend{ line-height:2em; font-size:1.125em; color:#1ea78d; margin-top:2em; }
+	.item-submit{ width:60%; margin:0 0 2em 17%; line-height:2em; padding: .4em 0; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+	<form action="{:U('Member/add')}" method="post" id="regForm" class="AddUserForm">
+		<fieldset class="row col-lg-12">
+			<legend>提取佣金到银行卡</legend>
+			<div class="form-group clearfix">
+		    <label for="realname" class="item-label col-sm-2 control-label">真实姓名:</label>
+		    <div class="col-sm-8">
+		      <input type="text" id="realname" name="realname" class="form-control" value="" placeholder="真实姓名" autocomplete="off" datatype="s2-16" errormsg="真实姓名2-16字符" />
+		    </div>
+		  </div>
+		  <!--提取金额-->
+		  <div class="form-group clearfix">
+		    <label for="mobile_phone" class="item-label col-sm-2 control-label">提取金额:</label>
+		    <div class="col-sm-8">
+		      <input type="text" id="amount" name="amount"   value="" class="form-control" placeholder="提取金额" autocomplete="off" datatype="m" errormsg="金额不能为空" />
+		    </div>
+		  </div>
+		  <!--提交按钮-->
+		   <div class="form-group">
+				<input type="submit" value="提交" class="item-submit rds5 userAdd" />
+			</div>
+		</fieldset>
+	</form>
+</section>
+<script>
+	$(function(){
+		$(".AddUserForm").Validform({
+			 btnSubmit:".userAdd",
+		});
+	});
+</script>
+<include file="Tpl/PublicFoot" />

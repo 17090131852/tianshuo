@@ -28,22 +28,18 @@
             <table class="listTable table-hover table" >
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>交易日期</th>
-                    <th>金额</th>
-                    <th>备注</th>
+                    <th>奖励金额</th>
+                    <th>来源会员</th>
+                    <th>会员姓名</th>
+                    <th>交易金额</th>
+                    <th>奖励比例</th>
+                    <th>来源类别</th>
+                    <!-- <th>备注</th> -->
                 </tr>
                 </thead>
-                <tbody id="cont">
-                <foreach name="data" item="vo" key="k" >
-                    <tr>
-                        <!--<td><a href="__APP__/Agents/orderInfo/orderSn/{$vo.order_sn}">{$vo.order_sn}</a></td>-->
-                        <td>{$vo.id}</td>
-                        <td><?=date('Y-m-d H:i:s',$vo['addtime']);?></td>
-                        <td>{$vo.commamont}</td>
-                        <td>{$vo.remark}</td>
-                    </tr>
-                </foreach>
+                <tbody id="cont1">
+               
                 </tbody>
             </table>
         </div>
@@ -58,12 +54,8 @@
     .cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
 </style>
 <script type="text/javascript">
-    $("#date").on("change",function(){
-        var url = "/Award/index?week="+$(this).val();
-        window.location.href = url;
-    });
     var page = 1;
-    var pagesize = 1;
+    var pagesize = 15;
 
     $(function(){
         pageNav.pre="上一页";
@@ -77,11 +69,8 @@
      * @param page
      */
     function  getdata(page){
-        var allscore_start = $("input[name='allscore_start']").val()
-        var allscore_end   = $("input[name='allscore_end']").val()
-
         url='/Ajax/getAward';
-        $.get(url,{page:page,pagesize:pagesize,allscore_start:allscore_start,allscore_end:allscore_end },function(data){
+        $.get(url,{page:page,pagesize:pagesize},function(data){
             if(data.data!='undefined'){
                 $('#cont1').html('');
                 if(data.data==null || data.data==''){
@@ -91,9 +80,14 @@
                         pageNav.go(page,data.pagetotal);
                     }
                     $.each(data.data, function(key, val) {
-                        str = "<tr><td><a href='/Agents/consumedView?group_id="+data.data[key]['group']+"'> 查看小组消费情况</a></td>";
-                        str += "<td>"+data.data[key]['group']+"</td>";
-                        str += "<td>"+data.data[key]['sum']+"</td>";
+
+                        str = "<tr><td>"+data.data[key]['add_date']+"</td>";
+                        str += "<td>"+data.data[key]['commamont']+"</td>";
+                        str += "<td>"+data.data[key]['msn']+"</td>";
+                        str += "<td>"+data.data[key]['realname']+"</td>";
+                        str += "<td>"+data.data[key]['change_point']+"</td>";
+                        str += "<td>"+data.data[key]['ratio']+"</td>";
+                        str += "<td>"+data.data[key]['source_type']+"</td></tr>";
                         $("#cont1").append(str);
                     });
                 }

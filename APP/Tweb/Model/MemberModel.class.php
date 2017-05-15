@@ -23,14 +23,14 @@ class MemberModel extends Model
 	);
 
     /**添加用户
-     * @param string $nickname
+     * @param string $realname
      * @param string $mobile_phone
      * @param int $type
      * @param string $password
      *
      * @return array mixed
      */
-	public function saveMember($nickname='',$mobile_phone='',$type=0,$password=''){
+	public function saveMember($realname='',$mobile_phone='',$type=0,$password=''){
 	    $msg    = '添加成功';
 	    $status = 1;
 	    $data   = array();
@@ -38,23 +38,31 @@ class MemberModel extends Model
         if(!preg_match('/^1[34578]{1}\d{9}$/',$mobile_phone)){
            $status = 10;
            $msg    = '手机号格式错误';
+            return $res = array(
+                'status' =>$status,
+                'msg'    =>$msg,
+            );
         }
         //检测手机号是否存在
         $is_exist = $this->checkMobile($mobile_phone);
         if(!$is_exist){
             $status = 11;
             $msg    = '手机号已存在！';
+            return $res = array(
+                'status' =>$status,
+                'msg'    =>$msg,
+            );
         }
 
         //添加
         $model = D('member');
         $recomMemInfo = $model->where('msn="'.session('msn').'"')->find();
-        $data['nickname']     = $nickname;
-        $data['realname']     = $nickname;
-        $data['msn']           = $this->generateMsn();
+        $data['realname']     = $realname;
+        $data['nickname']     = '未设置';
+        $data['msn']          = $this->generateMsn();
         $data['mobile_phone'] = $mobile_phone;
-        $data['type']          = $type;
-        $data['pwd']     = pwdProcess($password);
+        $data['type']         = $type;
+        $data['pwd']          = pwdProcess($password);
         $data['recom_id']     = $_SESSION['mid'];
         $data['recom_msn']    = $_SESSION['msn'];
         $data['recom_mobile'] = $recomMemInfo['mobile_phone'];
@@ -62,7 +70,6 @@ class MemberModel extends Model
         $data['reg_time']     =time();
         //保存用户
         if(!$model->add($data)) {
-					echo M()->getLastSql();exit;
             $status = 12;
             $msg = '添加失败';
         }
@@ -242,7 +249,7 @@ class MemberModel extends Model
                 )
             )";
         $tplcount = ' SELECT count(*) num '.$str;
-        $tpl      = " SELECT *   ".$str;
+        $tpl      = " SELECT *,FROM_UNIXTIME(reg_time, '%%Y-%%m-%%d %%H:%%i:%%S') as reg_date   ".$str;
         $sqlcount = sprintf($tplcount,$whereStr,$whereStr,$whereStr,$orderby);
         $sql      = sprintf($tpl,$whereStr,$whereStr,$whereStr,$orderby);
 
@@ -299,6 +306,86 @@ class MemberModel extends Model
         $list = $member->where($cond)->find();
 
         return $list;
+    }
+
+    /**
+     * 添加银行卡信息
+     * @param  array  $data 数据
+     * @return array       添加数据
+     */
+    public function saveBank($data=array()){
+        //查询该用户是否已添加过该银行卡
+        $map = array();
+        $map['msn']         = $data['msn'];
+        $map['card_number'] = $data['card_number'];
+        $map['state']       = 0;
+        $bank = M('bank')->where($map)->find();
+        if(!empty($bank)){
+            $res = array(
+                'status' => -1,
+                'msg' => '银行卡已添加',
+            );
+            return $res;
+        }
+        
+        //添加
+        $model = M('bank');
+        $data['addtime']    = date('Y-m-d H:i:s');
+        $data['updatetime'] = date('Y-m-d H:i:s');
+        $saveres = $model->add($data);
+        //保存用户
+        if(!$saveres) {
+            return $res = array(
+                'status' => -2,
+                'msg'    => '添加失败',
+            );
+        }
+
+        return $res = array(
+            'status' => 1,
+            'id'     => $saveres,
+            'msg'    => '添加成功',
+        );
+    }
+
+    /**
+     * 生成订单记录
+     * @param  integer $mid     用户id
+     * @param  string  $msn     用户编号
+     * @param  integer $amount  提现金额
+     * @param  integer $bank_id 银行卡id
+     * @return array            操作结果
+     */
+    public function saveCashWithdrawal($mid=0,$msn='',$amount=0,$bank_id=0){
+        $data = array();
+        $model = M('presentation_record');
+
+        $data['order_sn']   = $this->getOrderSn($mid);
+        $data['amount']     = $amount;
+        $data['state']      = 1;
+        $data['mid']        = $mid;
+        $data['msn']        = $msn;
+        $data['bank_id']    = $bank_id;
+        $data['remark']     = '';
+        $data['addtime']    = date('Y-m-d H:i:s');
+        $data['updatetime'] = date('Y-m-d H:i:s');
+
+        $res = $model->add($data);
+
+        return $res;
+    }
+
+    /**
+     * 生成订单号
+     * @return string 订单号
+     */
+    public function getOrderSn($mid=0){
+        $datetime = date('Ymd');
+        $rand_id  = rand(10000,99999);
+        $rand_mid = sprintf("%06d", $mid);
+        $order_sn = $datetime.$rand_id.$rand_mid;
+
+        return $order_sn;
     }
 
 }

@@ -22,7 +22,7 @@
               <td><a href="{:U('Authority/userIndex',['group_id'=>$role['id']])}">{$role.title}</a></td>
               <td><if condition="$role.status eq 1"><span style="color:green;">开启</span><else /><span style="color:red;">关闭</span></if></td>
               <td align="center">
-                <a href="{:U('Authority/access', "group_id=$role[id]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">配置权限</a>
+               <!--  <a href="{:U('Authority/access', "group_id=$role[id]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">配置权限</a> -->
                 <a href="{:U('Authority/groupEdit', "group_id=$role[id]")}" class="am-btn am-btn-default am-btn-xs am-text-secondary am-icon-pencil-square-o">编辑</a>
               </td>
             </tr>

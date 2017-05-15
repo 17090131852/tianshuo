@@ -170,8 +170,8 @@
 					$.each(data.data, function(key, val) {
 						str = "<tr><td><a href='/Agents/orderview?msn="+data.data[key]['msn']+"&mid="+data.data[key]['mid']+"'> 查看订单</a></td><td><a href='/Agents/memberview?msn="+data.data[key]['msn']+"'> 查看会员信息</a></td>";
 						str += "<td>"+data.data[key]['msn']+"</td>";
-						str += "<td>"+data.data[key]['reg_time']+"</td>";
-						str += "<td>"+data.data[key]['nickname']+"</td>";
+						str += "<td>"+data.data[key]['reg_date']+"</td>";
+						str += "<td>"+data.data[key]['realname']+"</td>";
 						if(data.data[key]['sta']==1){
 							m_sta = '正常';
 						}

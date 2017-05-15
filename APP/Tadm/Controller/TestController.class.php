@@ -30,7 +30,7 @@ class TestController extends Controller
         $goods = M('goods')->where("goods_id in (1,2)")->select();
         foreach ($goods as &$g ){
             $g['num'] = 2;
-            $totalamount+=$g['num']*$g['goods_score'];
+            $totalamount+=$g['num']*$g['goods_price'];
         }
         //开始创建订单
         $order = new \Tadm\Biz\Order();

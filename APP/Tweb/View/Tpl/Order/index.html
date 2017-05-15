@@ -1,0 +1,390 @@
+<include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/Common.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
+<style>
+    .navbar-default {
+        padding: 1.5em 0 1em 0;
+        margin-bottom: 0;
+        background: #fff;
+        border: 0;
+    }
+
+    .nav li a:hover {
+        color: #3da654;
+        border-bottom: 2px solid #3da654;
+    }
+
+    .LogoImg {
+        margin-left: 1em;
+    }
+
+    .pullRight {
+        float: right;
+    }
+
+    .FirmTop {
+        background: #0eb493;
+        color: #fff;
+        line-height: 2em;
+    }
+
+    .FirmTop a {
+        color: #fff;
+    }
+
+    .navbar-nav li a {
+        border-bottom: 2px solid #fff;
+    }
+
+    /*种子会员 样式*/
+    .vipMember {
+        float: left;
+        margin-right: 1em;
+    }
+
+    .logout i, .vipMember i {
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        width: 20px;
+        height: 18px;
+    }
+
+    .backIndexIcon {
+        background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+    }
+
+    .seedMember {
+        background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+    }
+
+    .vipMember a:hover {
+        color: #fff;
+    }
+
+    .lineBar {
+        display: inline-block;
+        color: #fff;
+        padding: 0 .4em 0 1em;
+    }
+</style>
+<style>
+    .orderTitle{
+        width: 100%;
+        background-color: #0eb493;
+        padding: 9px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .bt1{
+        border-bottom: 1px dashed #e8da9c;
+    }
+    .orderTitle p{
+        line-height: 1.5em;
+    }
+    .table th, .table td {
+
+        text-align: center;
+    }
+    .table{
+
+    }
+    thead{
+        background-color: #eeeaea;
+
+    }
+    .table>thead>tr>th{
+        font-size: 14px;
+        padding:19px 0;
+        border-bottom: 0;
+    }
+    .table>tbody>tr>td{
+        vertical-align: inherit;
+        border-top:none;
+        border-bottom:1px solid #e8e8e8;
+    }
+    .remColor{
+        color: #ef3232;
+    }
+    .noOrder{
+        color: #1ea78d;
+        display: block;
+    }
+    a:active, a:visited, a:focus{
+        color: #1ea78d;
+    }
+     .bg{
+        color: #fff;
+        border: none;
+        font-size: 16px;
+        padding: 0 .8em ;
+        background-color: #1ea78d;
+        text-decoration: none;
+        border-radius: 5px;
+         height: 25px;
+         line-height: 25px;
+         margin-right: 50px;
+    }
+  .bg:hover{
+        background-color: #1c977e;
+    }
+    .soInp{
+        line-height: 25px;
+        border: 1px solid #ccc;
+        width: 268px;
+       height: 25px;
+        padding-left: 10px;
+    }
+    .soso{
+        float: right;
+        margin: 47px  0 20px 0;
+    }
+    .dib{
+        display: inline-block;
+    }
+    .select{
+        width: 124px;
+        height: 25px;
+        line-height: 25px;
+    }
+    .pagination>li>a, .pagination>li>span{
+        color: #1ea78d;
+    }
+    .tal{
+        text-align: left !important;
+    }
+</style>
+<style>
+    .subTitle{ font-size:1.125em; color:#1ea78d; margin-top:1em; line-height:2em; float: left;}
+    .flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+    .flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+
+    .iptText{ padding: .4em .6em; }
+    .iptBtn { padding: .4em 1.5em; }
+
+    .listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+    .listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+    .news_list ul li { margin: .5em 0; }
+
+    #cont{ margin-top:1em; }
+    #cont tr{ line-height:1.8em; font-size:.875em; }
+    /*分页*/
+    #pageNav_1{ margin: 2em 0; }
+    @media screen and (max-width: 768px) {
+        .soso{
+            margin-top: 20px;
+        }
+        .select{
+            margin-bottom: 20px;
+        }
+        .soInp{
+            width: 70%;
+        }
+        .bg{
+            width: 20%;
+            margin-right: 0;
+        }
+    }
+</style>
+<?php if($type==1):?>
+<include file="Tpl/PublicImallHead" />
+<?php else:?>
+<include file="Tpl/PublicMemMenu"/>
+<?php endif;?>
+
+<section class="container">
+
+    <?php if($type==1):?>
+     <div class="clearfix mt30">
+         <div class="orderTitle">
+             我的订单列表
+         </div>
+     </div>
+    <?php else:?>
+    <h2 class="subTitle">历史订单</h2>
+    <?php endif;?>
+
+    <div class="soso">
+        <select class="select fl mr5" name="status" id="status">
+        <option value='0'>全部状态</option>
+        <option value='1'>待收货</option>
+        <?php if($type==1):?>
+        <option value='2'>待评价</option>
+        <?php endif;?>
+        <option value='3'>已取消</option>
+        <option value='4'>未支付</option>
+        <option value='5'>已支付</option>
+        </select>
+        <input class="soInp  fl mr5" type="text" name='order_sn' placeholder="订单编号">
+        <button class="bg  fl mr5" onclick='search()'>查询</button>
+        <div class="cb"></div>
+    </div>
+    <div class="cb"></div>
+    <div class="stripImg"></div>
+    <div class="clearfix">
+        <!--列表-->
+          <div class="table-responsive">
+              <table class="table table-hover">
+                  <thead>
+                  <tr>
+                      <th>订单号码</th>
+                      <th>物品种类</th>
+                      <th>
+                          订单状态
+                          <!--   <select class="select" name="" id="">
+                                <option>全部状态</option>
+                                <option>待收货</option>
+                                <option>待评价</option>
+                                <option>已取消</option>
+                                <option>未支付</option>
+                                <option>已支付</option>
+                            </select> -->
+                      </th>
+                      <th>
+                          <!--   <select class="select" name="">
+                            <option>全部日期</option>
+                            <option>最近一个月</option>
+                            <option>最近两个月</option>
+                            <option>最近三个月</option>
+                            </select> -->
+                          日期
+                      </th>
+                      <?php if($type==1):?>
+                      <th>订单总价(BV)</th>
+                      <?php else:?>
+                      <th>订单总价(元)</th>
+                      <?php endif;?>
+                      <th>收货人</th>
+                      <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody id="cont1">
+
+                  <!-- <tr>
+                      <td>201705029508759837</td>
+                      <td class="tal">
+                          <img class="m_auto dib" src="../../../../../Public/Images/Tweb/orderCar.png" width="84" height="51" alt="">
+                          <img class="m_auto dib" src="../../../../../Public/Images/Tweb/orderCar.png" width="84" height="51" alt="">
+
+                      </td>
+                      <td>已完成</td>
+                      <td>2017/05/02  12:58 </td>
+                      <td>100 BV</td>
+                      <td>天朔101</td>
+                      <td>
+                          <a class="noOrder" href="Order.html">查看</a>
+                          <a class="noOrder" href="evaluateText.html">立即评价</a>
+                      </td>
+                  </tr> -->
+
+                  </tbody>
+              </table>
+          </div>
+    </div>
+  <!--   <nav aria-label="Page navigation" class="tac mt20">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav> -->
+    <!--分页-->
+    <div id="pageNav"></div>
+</section>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Plugin/Page/Page.css" />
+<script type="text/javascript" src="__PUBLIC__/Plugin/Page/Pagenav1.1.cn.js"></script>
+<style type="text/css">
+    .cPageNum { background: #1ea78d; border: 1px solid #1ea78d; }
+</style>
+<script type="text/javascript">
+    var type = <?=$type?>; //订单类型 1 积分商城 2 汽车超市
+    var page = 1;
+    var pagesize = 10;
+
+    $(function(){
+        pageNav.pre="上一页";
+        pageNav.next="下一页";
+
+        getdata(1);
+    });
+
+    function search(){
+        getdata(1);
+    }
+    /**
+     * 奖励历史
+     * @param page
+     */
+    function  getdata(page){
+        var status   = $("#status").val();
+        var order_sn = $("input[name='order_sn']").val();
+
+        url='/Ajax/getOrder';
+        $.get(url,{page:page,pagesize:pagesize,type:type,status:status,order_sn:order_sn},function(data){
+            if(data.data!='undefined'){
+                $('#cont1').html('');
+                if(data.data==null || data.data==''){
+                    $("#cont1").append('暂无数据');
+                }else{
+                    if(data.pagetotal>1){
+                        pageNav.go(page,data.pagetotal);
+                    }
+
+                    $.each(data.data, function(key, val) {
+
+                        str = "<tr><td>"+val.order_sn+"</td>";
+                        // 订单图片 start
+                        str += '<td class="tal">';
+                        for (var i=0;i<val.order_goods.length;i++)
+                        {
+                            str += '<img class="m_auto dib" src="'+val.order_goods[i].goods_thumb+'" width="84" height="51" alt="">'
+                        }
+                        str += '</td>';
+                        str += "<td>"+val.order_sta_str+"</td>";
+                        str += "<td>"+val.create_time+"</td>";
+                        str += "<td>"+val.integral+"</td>";
+                        str += "<td>"+val.realname+"</td>";
+                        str += "<td><a class='noOrder' href='/Order/view?id="+val.id+"'>查看</a>";
+                        // 订单图片 end
+                        // 立即评论/确认收货
+                        if(val.shipping_status==2 && val.is_comm!=1 && val.type==1){
+                            if(val.order_goods.length==1){
+                                str += "<a class='noOrder' href='/Order/comment?id="+val.id+"&goods_code="+val.order_goods[0].goods_code+"'>立即评论</a></td>";
+                            }else{
+                                str += "<a class='noOrder' href='/Order/view?id="+val.id+"'>立即评论</a></td>";
+                            }
+
+                        }else if(val.shipping_status==2 && val.is_comm==1 && val.type==1){
+                            if(val.order_goods.length==1){
+                                str += "<a class='noOrder' href='/Order/commentView?id="+val.id+"&goods_code="+val.order_goods[0].goods_code+"'>查看评论</a></td>";
+                            }else{
+                                str += "<a class='noOrder' href='/Order/view?id="+val.id+"'>查看评论</a></td>";
+                            }
+                        }else if(val.shipping_status==1){
+                            str += "<a class='noOrder' href='/Order/changeStatus?id="+val.id+"'>确认收货</a></td>";
+                        }else if(val.order_status==0){
+                            str += "<a class='noOrder' href='/Order/cancle?id="+val.id+"'>取消订单</a></td>";
+                        }
+                        
+                        str += "</tr>";
+                        $("#cont1").append(str);
+                    });
+                }
+            }
+        },'json');
+    }
+</script>
+<include file="Tpl/PublicFoot"/>

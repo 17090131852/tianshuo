@@ -1,0 +1,80 @@
+<include file="Tpl/publicHeader" />
+<style>
+    .nav{
+        margin-left: 45px;
+    }
+</style>
+<!-- content start -->
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品管理</strong> / <small>商品详情</small></div>
+    </div>
+
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><span class="am-text-primary am-text-lg nav" >商品主信息</span> </div>
+    </div>
+    <table class="show_msg">
+        <tr>
+            <td class="msg_title">商品编号：</td><td><span>{$data.goods_code}</span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品名称：</td><td><span>{$data.goods_name}</span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品会员价：</td><td><span>{$data.goods_price}</span></td>
+        </tr>
+       <tr>
+            <td class="msg_title">商品市场价格：</td><td><span>{$data.goods_market_price}</span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品库存：</td><td><span>{$data.goods_num}</span></td>
+        </tr>
+        <tr><td class="msg_title">商品状态：</td><td><span><?php if($data['is_show']==1):?>上架<?php else:?>下架<?php endif;?></span></td></tr>
+        <tr>
+            <td class="msg_title">分类名称：</td><td><span>{$data.cat_id|getCategoryName}</span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">商品图片：</td>
+            <td>
+              <foreach name="goods_images" item="vo" key="k" >
+                <span>
+                    <img src="{:C('DOMAIN_NAME')}/{$vo.image_url}" width="100px" height="100px" >
+                </span>
+                </foreach>
+            </td>
+        </tr>
+     <!--    <tr>
+            <td class="msg_title">商品详情：</td><td><span>{$data.goods_desc}</span></td>
+        </tr> -->
+    </table>
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><span class="am-text-primary am-text-lg nav" >扩展信息</span> </div>
+    </div>
+    <table class="show_msg">
+        <tr>
+            <td class="msg_title">商品类型：</td><td><span><?php if($data['is_real']==1):?>实物<?php else:?>虚拟商品<?php endif;?></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否热销：</td><td><span><?php if($data['is_hot']==1):?>是<?php else:?>否<?php endif;?></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否新品：</td><td><span><?php if($data['is_new']==1):?>是<?php else:?>否<?php endif;?></span></td>
+        </tr>
+        <tr>
+            <td class="msg_title">是否赠送积分：</td><td><span><?php if($data['give_score']==1):?>赠送<?php else:?>不赠送<?php endif;?></span></td>
+        </tr>
+        <!--<tr>-->
+            <!--<td  class="msg_title">商品排序：</td><td><span>{$data.goods_sort}</span></td>-->
+        <!--</tr>-->
+    </table>
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><span class="am-text-primary am-text-lg nav" >其他信息</span> </div>
+    </div>
+    <table class="show_msg">
+        <tr>
+            <td  class="msg_title">添加时间：</td><td><span>{$data.add_time}</span></td>
+        </tr>
+    </table>
+
+</div>
+<include file="Tpl/publicFooter" />

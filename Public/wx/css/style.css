@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mt128 {
+    margin-top: 2.0rem !important;
+}
+
+.back {
+    width: 10.0rem;
+    height: 15.75rem;
+    margin: auto;
+    background: url('../img/signBack.png');
+    background-size: 100% 100%;
+}
+
+.header {
+    padding-top: 0.78125rem;
+}
+
+.header p {
+    color: #fff;
+    text-align: center;
+    font-size: 0.5625rem;
+}
+
+.pImg {
+    width: 3.0625rem;
+    height: 3.0625rem;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 2.8125rem;
+}
+
+.name {
+    font-size: 0.53125rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 0.3125rem;
+}
+
+.signBtn {
+    color: #fff;
+    width: 7.34375rem;
+    height: 1.09375rem;
+    line-height: 1.09375rem;
+    background-color: #ff5f33;
+    border: none;
+    border-radius: 0.125rem;
+    font-size: 0.53125rem;
+    display: block;
+    margin: auto;
+    margin-top: 2.96875rem;
+}
+
+.signSuc {
+    width: 6.09375rem;
+    height: 3.28125rem;
+    background-color: #fff;
+    border-radius: 0.15625rem;
+    margin: auto;
+    margin-top: 2.65625rem;
+}
+
+.sucText {
+
+    color: #000;
+    font-size: 0.5rem;
+    padding-left: 1.0rem;
+    line-height: 0.90625rem;
+    position: relative;
+    width: 2.1875rem;
+    padding-top: 0.65625rem;
+    margin: auto;
+
+}
+
+.sucText:after {
+    content: '';
+    position: absolute;
+    top: 0.65625rem;
+    left: 0;
+    width: 1.0rem;
+    height: 0.90625rem;
+    background: url('../img/signIcon.png');
+    background-size: 100% 100%;
+}
+
+.confirm {
+    width: 3.8125rem;
+    height: 0.78125rem;
+    line-height: 0.78125rem;
+    border-radius: 0.125rem;
+    background-color: #ff5f33;
+    display: block;
+    margin: auto;
+    margin-top: 0.46875rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.40625rem;
+    text-align: center;
+}
+
+/*timetable页面css*/
+.table {
+    width: 9.0625rem;
+    margin: auto;
+    height: 13rem;
+    background-color: #fabdca;
+    margin-top: 0.25rem;
+}
+
+.tableTitle {
+    color: #000;
+    font-size: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    padding: 0.46875rem 0 0.25rem 0;
+}
+
+.scroll {
+    width: 100%;
+    height: 8.59375rem;
+    overflow: scroll;
+}
+
+.scroll ul {
+    list-style: none;
+    padding-left: 0.21875rem;
+}
+
+.scroll li {
+    font-size: 0.46875rem;
+    margin-top: 0.46875rem;
+    color: #ff5f33;
+    padding: 0 0.15625rem;
+}
+
+.tableBtn {
+    color: #fff;
+    width: 5.625rem;
+    height: 1.09375rem;
+    line-height: 1.09375rem;
+    background-color: #ff5f33;
+    border: none;
+    border-radius: 0.125rem;
+    font-size: 0.53125rem;
+    display: block;
+    margin: auto;
+    margin-top: 0.5625rem;
+}
+
+.fiex {
+    position: fixed;
+    -moz-column-count: 2; /* Firefox */
+    -webkit-column-count: 2; /* Safari and Chrome */
+    column-count: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.25rem;
+    background-color: #fff;
+}
+
+.fiexList {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    line-height: 1.2375rem;
+    height: 1.2375rem;
+    font-size: 0.34375rem;
+
+}
+
+.fiexList span {
+    padding-left: 0.7rem;
+    position: relative;
+    font-size: 0.40625rem;
+    color: #000;
+}
+
+.fiexList span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.news:after {
+    background: url('../img/tableIcon1.png');
+    background-size: 100% 100%;
+    width: 0.584375rem;
+    height: 0.490625rem;
+}
+
+.present:after {
+    background: url('../img/tableIcon2.png');
+    background-size: 100% 100%;
+    width: 0.50625rem;
+    height: 0.50625rem;
+}
+
+.borderr {
+    border-right: 1px solid #f4f0f0
+}
+
+/*聊天界面css*/
+.backColor {
+    background-color: #f4f0f0;
+
+}
+
+.newsList {
+    list-style: none;
+    padding: 0 0.46875rem;
+    margin-bottom: 6.375rem;
+}
+
+.newsList li {
+    margin-top: 0.586875rem;
+    text-align: center;
+    padding: 0 0.46875rem;
+}
+
+.newsList li:last-child {
+    margin-bottom: 0.46875rem;
+}
+
+.time {
+    color: #fff;
+    background-color: #beb9b9;
+    padding: 0.09375rem 0.125rem;
+    text-align: center;
+    line-height: 1;
+    font-size: 0.34375rem;
+    border-radius: 0.125rem
+}
+
+.listBox {
+    position: relative;
+    padding-left: 1.41875rem;
+    text-align: left;
+}
+
+.nameImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.21875rem;
+    height: 1.21875rem;
+    border-radius: 50%;
+}
+
+.newName {
+    font-size: 0.34375rem;
+    color: #beb9b9;
+    line-height: 1;
+    margin-bottom: 0.185rem;
+}
+
+.newText {
+    border: 1px solid #beb9b9;
+    background-color: #fff;
+    line-height: 0.59375rem;
+    color: #000;
+    font-size: 0.4375rem;
+    padding: 0.0625rem 0.09375rem;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 0.125rem;
+
+    word-break: normal;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.inews {
+    padding-right: 1.41875rem;
+    text-align: right;
+}
+
+.inews .newText {
+    text-align: left;
+}
+
+.inews .nameImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 1.21875rem;
+    height: 1.21875rem;
+    border-radius: 50%;
+}
+
+.newFiex {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 386px;
+    width: 100%;
+    border-top: 1px solid #beb9b9;
+    background-color: #efeded;
+}
+
+.fiexBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0.40625rem 0.40625rem;
+}
+
+.newIcon {
+    background: url('../img/newIcon.png');
+    background-size: 100% 100%;
+    width: 0.578125rem;
+    height: 0.578125rem;
+    display: inline-block;
+
+}
+
+.newIcon1 {
+    background: url('../img/newIcon1.png11');
+    background-size: 100% 100%;
+    width: 0.515625rem;
+    height: 0.515625rem;
+    display: inline-block;
+}
+
+.textarea {
+    resize: none;
+    width: 6.40625rem;
+    height: 0.81875rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 0.125rem;
+    margin: 0 0.15625rem;
+    font-size: 0.4rem;
+    line-height: 0.81875rem;
+    overflow: scroll;
+}
+
+.send {
+    width: 1.0625rem;
+    height: 0.71875rem;
+    font-size: 0.375rem;
+    color: #fff;
+    border: none;
+    background-color: #ff5f33;
+    border-radius: 0.125rem;
+    margin-left: 0.15625rem;
+}
+
+.ps {
+    width: 100%;
+    height: 0.96875rem;
+    -moz-column-count: 3; /* Firefox */
+    -webkit-column-count: 3; /* Safari and Chrome */
+    column-count: 3;
+    overflow: hidden;
+}
+
+.ps div {
+    display: flex;
+    justify-content: center;
+    /*margin-top:0.28125rem;*/
+    overflow: hidden;
+    -webkit-column-break-inside: avoid;
+}
+
+.psicon {
+    width: 0.609375rem;
+    height: 0.484375rem;
+}
+
+.psicon1 {
+    width: 0.5625rem;
+    height: 0.46875rem;
+}
+
+.psicon2 {
+    width: 0.484375rem;
+    height: 0.5625rem;
+}
+
+.dn {
+    display: none;
+}
+
+.db {
+    display: block;
+}

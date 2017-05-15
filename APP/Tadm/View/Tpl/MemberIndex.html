@@ -93,9 +93,11 @@
                             <?php if($mvo['type']==4):?>
                             <a href="__APP__/Tadm/Memberoperation/audit/?id={$mvo.mid}">[普通会员]</a>
                             <?php endif;?>
+                            <a href="__APP__/Tadm/Member/del/?id={$mvo.mid}">删除</a>
                             <?php elseif($mvo['acount_sta']==2): ?>
-                            [已审核]
+                            [已交费]
                             <?php endif;?>
+
                         </td>
                     </tr>
                     <!--<volist name="tvo.child" id="cvo">-->

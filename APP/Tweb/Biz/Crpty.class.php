@@ -32,8 +32,10 @@ class Crpty
     }
 
     static public function makeMSN(){
-        $count = M("member")->where()->count();
-        return  sprintf("%06d",$count+1);
+        $data = M("member")->field('max(msn) as m_msn')->find();
+        $msn = intval($data['m_msn'])+1;
+
+        return  sprintf("%06d",$msn);
     }
 
 

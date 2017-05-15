@@ -17,7 +17,7 @@ class IndexController extends BaseController {
 		$this->display(C('DEFAULT_TPL').'/left');    	
 	}
 
-	//后台主体区块内容
+	//后台主体区块内容x
 	public function main(){
 		$gd = gd_info();
 		$info = array(

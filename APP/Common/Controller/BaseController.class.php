@@ -14,10 +14,14 @@ class BaseController extends Controller{
 		if($sess_auth == C('SUPER_ADM')){
 			return true;
 		}
+
+		return true;
 		//权限控制
-		$auth = new Auth();
-		if(!$auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME,$sess_auth['admUid'])){
-			$this->error('抱歉!您所在的用户组无权访问此页面!',U('Fdadm/Public/login'),2);
-		}
+		// $auth = new Auth();
+		// if(!$auth->check(MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME,$sess_auth['admUid'])){
+		// 	session('admUid',null);
+		// 	$this->error('抱歉!您所在的用户组无权访问此页面!',U('Tadm/Public/login'),2);
+		// }
 	}
+
 }

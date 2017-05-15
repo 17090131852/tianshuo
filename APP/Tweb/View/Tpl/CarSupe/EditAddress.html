@@ -1,0 +1,93 @@
+<include file="Tpl/PublicCarSupeHead" />
+<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js" /></script>
+<script src="__PUBLIC__/Plugin/City/js/jquery.cityselect.js"></script>
+<style>
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.form-group{ margin-top:1em; color: #666;}
+	.iptText { padding: .5em; }
+	.SexBtn input { margin:0 .2em 0 0;}
+	.iptBtn {padding: .5em 1em;}
+	.resetBtn { background: #ccc; border:1px solid #f1f1f1;padding: .5em 1em; }
+	.iptBtn:hover,.resetBtn:hover {text-decoration: underline;}
+	#liveCity select { padding: .5em; border: 1px solid #1ea78d; }
+</style>
+<div class="container">
+<form class="AddUserForm" action="__APP__/CarSupe/modifyAddress/id/{$id}" method="post" enctype="multipart/form-data">
+	<h1 class="pageTitle">
+		收货信息编辑
+	</h1>
+	<!--真实姓名-->
+	<form action="/Member/viewEdit" method="post" class="AddUserForm">
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">真实姓名：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" type="text" name="realname" value="{$addressInfo.realname}" autocomplete="off" datatype="*" errormsg="内容不能为空">
+				</div>
+			</div>
+
+			<!--选择城市-->
+				<div class="row form-group">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<span class="form-control-static field-label">地区选择：</span>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+						<span class="form-control-static field-label">
+							<div id="liveCity">
+								<select class="prov rds5" name="province"></select>
+								<select class="city rds5" name="city" disabled="disabled"></select>
+								<select class="dist rds5" name="county" disabled="disabled"></select>
+							</div>
+						</span>
+					</div>
+				</div>
+			<!--街道地址-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">街道地址：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="address" value="{$addressInfo.address}" datatype="*"  placeholder="请填详细地址" autocomplete="off" errormsg="请填详细地址" />
+				</div>
+			</div>
+			<!--联系电话-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">联系电话：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="tel" value="{$addressInfo.tel}" placeholder="请填写手机号码" autocomplete="off" datatype="m" errormsg="手机号格式错误"/>
+				</div>
+			</div>
+			<!--邮政编码-->
+			<div class="row form-group">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<span class="form-control-static field-label">邮政编码：</span>
+				</div>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<input type="text" class="iptText rds5 col-xs-12 col-sm-8 col-md-8 col-lg-8" name="zipcode" value="{$addressInfo.zipcode}" placeholder="请填写邮政编码" autocomplete="off" datatype="p" errormsg="邮政编码错误"/>
+				</div>
+			</div>
+			<input class="iptBtn rds5 userAdd" type="submit" value="提交" />
+			<input class="rds5 resetBtn" type="reset" value="重置" />
+			<input name="default_address" value="{$addressInfo.default_address}" type="hidden" />
+</form>
+</div>
+<script>
+		//居住地联动
+		$("#liveCity").citySelect({
+			prov:"{$addressInfo.province}",
+			city:"{$addressInfo.city}",
+			dist:"{$addressInfo.county}",
+			nodata:"none"
+		});
+		//表单验证
+		$(function(){
+		$(".AddUserForm").Validform({
+			 btnSubmit:".userAdd",
+		});
+	});
+</script>
+<include file="Tpl/PublicFoot"/>

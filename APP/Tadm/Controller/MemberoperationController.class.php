@@ -104,11 +104,13 @@ class MemberoperationController extends Base
         }
 
         $member              = M("member"); // 实例化MEMBER对象
-        $member->all_score   = $score;
-        $member->leave_score = $score;
-        $member->acount_sta  = 2;
-        $member->where("mid='{$mid}'")->save(); // 根据条件更新记录
-        $this->success('审核成功！');
-        exit;
+        $data['all_score']   = $score;
+        $data['leave_score'] = $score;
+        $data['acount_sta']  = 2;
+        $member->where("mid='{$mid}'")->save($data); // 根据条件更新记录
+        // echo $member->getLastSQL();
+        // exit;
+        $this->success('审核成功！','/Memberoperation/index');
+        // exit;
     }
 }

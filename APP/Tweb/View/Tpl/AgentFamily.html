@@ -29,7 +29,7 @@
 				</li>
 				<li class="col-lg-3 col-xs-12 col-sm-3 col-md-3">
 					<label>会员姓名：</label>
-					<input class="iptText rds5" type="text" name="nickname" value="{$nickname}">
+					<input class="iptText rds5" type="text" name="realname" value="{$realname}">
 				</li>
 				<li class="col-lg-2 col-xs-12 col-sm-2 col-md-2">
 					<label></label>
@@ -65,28 +65,28 @@
 			<volist name="selectArray" id="al">
 				<tr>
 					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
-					<td>{$al.nickname}</td>
+					<td>{$al.realname}</td>
 					<td>{$al.level|getLevel}</td>
 				</tr>
 			</volist>
 			<volist name="oone" id="al">
 				<tr>
 					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
-					<td>{$al.nickname}</td>
+					<td>{$al.realname}</td>
 					<td>第一代</td>
 				</tr>
 			</volist>
 			<volist name="ttwo" id="al">
 				<tr>
 					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
-					<td>{$al.nickname}</td>
+					<td>{$al.realname}</td>
 					<td>第二代</td>
 				</tr>
 			</volist>
 			<volist name="tthree" id="al">
 				<tr>
 					<td class="hidden-xs"><a href="__APP__/Agents/familyInfo/msn/{$al.msn}">{$al.msn}</a></td>
-					<td>{$al.nickname}</td>
+					<td>{$al.realname}</td>
 					<td>第三代</td>
 				</tr>
 			</volist>

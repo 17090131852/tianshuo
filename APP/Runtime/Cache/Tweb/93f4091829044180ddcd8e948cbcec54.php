@@ -135,48 +135,26 @@
 	<div class="container recomArea">
 		<h2 class="row">精品推荐</h2>
 		<div class="row recomList">
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/2.jpg" width="100%" />
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/1.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/1.jpg" width="100%">
-					</a>
-				</div>
-			</div>
-			<div class="col-lg2 col-xs-6 col-md-2 col-sm-6">
-				<div class="ItemBox">
-					<a href="javascript:;">
-						<img src="<?php echo C('UPLOAD_SAVAPATH');?>Test/2.jpg" width="100%">
-					</a>
-				</div>
-			</div>
+			<ul>
+				<?php if(is_array($goodsHot)): $i = 0; $__LIST__ = $goodsHot;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$gItem): $mod = ($i % 2 );++$i;?><li class="col-lg-2">
+						<div class="goodItemCase">
+							<div class="goodsImg">
+								<a href="/index.php/Imall/info/goods_id/<?php echo ($gItem["goods_id"]); ?>"><img src="<?php echo ($gItem["goods_thumb"]); ?>" alt="" /></a>
+							</div>
+							<div class="cargoProperty">
+								<input type="hidden" name="goodsCode" value="<?php echo ($gItem["goods_id"]); ?>" />
+								<p><a href="/index.php/Imall/info/goods_id/<?php echo ($gItem["goods_id"]); ?>"><?php echo (msubstr($gItem["goods_name"],0,12)); ?></a></p>
+								<p>所需积分：<?php echo ($gItem["goods_score"]); ?>&nbsp;BV</p>
+								<p class="addMin clearfix">
+									<a class="rds5 minNum" href="javascript:;">-</a>
+									<input class="carnoNum iptText rds5" type="text" name="cnum" value="1" title="数量" />
+									<a class="rds5 addNum" href="javascript:;">+</a>
+								</p>
+								<a class="iptBtn rds5 addCart" href="javascript:;">加入购物车</a>
+							</div>
+						</div>
+					</li><?php endforeach; endif; else: echo "" ;endif; ?>
+			</ul>
 		</div>
 	</div>
 	<div class="container cargoArea">

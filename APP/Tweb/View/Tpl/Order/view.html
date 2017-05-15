@@ -1,0 +1,308 @@
+<include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/Common.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
+<style>
+        .navbar-default {
+            padding: 1.5em 0 1em 0;
+            margin-bottom: 0;
+            background: #fff;
+            border: 0;
+        }
+
+        .nav li a:hover {
+            color: #3da654;
+            border-bottom: 2px solid #3da654;
+        }
+
+        .LogoImg {
+            margin-left: 1em;
+        }
+
+        .pullRight {
+            float: right;
+        }
+
+        .FirmTop {
+            background: #0eb493;
+            color: #fff;
+            line-height: 2em;
+        }
+
+        .FirmTop a {
+            color: #fff;
+        }
+
+        .navbar-nav li a {
+            border-bottom: 2px solid #fff;
+        }
+
+        /*种子会员 样式*/
+        .vipMember {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .logout i, .vipMember i {
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+        }
+
+        .backIndexIcon {
+            background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+        }
+
+        .seedMember {
+            background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+        }
+
+        .vipMember a:hover {
+            color: #fff;
+        }
+
+        .lineBar {
+            display: inline-block;
+            color: #fff;
+            padding: 0 .4em 0 1em;
+        }
+    </style>
+<style>
+        .orderTitle{
+            width: 100%;
+            border: 2px solid #e8da9c;
+            background-color: #fffceb;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .bt1{
+            border-bottom: 1px dashed #e8da9c;
+        }
+        .orderTitle p{
+            line-height: 1.5em;
+        }
+        .table th, .table td {
+
+            text-align: center;
+        }
+        .table{
+
+        }
+        thead{
+            background-color: #eeeaea;
+
+        }
+        .table>thead>tr>th{
+            font-size: 14px;
+            padding:19px 0;
+            border-bottom: 0;
+        }
+        .table>tbody>tr>td{
+            vertical-align: inherit;
+            border-top:none;
+            border-bottom:1px solid #e8e8e8;
+        }
+        .remColor{
+            color: #ef3232;
+        }
+        .noOrder{
+            color: #1ea78d;
+        }
+        a:active, a:visited, a:focus{
+            color: #1ea78d;
+        }
+        .stripImg{
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .flow{
+            background: url("../../../../../Public/Images/Tweb/flow1.png");
+            width: 817px;
+            height: 62px;
+            margin: auto;
+        }
+        .flow2{
+            background: url("../../../../../Public/Images/Tweb/flow2.png");
+             width: 817px;
+            height: 62px;
+            margin: auto;
+        }
+        .flow3{
+            background: url("../../../../../Public/Images/Tweb/flow3.png");
+             width: 817px;
+            height: 62px;
+            margin: auto;
+        }
+        .flow4{
+            background: url("../../../../../Public/Images/Tweb/flow4.png");
+             width: 817px;
+            height: 62px;
+            margin: auto;
+        }
+    </style>
+<style>
+    .subTitle{ font-size:1.125em; color:#1ea78d; margin-top:1em; line-height:2em; }
+    .flatSelect{ border:1px solid #ddd; overflow:hidden; font-size:.875em; }
+    .flatSelect select{padding: .5em 1em;border: 1px solid #0eb493;}
+
+    .iptText{ padding: .4em .6em; }
+    .iptBtn { padding: .4em 1.5em; }
+
+    .listTable tr th { height:2em; text-align:center; background:#1ea78d; border: 1px solid #fff; color: #fff; }
+    .listTable tr td{ border:1px solid #ddd; font-size:.875em; line-height:2em; text-align:center;}
+
+    .news_list ul li { margin: .5em 0; }
+</style>
+</head>
+<?php if($type==1):?>
+<include file="Tpl/PublicImallHead" />
+<?php else:?>
+<include file="Tpl/PublicMemMenu"/>
+<?php endif;?>
+<body>
+<section class="container">
+	<h2 class="subTitle">订单详情</h2>
+	<div class="clearfix mt30">
+		<div class="orderTitle">
+			<p class="fs18 color666">我的订单</p>
+			<p class="color666 fs14 bt1 pb15">
+				<span class="pr100">订单号：{$order['order_sn']}</span>
+				<span>
+					状态：
+					<span class="colorlan">
+						<?php 
+							//查询订单状态
+							if($order['is_comm']==1){
+							    $order_sta_str = '已评论';
+							}elseif($order['shipping_status']==2){
+							    $order_sta_str = '已确认收货';
+							}elseif($order['shipping_status']==1){
+							    $order_sta_str = '已发货';
+							}elseif($order['order_status']==1){
+							    $order_sta_str = '已付款';
+							}elseif($order['order_status']==0){
+							    $order_sta_str = '未付款';
+							}elseif($order['order_status']==2){
+							    $order_sta_str = '已取消';
+							}
+							echo $order_sta_str;
+						?>
+					</span>
+				</span>
+			</p>
+			<!--  <p class="color666 fs14 pt10">
+			尊敬的客户，我们还未收到该订单的款项，请您尽快付款（在线支付帮助），如果您已经付款，请务必填写付款确认。该订单会为您保留24小时（从下单之日算起），24小时之后如
+             果还未付款，系统将自动取消该订单。
+		</p>
+		-->
+	</div>
+</div>
+<div class="stripImg">
+	<!--flow2添加class付款成功-->
+	<!--flow3添加class商品出库-->
+	<!--flow4添加class完成-->
+	<?php if($order['shipping_status']==2):?>
+	<div class="flow4"></div>
+	<?php elseif($order['shipping_status']==1):?>
+	<div class="flow3"></div>
+	<?php elseif($order['order_status']==1):?>
+	<div class="flow2"></div>
+	<?php elseif($order['order_status']==0):?>
+	<div class="flow"></div>
+	<?php endif;?>
+
+</div>
+<div class="clearfix">
+	<!--列表-->
+	<p class="pl15">商品清单</p>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>订单号码</th>
+				<th>物品种类</th>
+				<!-- <th>订单状态</th> -->
+				<th>订单日期</th>
+				<?php if($order['type']==1):?>
+				<th>商品积分</th>
+				<?php else:?>
+				<th>商品金额</th>
+				<?php endif;?>
+				<th>收货人</th>
+				<?php if($order['shipping_status']==2 && $order['type']==1):?>
+				<th>操作</th>
+				<?php endif;?>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="orderGoods" item="vo" >
+			    <tr>
+			    	<td>{$vo['order_sn']}</td>
+			    	<td>
+                    <?php if($order['type']==1):?>                        
+                        <a href="{:U('Imall/info',array('goods_id'=>
+                            $vo[goods_id]))}" target='_blank'>
+                            <img class="m_auto db" src="{:C(DOMAIN_NAME)}/{$vo[goods_thumb]}" width="84" height="51" alt="">                        
+                            <p class="fs14 tac color666">{$vo['goods_name']}</p>
+                        </a>
+                    <?php else:?>    
+                          <a href="{:U('CarSupe/Info',array('goods_id'=>
+                            $vo[goods_id]))}" target='_blank'>
+                            <img class="m_auto db" src="{:C(DOMAIN_NAME)}/{$vo[goods_thumb]}" width="84" height="51" alt="">                        
+                            <p class="fs14 tac color666">{$vo['goods_name']}</p>
+                        </a>  
+                    <?php endif;?>            
+			    	</td>
+			    	<!-- <td>已发货</td> -->
+			    	<td>{$vo['create_at']}</td>
+			    	<?php if($order['type']==1):?>
+			    	<td class="remColor">{$vo['total_score']} BV</td>
+			    	<?php else:?>
+			    	<td class="remColor">{$vo['total_score']} ¥</td>
+			    	<?php endif;?>
+			    	<td>{$order['realname']}</td>
+			    	<?php if($order['shipping_status']==2 && $order['type']==1):?>
+			    	<td>
+			    		<?php if($vo['is_comm']==1):?>
+						<a class='noOrder' href="/Order/commentView?id={$order['id']}&goods_code={$vo['goods_code']}">查看评论</a>
+				    	<?php else:?>
+						<a class='noOrder' href="/Order/comment?id={$order['id']}&goods_code={$vo['goods_code']}">立即评论</a>
+				    	<?php endif;?>
+			    	</td>
+			    	<?php endif;?>
+			    </tr>
+			</foreach>
+			
+
+		</tbody>
+	</table>
+</div>
+<div class="clearfix">
+	<p class="fs14 color000">您的信息</p>
+	<div class="fl w500">
+		<p class="fs14 color666">收货人：{$order['realname']}</p>
+		<p class="fs14 color666">手机号码：{$order['tel']}</p>
+		<p class="fs14 color666">详细地址：{$order['province']}{$order['city']}{$order['county']}{$order['address']}</p>
+	</div>
+	<?php if($order['type']==1):?>
+	<div class="fr w180">
+		<p class="fs14 color666 mt20">订单总价：{$order['integral']}BV</p>
+		<p class="fs16 color666 mt20">
+			实付总额：
+			<span class="colorh">{$order['integral']}BV</span>
+		</p>
+	</div>
+	<?php else:?>
+	<div class="fr w180">
+		<p class="fs14 color666 mt20">订单总价：¥{$order['integral']}</p>
+		<p class="fs16 color666 mt20">
+			实付总额：
+			<span class="colorh">¥{$order['integral']}</span>
+		</p>
+	</div>	
+	<?php endif;?>
+	<div class="cb"></div>
+</div>
+</section>
+</body>
+<include file="Tpl/PublicFoot"/>

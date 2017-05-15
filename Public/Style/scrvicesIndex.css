@@ -1,0 +1,283 @@
+.pandectStrip {
+    height: 50px;
+    line-height: 50px;
+}
+
+.pandectStrip a {
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+}
+.jjA {
+    width: 33px;
+    text-align: center;
+    font-size: 33px;
+    color: #cfcfcf;
+    margin: auto;
+    margin-top: -27px;
+    cursor: pointer;
+}
+
+.line {
+    width: 230px;
+    margin: auto;
+    height: 1px;
+    background-color: #e6e8ea;
+    margin-top: 30px;
+}
+.line:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #fff;
+    margin: auto;
+}
+label{
+    font-size: 14px;
+    color: #000;
+}
+#name{
+    width:298px;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+    border:#dddddd 2px solid;
+}
+#tel{
+    width:298px;
+    border:#dddddd 2px solid;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+}
+#car{
+    width: 298px;
+    border:#dddddd 2px solid;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+}
+.form{
+    width: 786px;
+    margin:auto;
+}
+#tiy{
+    border:#dddddd 2px solid;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+    width: 261px;
+}
+#tiy1{
+    border:#dddddd 2px solid;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+    width: 340px;
+}
+#s6{
+    border:#dddddd 2px solid;
+    height: 41px;
+    line-height: 41px;
+    padding-left: 10px;
+    width: 324px;
+}
+.btn2{
+    width: 148px;
+    height: 40px;
+    color: #fff;
+    background-color: #1EA78D;
+    display: block;
+    margin:auto;
+    border: none;
+    margin-top: 50px;
+    margin-bottom: 44px;
+}
+#map{
+    margin:auto;
+    margin-bottom: 60px;
+    margin-top: 20px;
+}
+.mb95{
+    margin-bottom: 95px;
+}
+#tel-error{
+    position: absolute;
+    top: 45px;
+    left: 455px;
+    color: #ef3232;
+}
+#name-error{
+    position: absolute;
+    top: 45px;
+
+    left: 50px;
+    color: #ef3232;
+}
+#Wdate-error{
+    position: absolute;
+    top: 45px;
+    left: 455px;
+    color: #ef3232;
+}
+#car-error{
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    color: #ef3232;
+}
+#s6-error{
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    color: #ef3232;
+}
+#tiy-error{
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    color: #ef3232;
+}
+#tiy1-error{
+    position: absolute;
+    top: 45px;
+    left: 455px;
+    color: #ef3232;
+}
+.min{
+    display: none;
+}
+#map{
+    width:787px;
+    height:428px;
+}
+@media screen and (max-width: 768px) {
+    #name-error {
+        top: 39px;
+        left: 88%;
+    }
+    #tel-error {
+        top: 101px;
+        left: 88%;
+    }
+    #car-error {
+        top: 39px;
+        left: 88%;
+    }
+    #Wdate-error {
+        top: 101px;
+        left: 88%;
+    }
+    #tiy-error {
+        top: 39px;
+        left: 88%;
+    }
+    #tiy1-error {
+        top: 101px;
+        left: 88%;
+    }
+    #s6-error {
+        top: 39px;
+        left: 88%;
+    }
+    .min{
+        display: block;
+    }
+    .minml0{
+        margin-left: 0;
+        margin-top: 31px;
+    }
+    .minmt20{
+        margin-top: 20px;
+    }
+    .minmt20 div{
+        float: none;
+    }
+    .form{
+        width: 100%;
+        text-align: center;
+    }
+    #map{
+        width: 95%;
+        margin: auto;
+        border-radius: 4px;
+    }
+    .minname{
+        text-align: left;
+        display: inline-block;
+        width: 30%;
+    }
+    .minname1{
+        display: inline-block;
+        width: 40%;
+        text-align: left;
+    }
+    .minname2{
+        display: inline-block;
+        width: 40%;
+        text-align: left;
+        text-indent: 5.5em;
+    }
+    #name{
+        display: inline-block;
+        width: 65%;
+    }
+    #tiy{
+        display: inline-block;
+        width: 55%;
+    }
+    #tel{
+        display: inline-block;
+        width: 65%;
+    }
+    #car{
+        display: inline-block;
+        width: 65%;
+    }
+    #tiy1{
+        display: inline-block;
+        width: 55%;
+    }
+    #Wdate{
+        display: inline-block;
+        width: 65%;
+    }
+    #s6{
+        display: inline-block;
+        width: 65%;
+    }
+    .btn2{
+        width: 90%;
+        border-radius: 4px;
+    }
+    .w400{
+        text-align: left;
+        margin-top: 20px;
+    }
+    .minmb30{
+        margin-bottom: 30px;
+    }
+}
+@media screen and (min-width: 620px)and (max-width: 768px){
+    .minname1{
+        display: inline-block;
+        width: 30%;
+        text-align: left;
+    }
+    .minname2{
+        display: inline-block;
+        width: 30%;
+        text-align: left;
+        text-indent: 5.5em;
+    }
+    #tiy{
+        display: inline-block;
+        width: 65%;
+    }
+    #tiy1{
+        display: inline-block;
+        width: 65%;
+    }
+
+}

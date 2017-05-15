@@ -43,7 +43,6 @@ class UserModel extends Model{
 		$pwdFinal = md5($pwdTem);
 		return $pwdFinal;
 	}
-
 }
 
 

@@ -11,9 +11,15 @@ namespace Tweb\Controller;
 
 class Base extends \Tweb\Controller\BaseController
 {
+
     public function __destruct()
     {
         //auto render;
-        $this->display(C('DEFAULT_TPL').'/'.CONTROLLER_NAME."/".ACTION_NAME);
+        $dir =  dirname(__DIR__)."/View/";
+        $tpl = C('DEFAULT_TPL').'/'.CONTROLLER_NAME."/".ACTION_NAME;
+        if(file_exists($dir.$tpl.".html")){
+            $this->display(C('DEFAULT_TPL').'/'.CONTROLLER_NAME."/".ACTION_NAME);
+        }
     }
+
 }

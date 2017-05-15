@@ -32,13 +32,14 @@ class PublicController extends Controller {
 			$rule['mobile_phone'] = $login_number;
 			$rule['msn'] = $login_number;
 			$rule['_logic'] = 'OR';
-			$item = M('member')->field('mid,pwd,nickname,msn')->where($rule)->find();
+			$item = M('member')->field('mid,pwd,realname,nickname,msn')->where($rule)->find();
 			if(empty($item)){
 				$this->error('用户不存在！','',1);
 			}
 
 			if($pwd === $item['pwd']){
 				session('mid',$item['mid']);
+				session('realname',$item['realname']);
 				session('nickname',$item['nickname']);
 				session('msn',$item['msn']);
 				$this->redirect(__APP__.'/../Member/index');

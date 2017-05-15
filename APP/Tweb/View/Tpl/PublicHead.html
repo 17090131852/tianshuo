@@ -35,7 +35,7 @@
 	<header class="clearfix">
 		<div class="FirmTop clearfix ">
 			<div class="MaxWidth container">
-				<span>客服电话：4008916400</span>
+				<span>客服电话：010-53322763</span>
 				<span class="pullRight">
 					<if condition="$Think.session.msn eq '' ">
 						<a href="{:U('Public/Login')}">登录</a>
@@ -79,14 +79,16 @@
 								汽车超市<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="{:U('MotoType/index')}"><span></span>车型总览</a></li>
-								<li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li>
+								<li><a href="{:U('CarSupe/index')}"><span></span>车型总览</a></li>
+								<!-- <li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li> -->
+								<li><a href="{:U('Services/index')}"><span></span>预约试驾</a></li>
+
 							</ul>
 						</li>
 						<li><a href="{:U('About/afterService')}"><span></span>售后服务</a></li>
 						<li><a href="{:U('News/index')}"><span></span>会员中心</a></li>
-						<li><a href="{:U('About/index')}"><span></span>关于天朔</a></li>
 						<li><a href="{:U('Imall/index')}"><span></span>积分商城</a></li>
+						<li><a href="{:U('About/index')}"><span></span>关于天朔</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->

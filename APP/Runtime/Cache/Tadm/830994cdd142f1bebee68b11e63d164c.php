@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?>    <?php if(is_array($data)): foreach($data as $key=>$vo): echo ($key); ?>|<?php echo ($vo); endforeach; endif; ?>

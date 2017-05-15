@@ -20,6 +20,66 @@
 	.backIndex a:hover { color: #fff; }
 	.lineBar { display: inline-block; color: #fff; padding: 0 .4em 0 1em; }
 	.nav-tabs { margin-top: 1.6em; }
+
+	/*导航条描边样式 */
+	.navNewMember { border: 2px solid rgb(66, 176, 216); }
+	.navAccData { border: 2px solid rgb( 63, 187, 155); }
+	.navCarSupermaket {border: 2px solid rgb(141,192,88);}
+	.navOder {border: 2px solid rgb(238,171,171);}
+	.navReport {border: 2px solid rgb(239, 189, 125);}
+	.navHistory {border: 2px solid rgb(252, 141, 107) ;}
+	.navMoney {border: 2px solid rgb( 224, 100, 83);}
+	.navStore {border: 2px solid rgb( 239, 44, 44);}
+	.nav-tabs>li>a { margin-right: 0; width: 134px; }
+	.nav-tabs li i { position: relative;left: 0px; bottom: 5px; float: left; display: inline-block; }
+	.memberIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 0; width: 32px;height: 27px; }/*新会员*/
+	.dataIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -34px -2px; width: 35px;height: 26px; }/*账户资料*/
+	.superMaketIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -69px -2px; width: 32px;height: 27px; }/*汽车超市*/
+	.oderIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -102px -1px; width: 32px;height: 29px; }/*订单*/
+	.reportIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 -29px; width: 25px;height: 27px; }/*报告*/
+	.historyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -24px -29px; width: 24px;height: 27px; }/*奖励历史*/
+	.moneyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -48px -30px; width: 27px;height: 28px; }/*电子钱包*/
+	.storeIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -75px -30px; width: 36px;height: 28px; }/*积分商城*/
+	/*轮播图*/
+	.flexslider{
+		position:relative;
+		overflow:hidden;
+		background:url(/Public/Images/Tweb/loading.gif) 50% no-repeat;
+	}
+	.slides{position:relative;z-index:1;}
+	.slides li img{
+		width: 100%;}
+	.flex-control-nav{
+		position:absolute;
+		bottom:10px;
+		z-index:2;
+		width:100%;
+		text-align:center;
+	}
+	.flex-control-nav li{
+		display:inline-block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #1ea78d;
+		border-radius: 50%;
+		margin: 0 8px;
+		background: none;
+		transition: all 2s;
+		cursor: pointer;
+		overflow: hidden;
+	}
+	.flex-control-nav a{
+		line-height: 60px;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+	}
+	.flex-control-nav .flex-active{
+		background: #1ea78d;
+	}
+	.flex-direction-nav{position:absolute;z-index:3;width:100%;top:45%;}
+	.flex-direction-nav li a{display:block;width:50px;height:50px;overflow:hidden;cursor:pointer;position:absolute;}
+
 </style>
 
 <div class="headArea">
@@ -37,63 +97,19 @@
 				<a href="{:U('Member/index')}"> 返回首页</a>
 				<span class="lineBar">/</span>
 			</div>
-			<!-- <div class="logout backIndex">
-				<i class="seedMember"></i> 
-				<a href="{:U('Public/addSeed')}"> 种子会员</a>
-				<span class="lineBar">/</span>
-			</div> -->
 		</div>
 	</div>
 </div>
 <div class="container">
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		<!-- 轮播图 按钮 -->
-		<ol class="carousel-indicators">
-			<volist name="resourceList" id="item">
-				<li data-target="#carousel-example-generic" data-slide-to="{$i-1}" class="<if condition='$key eq 1 '>active</if>"></li>
-			</volist>
-		</ol>
 		<!-- 轮播图 内容 -->
-		<div class="carousel-inner">
-			<volist name="resourceList" id="item">
-				<div class="item <if condition='$i eq 1 '>active</if>">
-					<img class="img-responsive center-block" src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1" />
-				</div>
-			</volist>
+		<div class="flexslider">
+			<ul class="slides">
+				<volist name="resourceList" id="item">
+					<li><img src="{$item.url}" alt="{$item.resource_desc}" title="天朔活动1"></li>
+				</volist>
+			</ul>
 		</div>
-		<!-- 左右滑动按钮 -->
-		<a class="carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
 </div>
-<!-- 导航条描边样式 -->
-<style type="text/css">
-	.navNewMember { border: 2px solid rgb(66, 176, 216); }
-	.navAccData { border: 2px solid rgb( 63, 187, 155); }
-	.navCarSupermaket {border: 2px solid rgb(141,192,88);}
-	.navOder {border: 2px solid rgb(238,171,171);}
-	.navReport {border: 2px solid rgb(239, 189, 125);}
-	.navHistory {border: 2px solid rgb(252, 141, 107) ;}
-	.navMoney {border: 2px solid rgb( 224, 100, 83);}
-	.navStore {border: 2px solid rgb( 239, 44, 44);}
-
-	.nav-tabs>li>a { margin-right: 0; width: 134px; }
-	.nav-tabs li i { position: relative;left: 0px; bottom: 5px; float: left; display: inline-block; }
-	.memberIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 0; width: 32px;height: 27px; }/*新会员*/
-	.dataIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -34px -2px; width: 35px;height: 26px; }/*账户资料*/
-	.superMaketIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -69px -2px; width: 32px;height: 27px; }/*汽车超市*/
-	.oderIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -102px -1px; width: 32px;height: 29px; }/*订单*/
-	.reportIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat 0 -29px; width: 25px;height: 27px; }/*报告*/
-	.historyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -24px -29px; width: 24px;height: 27px; }/*奖励历史*/
-	.moneyIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -48px -30px; width: 27px;height: 28px; }/*电子钱包*/
-	.storeIcon { background: url("/Public/Images/Tweb/memberNavIcon.png") no-repeat -75px -30px; width: 36px;height: 28px; }/*积分商城*/
-</style>
 <!--导航条-->
 <div class="container">
 <ul class="row nav nav-tabs col-lg-12 clearfix">
@@ -107,6 +123,7 @@
 			<li> <a href="{:U('Member/view')}">个人资料</a> </li>
 			<li><a href="{:U('Member/postAddr')}">收货地址</a></li>
 			<li><a href="{:U('Member/changePwd')}">修改密码</a></li>
+			<li><a href="{:U('Award/bank_list')}">我的银行卡</a></li>
 		</ul>
 	</li>
 	<li role="presentation" class="navCarSupermaket dropdown">
@@ -114,8 +131,8 @@
 			<i class="superMaketIcon"></i>汽车超市<span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
-			<li><a href="{:U('MotoType/index')}"><span></span>车型总览</a></li>
-			<li><a href="{:U('MotoType/testDrive')}"><span></span>预约试驾</a></li>
+			<li><a href="{:U('CarSupe/index')}"><span></span>车型总览</a></li>
+			<li><a href="{:U('Services/index')}"><span></span>预约试驾</a></li>
 		</ul>
 	</li>
 	<li class="navOder" role="presentation" class="dropdown">
@@ -124,7 +141,7 @@
 			订单<span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
-			<li><a href="{:U('Agents/order')}">历史订单</a></li>
+			<li><a href="{:U('Order/index?type=2')}">历史订单</a></li>
 			<!--li><a href="{:U('Agents/orderList')}">积分订单</a></li-->
 		</ul>
 	</li>
@@ -144,3 +161,15 @@
 
 </ul>
 </div>
+<script src="__PUBLIC__/Script/jquery.flexslider-min.js" type="text/javascript"></script>
+<script>
+    //轮播图
+    $(document).ready(function(){
+        $('.flexslider').flexslider({
+            directionNav: false,
+            pauseOnAction: false,
+            slideshowSpeed: 3000,
+            pauseOnHover:true
+        });
+    });
+</script>

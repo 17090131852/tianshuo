@@ -20,27 +20,37 @@
         <tr>
             <td class="msg_title">商品名称：</td><td><span>{$data.goods_name}</span></td>
         </tr>
-        <tr>
+       <!--  <tr>
             <td class="msg_title">商品价格：</td><td><span>{$data.goods_price}</span></td>
+        </tr> -->
+        <tr>
+            <td class="msg_title">商品积分：</td><td><span><?=number_format($data['goods_price'])?></span></td>
+        </tr>
+       <tr>
+            <td class="msg_title">商品市场积分：</td><td><span><?=number_format($data['goods_market_price'])?></span></td>
         </tr>
         <tr>
-            <td class="msg_title">商品积分：</td><td><span>{$data.goods_score}</span></td>
+            <td class="msg_title">商品库存：</td><td><span>{$data.goods_num}</span></td>
         </tr>
-        <tr>
-            <td class="msg_title">商品数量：</td><td><span>{$data.goods_num}</span></td>
-        </tr>
-        <tr>
+       <!--  <tr>
             <td class="msg_title">可售数量：</td><td><span>{$data.goods_sale_num}</span></td>
-        </tr>
+        </tr> -->
         <tr><td class="msg_title">商品状态：</td><td><span><?php if($data['is_show']==1):?>上架<?php else:?>下架<?php endif;?></span></td></tr>
         <tr>
             <td class="msg_title">分类名称：</td><td><span>{$data.cat_id|getCategoryName}</span></td>
         </tr>
         <tr>
-            <td class="msg_title">商品图片：</td><td><span><img src="{:C('DOMAIN_NAME')}/{$data.goods_thumb}" width="80px" height="80px"/></span></td>
+            <td class="msg_title">商品图片：</td>
+            <td>
+              <foreach name="goods_images" item="vo" key="k" >
+                <span>
+                    <img src="{:C('DOMAIN_NAME')}/{$vo.image_url}" width="100px" height="100px" >
+                </span>
+                </foreach>
+            </td>
         </tr>
         <tr>
-            <td class="msg_title">商品详情：</td><td><span>{$data.desc}</span></td>
+            <td class="msg_title">商品详情：</td><td><span>{$data.goods_desc}</span></td>
         </tr>
     </table>
     <div class="am-cf am-padding">

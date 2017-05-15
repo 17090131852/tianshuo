@@ -1,0 +1,100 @@
+<include file="Tpl/publicHeader" />
+<script src="__PUBLIC__/Admin/js/jquery.datetimepicker.js"></script>
+
+<style type="text/css">
+
+    .custom-date-style {
+        background-color: red !important;
+    }
+    .check{
+        margin-bottom: 20px;
+    }
+    .check td{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+    .check input{
+        height:30px;
+    }
+    .check select{
+        width: 100px;
+        height: 40px;
+        text-align: right;
+    }
+
+    #check_title{
+        margin-left: 10px;
+    }
+</style>
+<div class="admin-content">
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">微信墙管理</strong> / <small>中奖列表</small></div>
+    </div>
+    <div class="check">
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf" id="check_title"><middle class="am-text-primary am-text-lg">中奖查询<middle/></div>
+        </div>
+        <form action="/Tadm/Wall/winners" method="post">
+            <table>
+                <tr>
+                    <td>昵称：</td>
+                    <td style="text-align: left">
+                      <input name="username" value="{$username}">
+                    </td>
+                </tr>
+                <tr><td></td><td></td><td><td></td><td></td><td></td><td></td> <td><input type="submit" value="提交" /></td></tr>
+            </table>
+        </form>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>昵称</th>
+                    <th>头像</th>
+                    <th>创建时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="data" id="value" empty="暂时没有数据" >
+                    <tr>
+                        <td><?=$key+1?></td>
+                        <td>{$value.username}</td>
+                        <td><img  src='{$value.face}' style='height:30px;'></td>
+                        <td>{$value.createtime}</td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            <div class="am-cf page">
+                {$page}
+            </div>
+
+            <hr />
+            <p></p>
+        </div>
+    </div>
+    <!-- content end -->
+</div>
+<script>
+    $('#datetimepicker').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+    $('#datetimepicker1').datetimepicker({
+        formatTime:'H:i',
+        formatDate:'d.m.Y',
+        //defaultDate:'8.12.1986', // it's my birthday
+        defaultDate:'+03.01.1970', // it's my birthday
+        defaultTime:'10:00',
+        timepickerScrollbar:false
+    });
+</script>
+<include file="Tpl/publicFooter" />

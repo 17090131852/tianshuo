@@ -99,9 +99,11 @@ class MemberRechage
     {
         $str = '充值用户编号：%s(手机号：%s)，充值金额：%s,返佣比例：%s%%';
         foreach ($this->tree as $row) {
-
             //插入佣金日志
             if ($row['returnd']) {
+                //更新用户总金额
+//                M("member")->where("mid='{$row['mid']}'")->setInc("all_money", $row['returnd']);
+
                 $proportion = round(($row['returnd']/$score)*100);  //返佣比例
                 $remark = sprintf($str,$msn,$mobile_phone,$score,$proportion); //备注
                 $Model               = M('member_commission');
@@ -114,10 +116,6 @@ class MemberRechage
                 $Model->point_id     = $point_id;
                 $Model->remark       = $remark;
                 $Model->add();
-            }else{
-                //更新用户总金额
-                M("member")->where("mid='{$row['mid']}'")->setInc("all_score", $row['returnd']);
-                M("member")->where("mid='{$row['mid']}'")->setInc("leave_score", $row['returnd']);
             }
         }
     }

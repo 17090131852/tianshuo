@@ -1,0 +1,33 @@
+i,li,ul{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:Helvetica,Arial}
+ol,ul{list-style:none}
+.emoji-mod{margin:0.15625rem}
+.emoji-mod:before{display:block;border-top:1px solid #d2d2d2;content:''}
+.emoji-mod .select-area{position:relative;overflow:hidden;margin:0 auto;width:9.0625rem;height:4.0625rem}
+.emoji-mod .select-area .finger-touch{line-height:0.625rem}
+.emoji-mod .select-area .finger-touch img{vertical-align:middle}
+.emoji-mod .select-area ul{position:absolute;width:100000px}
+.emoji-mod .select-area li{float:left;width:9.0625rem;height:4.0625rem;background-size:cover;-webkit-background-size:cover}
+.emoji-mod .select-area li i{float:left;padding-top:14.2857%;width:14.2857%}
+.emoji-mod .select-area li:nth-child(1){background-image:url(img/emoji/1.png?max_age=19830212&d=20150609144612)}
+.emoji-mod .select-area li:nth-child(2){background-image:url(img/emoji/2.png?max_age=19830212&d=20150609144612)}
+.emoji-mod .select-area li:nth-child(3){background-image:url(img/emoji/3.png?max_age=19830212&d=20150609144612)}
+.emoji-mod .select-area li:nth-child(4){background-image:url(img/emoji/4.png?max_age=19830212&d=20150609144612)}
+.emoji-mod .select-area li:nth-child(5){background-image:url(img/emoji/5.png?max_age=19830212&d=20150609144612)}
+.emoji-mod .page-area{padding:5px 0 8px;text-align:center;font:0/0 arial}
+.emoji-mod .page-area i{display:inline-block;margin:0 2px;width:0.078125rem;
+	height:0.078125rem;
+	border-radius:0.078125rem;
+	background:#ccc}
+.emoji-mod .page-area i.current{background:#4d4d4d}
+@media only screen and (-webkit-min-device-pixel-ratio:1.25),only screen and (min-resolution:120dpi),only screen and (min-resolution:1.25dppx){.tweet-box .extras .ui-drop .list>li.tip-new::before,.tweet-box .extras>button.tip-new::after{
+	background-image:url(sprite/gb-yog150601162634@2x.png?max_age=19830212&d=20150609144612);
+	background-position:-2.984375rem -0.265625rem;background-size:4.40625rem 0.78125rem}
+.emoji-mod .select-area li:nth-child(1){
+	background-image:url(img/emoji/1@2x.png?max_age=19830212&d=20150609144612);
+	background-size:9.0625rem 4.0625rem}
+.emoji-mod .select-area li:nth-child(2){background-image:url(img/emoji/2@2x.png?max_age=19830212&d=20150609144612);background-size:9.0625rem 4.0625rem}
+.emoji-mod .select-area li:nth-child(3){background-image:url(img/emoji/3@2x.png?max_age=19830212&d=20150609144612);background-size:9.0625rem 4.0625rem}
+.emoji-mod .select-area li:nth-child(4){background-image:url(img/emoji/4@2x.png?max_age=19830212&d=20150609144612);background-size:9.0625rem 4.0625rem}
+.emoji-mod .select-area li:nth-child(5){background-image:url(img/emoji/5@2x.png?max_age=19830212&d=20150609144612);background-size:9.0625rem 4.0625rem}
+.form-box .i-em.click:after{background-image:url(sprite/gb-yog150601162634@2x.png?max_age=19830212&d=20150609144612);background-position:-9.0625rem 0;background-size:4.40625rem 0.78125rem}
+}

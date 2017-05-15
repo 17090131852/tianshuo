@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Tadm\Controller;
 use Think\Controller;
 /**
@@ -6,7 +6,7 @@ use Think\Controller;
 */
 class PublicController extends Controller
 {
-	
+
 	//管理员登录
 	public function login(){
 		if(!IS_POST){
@@ -40,18 +40,16 @@ class PublicController extends Controller
 		}
 	}
 
-
-
     //检测验证码
 	function check_verify($code, $id = ''){
 		$verify = new \Think\Verify();
 		return $verify->check($code, $id);
 	}
-	
+
 	//后台登陆验证码
 	public function admVerify(){
 		$Verify = new \Think\Verify();
-		
+
 		//$Verify->useImgBg = true;
 		$Verify->imageW = 120;
 		$Verify->imageH = 35;
@@ -72,15 +70,38 @@ class PublicController extends Controller
 		//跳转登陆页
 		redirect('/Tadm/Public/login');
 	}
-
-
-
+//管理员修改密码
+	public function Editpwd(){
+        if (!IS_POST) {
+            $this->display(C('DEFAULT_TPL') . '/editpwd');
+        } else {
+            $user = D("user");
+            $admUid = session('admUid');
+            $admInfo = $user->where('uid="'.$admUid.'"')->find();
+            if(!admInfo){
+                $this->error('用户未找到');
+            }
+            $oldPwd = pwdProcess(I('post.oldPwd'));//旧密码
+//            var_dump($oldPwd);
+            $pwd = I('post.pwd'); //新密码
+//            var_dump($pwd);die;
+            $rePwd = I('post.rePwd'); //确认密码
+            if($oldPwd != $admInfo['pwd']){
+                $this->error('原密码不正确',"",1);
+            }
+            if($oldPwd == pwdProcess(I('post.pwd'))){
+                $this->error('不能和原密码相同',"",1);
+            }
+            if($pwd != $rePwd){
+                $this->error('两次密码输入不一致',"",1);
+            }else{
+                $data['pwd'] = pwdProcess($pwd);
+                $res = $user->where('uid="'.$admUid.'"')->setField($data);
+                if($res !== false){
+                    $this->success('密码修改成功',U('Public/editpwd'),1);
+                }
+            }
+        }
+    }
 }
-
-
-
-
-
-
-
  ?>

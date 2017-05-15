@@ -1,0 +1,218 @@
+<include file="Tpl/PublicMemIndex"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/Common.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Style/layout.css"/>
+
+<link rel="stylesheet" href="__PUBLIC__/Plugin/Validform/Validform.css" />
+<script src="__PUBLIC__/Plugin/Validform/Validform_5.3.2_min.js" /></script>
+<style>
+        .navbar-default {
+            padding: 1.5em 0 1em 0;
+            margin-bottom: 0;
+            background: #fff;
+            border: 0;
+        }
+
+        .nav li a:hover {
+            color: #3da654;
+            border-bottom: 2px solid #3da654;
+        }
+
+        .LogoImg {
+            margin-left: 1em;
+        }
+
+        .pullRight {
+            float: right;
+        }
+
+        .FirmTop {
+            background: #0eb493;
+            color: #fff;
+            line-height: 2em;
+        }
+
+        .FirmTop a {
+            color: #fff;
+        }
+
+        .navbar-nav li a {
+            border-bottom: 2px solid #fff;
+        }
+
+        /*种子会员 样式*/
+        .vipMember {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .logout i, .vipMember i {
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+        }
+
+        .backIndexIcon {
+            background: url("../../../../../../Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+        }
+
+        .seedMember {
+            background: url("../../../../../../Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+        }
+
+        .vipMember a:hover {
+            color: #fff;
+        }
+
+        .lineBar {
+            display: inline-block;
+            color: #fff;
+            padding: 0 .4em 0 1em;
+        }
+    </style>
+<style>
+        .evaTitle{
+            width: 100%;
+            background-color: #eeeaea;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            border-bottom: 3px solid #0eb493;
+            margin-top: 70px;
+        }
+        .aTit{
+            width: 155px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #0eb493;
+        }
+        .conText{
+            width: 100%;
+            border: 1px solid #dddddd;
+        }
+        .Img{
+            margin-top: 40px;
+            margin-left: 90px;
+        }
+        .Img img{
+            border:1px solid #ddd;
+            width: 164px;
+            height: 164px;
+        }
+        .textareaBorder{
+            margin-left: 86px;
+            margin-top: 40px;
+            width: 756px;
+            height:282px;
+            border-radius: 2px;
+            border: 1px solid #ddd;
+            background-color: #b9e9e0;
+            margin-bottom: 60px;
+        }
+        .textarea{
+            margin: 12px 0 36px 10px;
+            border: none;
+            width: 734px;
+            color: #666666;
+        }
+        .xing{
+            padding-top: 60px;
+            padding-left: 90px;
+            border: 1px solid #ddd;
+            border-top: 1px dashed #0eb493;
+        }
+        .jBtn{
+            width: 140px;
+            height: 52px;
+            line-height: 52px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            background-color: #dddddd;
+            margin-bottom: 160px;
+        }
+        .j{
+            width: 160px;
+            height: 52px;
+            margin-left: 110px;
+        }
+        .x{
+            margin-top: 12px;
+        }
+        .x li{
+            background: url("../../../../../../Public/Images/Tweb/xing.png");
+            width: 25px;
+            height: 25px;
+            float: left;
+        }
+        .x li.l{
+            background: url("../../../../../../Public/Images/Tweb/xingL.png");
+        }
+        .bg{
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            background-color: #1ea78d;
+            border-radius: 5px;
+            height: 46px;
+            width: 142px;
+            display: block;
+            margin:auto;
+            margin-top: 24px;
+        }
+        .bg:hover{
+            background-color: #1c977e;
+        }
+    </style>
+</head>
+<body>
+<?php if($type==1):?>
+<include file="Tpl/PublicImallHead" />
+<?php else:?>
+<include file="Tpl/PublicMemMenu"/>
+<?php endif;?>
+<section class="container">
+    <div class="clearfix">
+        <div class="evaTitle">
+            <div class="fl aTit">评价商品</div>
+            <div class="fr fs14 color000 pr10">
+                收货人：
+                <span class="colorlan">{$order['realname']}</span>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="conText">
+            <div class="Img fl">
+                <img src="{:C(DOMAIN_NAME)}/{$orderGoods['goods_thumb']}" alt=""></div>
+            <div class="textareaBorder fl">
+               <label>{$commandGoods['content']}</label>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="xing">
+            <div class="fl jBtn">天朔动态评分</div>
+            <div class="fl j">
+                <ul class="x">
+                    <?php 
+                        $twice = $commandGoods['star']/2;
+                        for ($x=0; $x<$twice; $x++) {
+                          echo "<li class='l'></li>";
+                        } 
+                        for ($x=0; $x<5-$twice; $x++) {
+                          echo "<li class=''></li>";
+                        } 
+                    ?>
+                </ul>
+                <div class="cb"></div>
+            </div>
+            <div class="cb"></div>
+        </div>
+    </div>
+</section>
+
+</body>
+<include file="Tpl/PublicFoot"/>
+</html>

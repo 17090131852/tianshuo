@@ -1,0 +1,1200 @@
+[ 2017-04-21T09:28:26+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001222s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002337s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0573s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0160s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000573s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001761s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.128174s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.129303s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002098s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001132s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002807s ]
+
+[ 2017-04-21T09:28:26+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000232s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002443s ]
+
+[ 2017-04-21T09:28:26+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000288s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002171s ]
+
+[ 2017-04-21T09:28:27+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000298s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003908s ]
+
+[ 2017-04-21T10:24:52+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000318s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002154s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0037s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0037s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000581s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001732s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093640s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094778s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000900s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002124s ]
+
+[ 2017-04-21T10:24:52+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000233s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001900s ]
+
+[ 2017-04-21T10:24:52+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000398s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002679s ]
+
+[ 2017-04-21T10:24:53+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000282s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001845s ]
+
+[ 2017-04-21T11:14:53+08:00 ] 127.0.0.1 /tianshuo/Tweb
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000331s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002914s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002722s ]
+ERR: 无法加载控制器:Tianshuo
+
+[ 2017-04-21T11:15:00+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000577s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002793s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002925s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0542s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0021s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0017s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.002023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.006264s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.371478s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.374675s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001976s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004435s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002353s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004843s ]
+
+[ 2017-04-21T11:15:00+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000281s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002303s ]
+
+[ 2017-04-21T11:15:00+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000313s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002513s ]
+
+[ 2017-04-21T11:15:01+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000443s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003438s ]
+
+[ 2017-04-21T11:15:01+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000273s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002509s ]
+
+[ 2017-04-21T11:15:09+08:00 ] 127.0.0.1 /tweb
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000286s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002776s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003215s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0052s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0038s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0042s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000694s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002015s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.103238s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.104614s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000990s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002337s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001442s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002886s ]
+
+[ 2017-04-21T11:15:09+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000291s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002421s ]
+
+[ 2017-04-21T11:15:09+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000487s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003673s ]
+
+[ 2017-04-21T15:54:20+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007967s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002871s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005879s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.1117s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0379s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0515s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0134s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000654s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001887s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.174546s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.175899s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000889s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001338s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002433s ]
+
+[ 2017-04-21T15:54:21+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000413s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005826s ]
+
+[ 2017-04-21T15:54:21+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000245s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001957s ]
+
+[ 2017-04-21T15:54:24+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000269s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002082s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002660s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000553s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001712s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093963s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.095272s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000873s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001964s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000965s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002103s ]
+
+[ 2017-04-21T15:54:24+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000292s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002584s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003093s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006929s ]
+
+[ 2017-04-21T15:54:32+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000644s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005159s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002062s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000660s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001792s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072440s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073543s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001967s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002254s ]
+
+[ 2017-04-21T15:54:37+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000228s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002102s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000975s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002090s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000539s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001648s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071036s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072204s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000857s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001936s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000964s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002087s ]
+
+[ 2017-04-21T15:54:37+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000232s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002386s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001071s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002592s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001021s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002164s ]
+
+[ 2017-04-21T15:54:38+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000236s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001742s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002326s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000513s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001684s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.115756s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.117031s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000984s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002295s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002447s ]
+
+[ 2017-04-21T15:54:39+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002475s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0047s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000545s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001665s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076613s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077922s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000835s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001922s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000952s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002034s ]
+
+[ 2017-04-21T15:54:39+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001855s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001043s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002205s ]
+
+[ 2017-04-21T15:54:40+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000223s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001820s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002843s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000554s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001652s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072627s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073752s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001356s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002903s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001382s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003051s ]
+
+[ 2017-04-21T15:54:41+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000218s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002081s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000512s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001627s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071930s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073445s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000853s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001951s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000936s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002036s ]
+
+[ 2017-04-21T15:54:41+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000230s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001048s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002205s ]
+
+[ 2017-04-21T15:54:41+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000462s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003096s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002245s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000543s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001652s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072551s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000836s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001972s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001073s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002301s ]
+
+[ 2017-04-21T15:54:42+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000228s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002228s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002064s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000543s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001775s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072483s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000829s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002071s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000965s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002064s ]
+
+[ 2017-04-21T15:54:42+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000375s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002558s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002251s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002154s ]
+
+[ 2017-04-21T15:54:43+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000534s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001068s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002235s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000532s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001622s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074266s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075516s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000857s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001956s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000945s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002130s ]
+
+[ 2017-04-21T15:54:44+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000270s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002174s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000959s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002147s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0034s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000545s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001693s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072404s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073594s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000829s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001905s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001012s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002239s ]
+
+[ 2017-04-21T15:54:44+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000253s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001992s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000988s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002096s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001041s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002266s ]
+
+[ 2017-04-21T15:54:47+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000217s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001924s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000959s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002043s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000699s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001892s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.081192s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.082608s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000928s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002087s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002090s ]
+
+[ 2017-04-21T15:54:50+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000280s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002040s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000920s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002059s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000674s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001823s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078587s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080144s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000873s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001966s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001139s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002792s ]
+
+[ 2017-04-21T15:54:50+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000279s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001897s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002200s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001010s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002209s ]
+
+[ 2017-04-21T15:54:52+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000216s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001707s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000532s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001636s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071772s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072892s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001096s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002504s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000936s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002038s ]
+
+[ 2017-04-21T15:55:01+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000226s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001812s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003064s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000550s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001738s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074852s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076330s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001230s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002628s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002406s ]
+
+[ 2017-04-21T15:55:01+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000231s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001861s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003840s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000970s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002153s ]
+
+[ 2017-04-21T15:55:08+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000219s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000927s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000882s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002042s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076166s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077511s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000819s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001916s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000950s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002042s ]
+
+[ 2017-04-21T15:55:09+08:00 ] 127.0.0.1 /News/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000267s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002141s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003023s ]
+SQL: SHOW COLUMNS FROM `ts_news` [ RunTime:0.1158s ]
+SQL: SELECT * FROM `ts_news` WHERE ( sta = 1 AND cate = 6 ) ORDER BY ord desc LIMIT 5   [ RunTime:0.0013s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000553s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001685s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\2853934d57cce6d237dc0bc091804d32.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\2853934d57cce6d237dc0bc091804d32.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.114360s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.116438s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000815s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001885s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000964s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002067s ]
+
+[ 2017-04-21T15:55:14+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000381s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002695s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001010s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002411s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0033s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0045s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0033s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000556s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001690s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.086200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.087323s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000833s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001919s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001014s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002178s ]
+
+[ 2017-04-21T15:55:14+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000245s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002330s ]
+
+[ 2017-04-21T15:55:14+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000224s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001792s ]
+
+[ 2017-04-21T15:55:17+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000241s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001984s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002429s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0041s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000542s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001650s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072174s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073424s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000854s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001935s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000960s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002059s ]
+
+[ 2017-04-21T15:55:18+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000228s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001831s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002187s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001065s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002236s ]
+
+[ 2017-04-21T15:55:20+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000267s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002654s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000513s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001680s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073553s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074724s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000980s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002095s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000970s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002090s ]
+
+[ 2017-04-21T15:55:23+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000264s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002196s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001108s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002416s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0036s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000536s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001669s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072716s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073889s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000858s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001947s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000974s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002055s ]
+
+[ 2017-04-21T15:55:23+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000228s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001934s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002564s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002164s ]
+
+[ 2017-04-21T16:36:22+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000219s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001775s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002863s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0045s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000537s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001837s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074719s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076265s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000911s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001131s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002341s ]
+
+[ 2017-04-21T16:36:22+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001918s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001687s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003536s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001229s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002356s ]
+
+[ 2017-04-21T17:28:23+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000269s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002230s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004341s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0049s ]
+SQL: SHOW COLUMNS FROM `ts_commends` [ RunTime:0.0039s ]
+SQL: SHOW COLUMNS FROM `ts_resources` [ RunTime:0.0049s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `ts_commends` WHERE ( location = "首页" ) LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `ts_resources` WHERE ( resource_id="1" )  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000561s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001683s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\1d9365017b43709e612ba79d5bc5ee6a.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.090590s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.092133s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001971s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001057s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002187s ]
+
+[ 2017-04-21T17:28:23+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149215017658f067a083f1a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000265s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001908s ]
+
+[ 2017-04-21T17:28:23+08:00 ] 127.0.0.1 /Upload/Commends/2017-04-14/149214997358f066d5907ce.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000376s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002874s ]
+
+[ 2017-04-21T17:28:26+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000230s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002012s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000941s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002105s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0038s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000540s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001672s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.074671s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076150s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002201s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002455s ]
+
+[ 2017-04-21T17:28:26+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000227s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002027s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002370s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002364s ]
+
+[ 2017-04-21T17:28:29+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000232s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001959s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002177s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0048s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000540s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001648s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076908s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078109s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000838s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002042s ]
+
+[ 2017-04-21T17:28:29+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000410s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003113s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001643s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003625s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002597s ]
+
+[ 2017-04-21T17:28:31+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000284s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002213s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0353s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000535s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001647s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077150s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000852s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000950s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002082s ]
+
+[ 2017-04-21T17:28:31+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000229s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002201s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001133s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002402s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001266s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002444s ]
+
+[ 2017-04-21T17:28:34+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000217s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001804s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002944s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0039s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000533s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001644s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072128s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073317s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002439s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000978s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002059s ]
+
+[ 2017-04-21T17:28:34+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000229s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002631s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001040s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002177s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002155s ]
+
+[ 2017-04-21T17:28:35+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000239s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001966s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001129s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005278s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0043s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000533s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001656s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.088469s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.090038s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000973s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002562s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009404s ]
+
+[ 2017-04-21T17:28:36+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000231s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002517s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004060s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002174s ]
+
+[ 2017-04-21T17:28:36+08:00 ] 127.0.0.1 /Public/Login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000279s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002442s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002503s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0035s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000677s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002393s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077793s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.079184s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000854s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001953s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000950s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002058s ]
+
+[ 2017-04-21T17:28:36+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000409s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003102s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001113s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002249s ]
+
+[ 2017-04-21T17:28:38+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000269s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002364s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001124s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002449s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000550s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001688s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077056s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078665s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000885s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002078s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002324s ]
+
+[ 2017-04-21T17:28:39+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000331s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002384s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002897s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000789s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001977s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076119s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077465s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000968s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001005s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002126s ]
+
+[ 2017-04-21T17:28:40+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000423s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003094s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001111s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002417s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002428s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003557s ]
+
+[ 2017-04-21T17:28:40+08:00 ] 127.0.0.1 /Public/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000302s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002131s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002344s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000561s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001737s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 40 行.
+NOTIC: [8] Undefined variable: entryStatus G:\tianshuo\APP\Runtime\Cache\Tweb\a33e7a5c79729c90787faff78f95c08a.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.117276s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.118471s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001940s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001038s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002107s ]
+
+[ 2017-04-21T17:28:41+08:00 ] 127.0.0.1 /Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000233s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001051s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002224s ]
+SQL: SHOW COLUMNS FROM `ts_entry` [ RunTime:0.0045s ]
+SQL: SELECT * FROM `ts_entry`  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000547s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001664s ]
+NOTIC: [8] Undefined index: msn G:\tianshuo\APP\Runtime\Cache\Tweb\d6379dcb74bb296669ce151b9edc05e8.php 第 40 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077189s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078377s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000857s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001988s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002454s ]
+
+[ 2017-04-21T17:28:41+08:00 ] 127.0.0.1 /Public/webVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000389s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003047s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001239s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003281s ]
+

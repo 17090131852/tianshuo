@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>天朔电动汽车有限公司</title>
+
+    <!--[if lte IE 6]>
+    <script src="/skin/js/letskillie6.zh_cn.pack.js"></script><![endif]-->
+    <link rel="stylesheet" href="../../../../../Public/Style/Reset.css"/>
+    <link rel="stylesheet" href="../../../../../Public/Plugin/Bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../../../Public/Style/Common.css"/>
+    <link rel="stylesheet" href="../../../../../Public/Style/layout.css"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <script src="../../../../../Public/Script/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../../../../../Public/Plugin/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../../Public/Script/jquery.1.4.2-min.js"></script>
+    <script src="../../../../../Public/Script/CarDetail.js"></script>
+    <style>
+        .navbar-default {
+            padding: 1.5em 0 1em 0;
+            margin-bottom: 0;
+            background: #fff;
+            border: 0;
+        }
+
+        .nav li a:hover {
+            color: #3da654;
+            border-bottom: 2px solid #3da654;
+        }
+
+        .LogoImg {
+            margin-left: 1em;
+        }
+
+        .pullRight {
+            float: right;
+        }
+
+        .FirmTop {
+            background: #0eb493;
+            color: #fff;
+            line-height: 2em;
+        }
+
+        .FirmTop a {
+            color: #fff;
+        }
+
+        .navbar-nav li a {
+            border-bottom: 2px solid #fff;
+        }
+
+        /*种子会员 样式*/
+        .vipMember {
+            float: left;
+            margin-right: 1em;
+        }
+
+        .logout i, .vipMember i {
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+        }
+
+        .backIndexIcon {
+            background: url("/Public/Images/Tweb/backIndex.png") no-repeat 0 0;
+        }
+
+        .seedMember {
+            background: url("/Public/Images/Tweb/seedMember.png") no-repeat 0 0;
+        }
+
+        .vipMember a:hover {
+            color: #fff;
+        }
+
+        .lineBar {
+            display: inline-block;
+            color: #fff;
+            padding: 0 .4em 0 1em;
+        }
+    </style>
+    <style>
+        .orderTitle{
+            width: 100%;
+            border: 2px solid #e8da9c;
+            background-color: #fffceb;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .bt1{
+            border-bottom: 1px dashed #e8da9c;
+        }
+        .orderTitle p{
+            line-height: 1.5em;
+        }
+        .table th, .table td {
+
+            text-align: center;
+        }
+        .table{
+
+        }
+        thead{
+            background-color: #eeeaea;
+
+        }
+        .table>thead>tr>th{
+            font-size: 14px;
+            padding:19px 0;
+            border-bottom: 0;
+        }
+        .table>tbody>tr>td{
+            vertical-align: inherit;
+            border-top:none;
+            border-bottom:1px solid #e8e8e8;
+        }
+        .remColor{
+            color: #ef3232;
+        }
+        .noOrder{
+            color: #1ea78d;
+        }
+        a:active, a:visited, a:focus{
+            color: #1ea78d;
+        }
+        .stripImg{
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .flow{
+            background: url("../../../../../Public/Images/Tweb/flow1.png");
+            width: 817px;
+            height: 62px;
+            margin: auto;
+        }
+        .flow2{
+            background: url("../../../../../Public/Images/Tweb/flow2.png");
+        }
+        .flow3{
+            background: url("../../../../../Public/Images/Tweb/flow3.png");
+        }
+        .flow4{
+            background: url("../../../../../Public/Images/Tweb/flow4.png");
+        }
+    </style>
+</head>
+<body>
+<header class="clearfix">
+    <div class="FirmTop clearfix ">
+        <div class="MaxWidth container">
+            <span>客服电话：010-53322763</span>
+            <span class="pullRight">
+						<a href="">登录</a>
+                        <!--种子会员-->
+							<div class="logout vipMember">
+								<i class="seedMember"></i>
+								<a href=""> 种子会员</a>
+								<span class="lineBar">/</span>
+							</div>
+					<else/>
+						<a href="">退出</a> <a href=""></a>
+				</span>
+        </div>
+    </div>
+
+</header>
+<section class="container">
+ <div class="clearfix mt30">
+     <div class="orderTitle">
+         <p class="fs18 color666">我的订单</p>
+         <p class="color666 fs14 bt1 pb15"><span class="pr100">订单号：201705029508759837</span><span>状态：<span class="colorlan">未付款</span></span></p>
+         <p class="color666 fs14 pt10">尊敬的客户，我们还未收到该订单的款项，请您尽快付款（在线支付帮助），如果您已经付款，请务必填写付款确认。该订单会为您保留24小时（从下单之日算起），24小时之后如
+             果还未付款，系统将自动取消该订单。</p>
+     </div>
+ </div>
+    <div class="stripImg">
+        <!--flow2添加class付款成功-->
+        <!--flow3添加class商品出库-->
+        <!--flow4添加class完成-->
+        <div class="flow"></div>
+    </div>
+    <div class="clearfix">
+        <!--列表-->
+        <p class="pl15">商品清单</p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>订单号码</th>
+                    <th>物品种类</th>
+                    <th>订单状态</th>
+                    <th>订单日期</th>
+                    <th>消费积分</th>
+                    <th>收货人</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>201705029508759837</td>
+                    <td><img class="m_auto db" src="../../../../../Public/Images/Tweb/orderCar.png" width="84" height="51" alt="">
+                    <p class="fs14 tac color666">天朔电动车</p>
+                    </td>
+                    <td>已发货</td>
+                    <td>2017/05/02  12:58 </td>
+                    <td class="remColor">100 BV</td>
+                    <td>天朔101</td>
+                    <td><a class="noOrder" href="">取消订单</a></td>
+                </tr>
+                <tr>
+                    <td>201705029508759837</td>
+                    <td><img class="m_auto db" src="../../../../../Public/Images/Tweb/orderCar.png" width="84" height="51" alt="">
+                        <p class="fs14 tac color666">天朔电动车</p>
+                    </td>
+                    <td>已发货</td>
+                    <td>2017/05/02  12:58 </td>
+                    <td class="remColor">100 BV</td>
+                    <td>天朔101</td>
+                    <td><a class="noOrder" href="">取消订单</a></td>
+                </tr>
+                <tr>
+                    <td>201705029508759837</td>
+                    <td><img class="m_auto db" src="../../../../../Public/Images/Tweb/orderCar.png" width="84" height="51" alt="">
+                        <p class="fs14 tac color666">天朔电动车</p>
+                    </td>
+                    <td>已发货</td>
+                    <td>2017/05/02  12:58 </td>
+                    <td class="remColor">¥666666.00</td>
+                    <td>天朔101</td>
+                    <td><a class="noOrder" href="">取消订单</a></td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="clearfix">
+        <p class="fs14 color000">您的信息</p>
+        <div class="fl w500">
+            <p class="fs14 color666">收货人：天朔101</p>
+            <p class="fs14 color666">手机号码：16666666666</p>
+            <p class="fs14 color666">详细地址：北京大兴区</p>
+        </div>
+        <div class="fr w180">
+                <p class="fs14 color666 mt20">订单总价：¥666.00</p>
+                <p class="fs16 color666 mt20">实付总额：<span class="colorh">¥666666.00</span></p>
+        </div>
+        <div class="cb"></div>
+    </div>
+</section>
+</body>
+
+</html>

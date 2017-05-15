@@ -1,0 +1,88 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.TableBox{ padding-bottom:2em; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.form-group{ margin-top:1em; }
+	.iptBtn{ background: #0eb493;  color: #fff;}
+	.iptBtn:hover, .iptBtn:visited, .iptBtn:active{color:#fff; text-decoration: none;}
+	.table { margin-bottom: 0; }
+	.table>tbody>tr>td{ line-height: 2em; }
+	.table>tbody>tr>td>a:visited { color: #fff; }
+
+	.extract{
+		padding: .5em 1em;
+		border: 1px solid #0eb493;
+		border-bottom-right-radius: 6px;
+		border-top-right-radius: 6px;
+	}
+	.mt20{
+		margin-top:20px;
+	}
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+<div class="TableBox">
+	<h1 class="pageTitle"> 提现记录 </h1>
+	<div class="familyTree">
+		<ul class="row">
+			<form action="/Award/play_money" method="post">
+
+				<li class="col-lg-5 col-xs-12 col-sm-12 col-md-12 mt20">
+				<label>起止时间：</label>
+					<input class="timeSelect extract iptText rds5" style="line-height:1em;" name="reg_time_start" type="date" value="">
+					<input class="timeSelect extract iptText rds5" style="line-height:1em;" name="reg_time_end" type="date" value="">
+				</li>
+				<li class="col-lg-4  col-xs-12 col-sm-12 col-md-12 mt20">
+					<label>订单编号：</label>
+					<input class="iptText extract rds5" type="text" name="order_sn" value="{$order_sn}">
+				</li>
+				<li class="col-lg-3  col-xs-12 col-sm-12 col-md-12 mt20">
+						<span class="flatSelect">
+							<select  data-criteria="equal" name="level" class="rds5 extract" >
+								<option value="0">请选择</option>
+								<option value="1"  <if condition="$sta eq 1">selected="selected"</if> >已提交</option>
+								<option value="2"  <if condition="$sta eq 2">selected="selected"</if> >审核失败</option>
+								<option value="3"  <if condition="$sta eq 3">selected="selected"</if> >审核成功</option>
+								<option value="4"  <if condition="$sta eq 4">selected="selected"</if> >打款失败</option>
+								<option value="5"  <if condition="$sta eq 5">selected="selected"</if> >打款成功</option>
+							</select>
+						</span>
+
+					<input class="iptBtn rds5 extract" type="submit" value="提交">
+				</li>
+
+			</form>
+		</ul>
+	</div>
+</div>
+		<div class="table-responsive">
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr class="row">
+		  	<td>订单号</td>
+		  	<td>提现金额</td>
+		  	<td>开户行</td>
+		  	<td>银行卡号</td>
+		  	<td>提现状态</td>
+		  	<td>提现时间</td>
+		  	<td>备注</td>
+		  </tr>
+		<volist name="data" id="vo">
+			  <tr class="row">
+			  	<td>{$vo.order_sn}</td>
+			  	<td>{$vo.amount}</td>
+			  	<td>{$vo.bank_account} </td>
+			  	<td>{$vo.card_number} </td>
+			  	<td>{$vo.state|getPlayState} </td>
+			  	<td>{$vo.addtime} </td>
+			  	<td>{$vo.remark} </td>
+			  </tr>
+		  </volist>
+		</table>
+		</div>
+		 <div class="am-cf page">
+                {$page}
+            </div>
+</div>
+</section>
+<include file="Tpl/publicFoot"/>

@@ -20,8 +20,8 @@ class AgentsController extends BaseController{
 
 	//家谱树
 	public function family(){
-		$memMsn = session('msn');
-		$model = M('member');
+		$memMsn  = session('msn');
+		$model   = M('member');
 		$memInfo = $model->where("msn='$memMsn'")->find();
 		$post = array_filter($_POST);
 		if ($post) {
@@ -35,15 +35,17 @@ class AgentsController extends BaseController{
 						$selectArray[] = $v;
 					}
 				}
+
 				$this->mid = I('post.mid');
-				$this->nickname = I("post.nickname");
+				$this->realname = I("post.realname");
 				$this->level = I("post.level");
+
 				$this->selectArray = $selectArray;
 				$this->display(C('DEFAULT_TPL') . '/AgentFamily');
 			}
 		}else {
 			//获取该用户的第一代的下属
-			$oone = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where("recom_msn='" . $memInfo['msn'] . "'")->select();
+			$oone = $model->field('mid,mobile_phone,recom_id,realname,reg_time,recom_msn,msn')->where("recom_msn='" . $memInfo['msn'] . "'")->select();
 
 			// 获取该用户的第二代下属
 			foreach ($oone as $o) {
@@ -52,7 +54,7 @@ class AgentsController extends BaseController{
 
 			if (!empty($recom_ids)) {
 				$recom_id = implode(',', $recom_ids);
-				$ttwo = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id)))->select();
+				$ttwo = $model->field('mid,mobile_phone,recom_id,realname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id)))->select();
 			}
 
 			// 获取该用户的第三代下属
@@ -62,10 +64,11 @@ class AgentsController extends BaseController{
 
 			if (!empty($recom_ids_two)) {
 				$recom_id_two = implode(',', $recom_ids_two);
-				$tthree = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id_two)))->select();
+				$tthree = $model->field('mid,mobile_phone,recom_id,realname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id_two)))->select();
 			}
 
 			$this->memInfo = $memInfo;
+
 			$this->oone = $oone;
 			$this->ttwo = $ttwo;
 			$this->tthree = $tthree;
@@ -77,7 +80,7 @@ class AgentsController extends BaseController{
 		$model = M('member');
 		$memModel = M('member');
 		$mem = $memModel->where("msn='$memMsn'")->find();
-		$oone = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where("recom_msn='" . $mem['msn'] . "'")->select();
+		$oone = $model->field('mid,mobile_phone,recom_id,nickname,realname,reg_time,recom_msn,msn')->where("recom_msn='" . $mem['msn'] . "'")->select();
 
 		// 获取该用户的第二代下属
 		foreach ($oone as $o) {
@@ -86,7 +89,7 @@ class AgentsController extends BaseController{
 
 		if (!empty($recom_ids)) {
 			$recom_id = implode(',', $recom_ids);
-			$ttwo = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id)))->select();
+			$ttwo = $model->field('mid,mobile_phone,recom_id,nickname,realname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id)))->select();
 		}
 		//recom_msn
 		// 获取该用户的第三代下属
@@ -96,7 +99,7 @@ class AgentsController extends BaseController{
 
 		if (!empty($recom_ids_two)) {
 			$recom_id_two = implode(',', $recom_ids_two);
-			$tthree = $model->field('mid,mobile_phone,recom_id,nickname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id_two)))->select();
+			$tthree = $model->field('mid,mobile_phone,recom_id,nickname,realname,reg_time,recom_msn,msn')->where(array('recom_msn' => array('in', $recom_id_two)))->select();
 		}
 		$select = array();
 		foreach ($oone as $v) {
@@ -197,7 +200,7 @@ class AgentsController extends BaseController{
 		}
 
 	}
-
+	
 	public function downOrder()
 	{
 
@@ -445,7 +448,7 @@ class AgentsController extends BaseController{
 		}else{
 			$memInfo = $model->where('msn="'.$getMsn.'"')->find();
 		}
-		$createTime = date("Y-m-d H:i:s",strtotime($memInfo['reg_time']));
+		$createTime = date("Y-m-d H:i:s",$memInfo['reg_time']);
 		$memInfo['reg_time'] = $createTime;
 		switch($memInfo['origin']){
 			case 0: $memInfo['origin'] = "自行注册";break;

@@ -29,7 +29,20 @@ function getTree($list, $parent_id, $level=0){
 	}
 	return $tree;
 }
-
+//1、充值；2、线上订单；3、线下订单
+function getPointType($sta){
+	switch($sta){
+		case 1:
+			return '充值';
+			break;
+		case 2:
+			return '积分商城订单';
+			break;
+		case 3:
+			return '汽车超市订单';
+			break;
+	}
+}
 //后台:转换状态值
 function getSta($sta){
 	switch($sta){
@@ -48,6 +61,38 @@ function getSta($sta){
 	}
 }
 
+//删除状态
+function getDel($status){
+    switch($status){
+        case 0:
+            return '未删除';
+            break;
+        case 1:
+            return '已删除';
+            break;
+    }
+}
+
+//提现状态  1、已提交  2、审核失败 3、审核成功；4、打款失败；5、打款成功
+function getPlayState($sta){
+	switch($sta){
+		case 1:
+			return '已提交';
+			break;
+		case 2:
+			return '审核失败';
+			break;
+		case 3:
+			return '审核成功';
+			break;
+		case 4:
+			return '打款失败';
+			break;
+		case 5:
+			return '打款成功';
+			break;
+	}
+}
 //个人中心:转换会员类型值
 function getMemType($type){
 	switch($type){
@@ -126,9 +171,9 @@ function getCommState($state){
 function getGoodsScore($goods_code){
     if(empty($goods_code)) return 0;
     $model = M('goods');
-    $data = $model->field('goods_score')->where("goods_code='{$goods_code}'")->find();
+    $data = $model->field('goods_price')->where("goods_code='{$goods_code}'")->find();
 
-    return empty($data) ? 0 : $data['goods_score'];
+    return empty($data) ? 0 : $data['goods_price'];
 }
 
 /**得到分类名称，根据分类id
@@ -233,4 +278,16 @@ function msubstr($str, $start=0, $length, $suffix=true, $charset="utf-8") {
 		$slice = join("",array_slice($match[0], $start, $length));
 	}
 	return $suffix ? $slice.'...' : $slice;
+}
+
+// 获取订单编号
+function getOrderSnById($id=0){
+	if(!$id) return '无';
+
+	$order = M('order')->field('order_sn')->where("id='$id'")->find();
+	if(empty($order)){
+		return '无';
+	}
+
+	return $order['order_sn'];
 }

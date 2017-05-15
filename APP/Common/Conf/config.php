@@ -17,10 +17,13 @@ return array(
 	'AUTH_USER' 				=>	'user',								//用户信息表
 	
 	//数据库配置 fff
-	'DB_HOST'			=>	'182.92.200.96',
-	'DB_USER'			=>	'ts_adm',
+//	'DB_HOST'			=>	'182.92.200.96',
+    'DB_HOST'			=>	'127.0.0.1',
+//	'DB_USER'			=>	'ts_adm',
+    'DB_USER'			=>	'root',
 	'DB_NAME'			=>	'tianshuo',
-	'DB_PWD'			=>	'CX)(Q*()cxsa',
+//	'DB_PWD'			=>	'CX)(Q*()cxsa',
+    'DB_PWD'			=>	'root',
 	'DB_TYPE'			=>	'mysql',
 	'DB_PREFIX'		=>	'ts_',
 	'DB_CHARSET'	=>	'utf8',
@@ -28,8 +31,8 @@ return array(
 	'DB_FIELDTYPE_CHECK'	=>	true,		//开启字段类型验证
 	
 	//数据缓存设置
-  'DATA_CACHE_TIME'			=>	3600,		//数据缓存有效期 0表示永久缓存
-  'DATA_CACHE_COMPRESS'	=>	false,	//数据缓存是否压缩缓存
+    'DATA_CACHE_TIME'		=>	3600,		//数据缓存有效期 0表示永久缓存
+    'DATA_CACHE_COMPRESS'	=>	false,	//数据缓存是否压缩缓存
 	'DATA_CACHE_PREFIX'		=>	'',			//缓存前缀
 	
 	//上传配置

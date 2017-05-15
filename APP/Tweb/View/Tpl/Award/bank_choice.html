@@ -1,0 +1,44 @@
+<include file="Tpl/PublicMemIndex"/>
+<style>
+	.TableBox{ padding-bottom:2em; }
+	.pageTitle{ line-height:2em; color:#1ea78d; font-size:1.25em; margin-top:2em; }
+	.form-group{ margin-top:1em; }
+	.iptBtn{ height:1.8em; line-height:1.8em; padding:.5em 1em; }
+	.iptBtn:hover, .iptBtn:visited, .iptBtn:active{color:#fff; text-decoration: none;}
+	.table { margin-bottom: 0; }
+	.table>tbody>tr>td{ line-height: 2em; }
+	.table>tbody>tr>td>a:visited { color: #fff; }
+</style>
+<include file="Tpl/PublicMemMenu"/>
+<section class="container">
+<div class="TableBox">
+	<h1 class="pageTitle"> 请选择银行卡 </h1>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<tr class="row">
+		  	<td>开户名</td>
+		  	<td>银行卡号</td>
+		  	<td>开户行</td>
+		  	<td>开户支行</td>
+		  	<td>
+		  	选择
+		  	</td>
+		  </tr>
+		<volist name="data" id="vo">
+			  <tr class="row">
+			  	<td>{$vo.account_name}</td>
+			  	<td>{$vo.card_number}</td>
+			  	<td>{$vo.bank_account} </td>
+			  	<td>{$vo.branch_account} </td>
+			  	<td>
+			  		<a  class="btn btn-danger" href="/Award/saveCashWithdrawal/id/{$vo.id}">选择</a>
+			<!--   		<a class="btn btn-danger" href="/Award/delBank/id/{$vo.id}" onclick="if(confirm('确定删除吗?')==false){ return false; }">删除</a> -->
+			  	</td>
+			  </tr>
+		  </volist>
+		</table>
+		</div>
+		<a class="iptBtn rds5" href="/Award/bank">增加</a>
+	</div>
+</section>
+<include file="Tpl/publicFoot"/>

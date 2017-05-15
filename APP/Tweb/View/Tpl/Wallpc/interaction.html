@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <link rel="stylesheet" href="__PUBLIC__/pc/css/style.css"></head>
+    <body>
+      <div class="back">
+        <div class="w1200">
+          <div class="jiantou"></div>
+          <div class="backopactiy"></div>
+          <div class="title">
+            <div class="name">中制家车“千城万店”<br>项目签约仪式</div>
+            <div class="huiname">
+              <div style="font-size: 2.1vw" class="">微信墙</div>
+              <div style="font-size: 1.56vw">扫描右侧二维码参与互动</div>
+            </div>
+            <div class="ewm"></div>
+          </div>
+          <div class="box">
+            <div class="lComm">
+              <!--头像-->
+              <img width="312" height="312" src="" alt="">
+              <div class="companyName">公司名字</div>
+              <a href="/Wallpc/wishes"  id="see" class="btnz dn">查看中奖名单</a>
+              <button id="btns" class="btnz">开始</button>
+            </div>
+            <div class="startImg"></div>
+            <div class="rComm dn">
+              <div class="rCTitle">
+                本轮已抽出
+                <span style="color: #f3e721">10</span>
+                人
+              </div>
+              <div id="Rbox" class="RBox">
+                <ul id="list" class="list">
+                <volist name="list" id="data">
+                  <li>
+                    <img width="50" height="50" src="{$data['face']}" alt="">
+                    <span>{$data['username']}</span>
+                  </li>
+                  </volist>
+                </ul>
+              </div>
+            </div>
+            <div class="cb"></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="opac"></div>
+          <div class="w1200 z10">
+            <a class="activity a a1" href="/Wallpc/index">互动大屏</a>
+            <a class="a a2" href="/Wallpc/interaction">抽奖</a>
+          </div>
+        </div>
+      </div>
+      <script src="__PUBLIC__/pc/js/jquery-1.7.1.min.js"></script>
+      <script src="__PUBLIC__/pc/js/jquery.marquee.min.js"></script>
+<script>
+var mq = null;
+$(document).ready(function () {
+  $("#btns").click(function () {
+    if($(this).text()=="开始"){
+      $(this).text("停止");
+    }else{
+      stop();
+      return;
+    }
+    $(".rComm").removeClass('dn');
+    $(".startImg").addClass('dn');
+    mq = $('#Rbox').marquee({
+      duration: 100,
+      //gap in pixels between the tickers
+      gap: 50,
+      //time in milliseconds before the marquee will start animating
+      delayBeforeStart: 0,
+      //'left' or 'right'
+      direction: 'down',
+      //true or false - should the marquee be duplicated to show an effect of continues flow
+      duplicated: true
+    });
+  });
+});
+//停止滚动
+function stop(){
+  if(mq == null) return;
+  mq.marquee('destroy');
+  mq = null;
+}
+</script>
+    </body>
+  </html>
